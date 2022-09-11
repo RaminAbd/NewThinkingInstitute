@@ -1,0 +1,16 @@
+.social-media{
+  position: absolute;
+    width: 54px;
+    height: 162px;
+    right: 0;
+    top: 266px;
+    background: #CC3D2B;
+    border-radius: 8px 0px 0px 8px;
+}
+.social-media .links{
+  height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}

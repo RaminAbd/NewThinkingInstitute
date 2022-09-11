@@ -1,0 +1,71 @@
+<div class="header-wrapper">
+  <div class="blocks">
+    <div class="logo">
+      <img class="logo" src="assets/images/logo.svg" alt="logo">
+    </div>
+    <div class="page-links" >
+      <ul>
+        <li><a href="#">მთავარი</a></li>
+        <li>
+          <a href="#">ჩვენ შესახებ <img style="margin-left:5px;" src="assets/images/dropmenu.svg" alt=""></a>
+          <ul>
+            <li><a href="#">მისია</a></li>
+            <li><a href="#">ისტორია</a></li>
+            <li><a href="#">გუნდი</a></li>
+            <li><a href="#">დონორები და პარტნიორები</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">საქმიანობა <img style="margin-left:5px;" src="assets/images/dropmenu.svg" alt=""></a>
+          <ul>
+            <li><a href="#">პროექტები</a></li>
+            <li><a href="#">მომსახურება</a></li>
+            <li><a href="#">კურსები</a></li>
+            <li><a href="#">ტრენინგ-სემინარი</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">პუბლიკაციები <img style="margin-left:5px;" src="assets/images/dropmenu.svg" alt=""></a>
+          <ul>
+            <li><a href="#">კვლევები</a></li>
+            <li><a href="#">ანგარიშები</a></li>
+            <li><a href="#">ბლოგები</a></li>
+            <li><a href="#">საინფორმაციო ბიულეტენი</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">გალერია <img style="margin-left:5px;" src="assets/images/dropmenu.svg" alt=""></a>
+          <ul>
+            <li><a href="#">ფოტოები</a></li>
+            <li><a href="#">ვიდეოები</a></li>
+          </ul>
+        </li>
+        <li><a href="#">კონთაქტი</a></li>
+      </ul>
+    </div>
+    <div class="lang-search">
+      <div class="lang">
+        <ul>
+          <li>
+            <p (click)="showLang = true">{{selectedLanguageForUI}}</p>
+            <ul *ngIf="showLang">
+              <li (click)="changeLanguage('az-Aze')">AZ</li>
+              <li (click)="changeLanguage('ka-Geo')">KA</li>
+              <li (click)="changeLanguage('en-Us')">EN</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="search">
+        <div class="search-block">
+          <input type="text" placeholder="{{'search'| translate}}">
+          <i class="pi pi-search"></i>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
