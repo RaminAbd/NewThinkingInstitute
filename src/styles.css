@@ -2,4 +2,31 @@
 body{
   padding: 0 !important;
   margin: 0 !important;
+  background: #B9B9B9;
+}
+.banner-item{
+  position: relative;
+}
+.p-carousel-indicators{
+  position: absolute;
+  bottom: 0;
+  right: 314px;
+}
+.p-carousel-content{
+  position: relative;
+}
+.p-carousel .p-carousel-indicators .p-carousel-indicator button{
+  width: 12px !important;
+    height: 12px !important;
+    border-radius: 100% !important;
+    background:#fff !important;
+}
+.p-carousel .p-carousel-indicators .p-carousel-indicator.p-highlight button{
+  background: #CC3D2B !important;
+}
+.p-carousel .p-carousel-content .p-carousel-prev, .p-carousel .p-carousel-content .p-carousel-next{
+  display: none !important;
+}
+.p-carousel-content{
+  z-index: -1 !important;
 }

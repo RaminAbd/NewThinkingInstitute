@@ -1,0 +1,30 @@
+<div class="main-wrapper">
+  <div class="news-carousel">
+    <p-carousel [value]="news" [autoplayInterval]="8000" [circular]="true">
+      <!-- <ng-template pTemplate="header">
+          <h5>Vertical</h5>
+      </ng-template> -->
+      <ng-template let-car pTemplate="item">
+          <div class="banner-item">
+            <div class="text">
+              <h4>{{car.header}}</h4>
+              <p class="description">{{car.description}}</p>
+              <div class="details">
+                <div class="date">
+                  <p>{{car.date}}</p>
+                </div>
+                <div class="link-to-detail">
+                  <p>სრულად</p>
+                  <i class="pi pi-arrow-right"></i>
+                </div>
+              </div>
+            </div>
+            <div class="image">
+              <img src="{{car.imageUrl}}" alt="">
+            </div>
+
+          </div>
+      </ng-template>
+  </p-carousel>
+  </div>
+</div>

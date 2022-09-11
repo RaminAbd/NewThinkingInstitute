@@ -1,0 +1,89 @@
+.banner-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 20px rgb(210 210 210 / 25%);
+  border-radius: 8px;
+  height: 450px;
+  position: relative;
+}
+
+.banner-item .text {
+  width: 50%;
+  height: 100%;
+  padding: 30px 40px;
+  position: relative;
+}
+
+.banner-item .text h4 {
+  font-family: 'DejaVu Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 42px;
+  color: #081831;
+  margin: 0;
+}
+
+.banner-item .text p.description {
+  margin: 0;
+  font-family: 'DejaVu Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: #000000;
+  margin-top: 25px;
+}
+
+.banner-item .image {
+  height: 100%;
+  width: 50%;
+}
+
+.banner-item .image img {
+  height: 100%;
+  width: 100%
+}
+
+.text .details {
+  position: absolute;
+  width: 87%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  bottom: 30px;
+}
+
+.link-to-detail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.link-to-detail p {
+  margin: 0 ;
+  margin-right: 10px ;
+  font-family: 'DejaVu Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 17px;
+  color: #CC3D2B;
+  cursor: pointer;
+}
+
+.link-to-detail i {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 17px;
+  cursor: pointer;
+  color: #CC3D2B;
+}
+
+.date p {
+  margin: 0 !important;
+}

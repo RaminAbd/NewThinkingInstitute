@@ -23,6 +23,7 @@
   color: #fff !important;
 }
 .header-wrapper .blocks .page-links ul{
+  z-index: 2 !important;
  list-style: none;
  margin-top: 0;
 }
@@ -193,4 +194,9 @@ color: #FFFFFF;
   position: absolute;
   right: 8px;
   top: 12px;
+}
+
+
+a.active{
+  color:#CC3D2B !important;
 }
