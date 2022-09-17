@@ -5,26 +5,239 @@
           <h5>Vertical</h5>
       </ng-template> -->
       <ng-template let-car pTemplate="item">
-          <div class="banner-item">
-            <div class="text">
-              <h4>{{car.header}}</h4>
-              <p class="description">{{car.description}}</p>
-              <div class="details">
-                <div class="date">
-                  <p>{{car.date}}</p>
-                </div>
-                <div class="link-to-detail">
-                  <p>სრულად</p>
-                  <i class="pi pi-arrow-right"></i>
-                </div>
+        <div class="banner-item">
+          <div class="text">
+            <h4>{{car.header}}</h4>
+            <p class="description">{{car.description}}</p>
+            <div class="details">
+              <div class="date">
+                <p>{{car.date}}</p>
+              </div>
+              <div class="link-to-detail">
+                <p>სრულად</p>
+                <i class="pi pi-arrow-right"></i>
               </div>
             </div>
-            <div class="image">
-              <img src="{{car.imageUrl}}" alt="">
+          </div>
+          <div class="image">
+            <img src="{{car.imageUrl}}" alt="">
+          </div>
+
+        </div>
+      </ng-template>
+    </p-carousel>
+  </div>
+  <div class="main-news">
+    <app-short-news></app-short-news>
+  </div>
+  <div class="main-activity">
+    <div class="line"></div>
+    <h3>საქმიანობა</h3>
+    <div class="main-activity-list">
+      <div class="main-activity-item">
+        <div class="circle">
+          <img src="assets/images/headphone.svg" alt="">
+        </div>
+        <div class="content">
+          <div class="header">
+            <h4>მომსახურება</h4>
+          </div>
+          <div class="body">
+            <p>
+              შემთხვევითად გენერირებული ტექსტი
+              დიზაინერებს და ტიპოგრაფიული ნაწარმის
+              მქმნელებს, რეალურთან მაქსიმალურად
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="main-activity-item">
+        <div class="circle">
+          <img src="assets/images/medal.svg" alt="">
+        </div>
+        <div class="content">
+          <div class="header">
+            <h4>მომსახურება</h4>
+          </div>
+          <div class="body">
+            <p>
+              შემთხვევითად გენერირებული ტექსტი
+              დიზაინერებს და ტიპოგრაფიული ნაწარმის
+              მქმნელებს, რეალურთან მაქსიმალურად
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="main-activity-item">
+        <div class="circle">
+          <img src="assets/images/lightbulb.svg" alt="">
+        </div>
+        <div class="content">
+          <div class="header">
+            <h4>მომსახურება</h4>
+          </div>
+          <div class="body">
+            <p>
+              შემთხვევითად გენერირებული ტექსტი
+              დიზაინერებს და ტიპოგრაფიული ნაწარმის
+              მქმნელებს, რეალურთან მაქსიმალურად
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main-news">
+    <div class="line"></div>
+    <h3>ბლოგები</h3>
+    <div class="main-news-list">
+      <div class="main-news-item">
+        <div class="img">
+          <img src="assets/images/banner.png" alt="">
+        </div>
+        <div class="content">
+          <div class="header">
+            <h4>შემთხვევითად გენერირებული ტექსტი</h4>
+          </div>
+          <div class="body">
+            <div class="author">
+              <div class="author-img">
+                <img src="assets/images/author.png" alt="">
+              </div>
+              <div class="author-name">
+                <p> ასმათ ბეშიძე</p>
+              </div>
+            </div>
+          </div>
+          <div class="details">
+            <div class="date">
+              <p>28 Aug, 2022</p>
+            </div>
+            <div class="link-to-detail">
+              <p>სრულად</p>
+              <i class="pi pi-arrow-right"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main-news-item">
+        <div class="img">
+          <img src="assets/images/banner.png" alt="">
+        </div>
+        <div class="content">
+          <div class="header">
+            <h4>შემთხვევითად გენერირებული ტექსტი</h4>
+          </div>
+          <div class="body">
+            <div class="author">
+              <div class="author-img">
+                <img src="assets/images/author.png" alt="">
+              </div>
+              <div class="author-name">
+                <p> ასმათ ბეშიძე</p>
+              </div>
+            </div>
+          </div>
+          <div class="details">
+            <div class="date">
+              <p>28 Aug, 2022</p>
+            </div>
+            <div class="link-to-detail">
+              <p>სრულად</p>
+              <i class="pi pi-arrow-right"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main-news-item">
+        <div class="img">
+          <img src="assets/images/banner.png" alt="">
+        </div>
+        <div class="content">
+          <div class="header">
+            <h4>შემთხვევითად გენერირებული ტექსტი</h4>
+          </div>
+          <div class="body">
+            <div class="author">
+              <div class="author-img">
+                <img src="assets/images/author.png" alt="">
+              </div>
+              <div class="author-name">
+                <p> ასმათ ბეშიძე</p>
+              </div>
             </div>
 
           </div>
-      </ng-template>
-  </p-carousel>
+          <div class="details">
+            <div class="date">
+              <p>28 Aug, 2022</p>
+            </div>
+            <div class="link-to-detail">
+              <p>სრულად</p>
+              <i class="pi pi-arrow-right"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main-contact">
+    <div class="line"></div>
+    <h3>კონტაქტი</h3>
+    <h5>შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპოგრაფიული ნაწარმის შემქმნელებს, რეალურთან
+      მაქსიმალურად
+    </h5>
+    <div class="contact-block">
+      <div class="contact-form">
+        <div class="name-email">
+          <div class="name">
+            <label for="name">სახელი და გვარი</label>
+            <input type="text" id="name">
+          </div>
+          <div class="email">
+            <label for="email">E-mail</label>
+            <input type="text" id="email">
+          </div>
+        </div>
+        <div class="anonym">
+          <input id="anonym" type="checkbox">
+          <label for="anonym">ანონიმურად გაგზავნა</label>
+        </div>
+        <div class="subject">
+          <label for="subject">შენიშვნა</label>
+          <textarea name="subject" id="subject" ></textarea>
+        </div>
+        <div class="button">
+          <button type="submit">გაგზავნა</button>
+        </div>
+      </div>
+      <div class="contact-info">
+        <div class="email-image">
+          <img src="assets/images/emailsend.svg" alt="">
+        </div>
+        <div class="contact-details">
+          <div class="email">
+            <p class="cont-label">ელ. ფოსტა</p>
+            <p>mimdevelopment12@gmail.com</p>
+          </div>
+          <div class="phone">
+            <p class="cont-label">ტელეფონი</p>
+            <p>577 27 80 90</p>
+          </div>
+          <div class="address">
+            <p class="cont-label">მისამართი</p>
+            <p>NTI ( New Thinking Institute)</p>
+          </div>
+          <div class="contact-soc-media">
+            <div><i class="pi pi-youtube"></i></div>
+            <div><i class="pi pi-facebook"></i></div>
+            <div><i class="pi pi-instagram"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+
+
+<!-- {{((application.name.name ) ? (application.name.name.length > 127 ? application.name.name.slice(0, 127) + "..." : application.name.name ) : "")}} -->

@@ -1,0 +1,54 @@
+h2 {
+  font-family: 'DejaVu Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 42px;
+  margin-bottom: 20px;
+  color: #081831;
+}
+
+.date p {
+  font-family: 'DejaVu Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: #818181;
+}
+
+.line {
+  border: 1px solid #000000;
+  width: 100%
+}
+
+.detail-soc {
+  display: flex;
+  align-items: center;
+  margin: 17px 0;
+}
+
+.detail-soc p {
+  font-family: 'DejaVu Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  margin-right: 30px;
+  color: #081831;
+}
+
+.detail-soc .soc {
+  display: flex;
+}
+
+.detail-soc .soc div {
+  width: 36px;
+  height: 36px;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  border: 1px solid #081831
+}

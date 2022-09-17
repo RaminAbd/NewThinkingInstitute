@@ -20,9 +20,11 @@ import { GalleryComponent } from './Customer/gallery/gallery.component';
 import { PhotosComponent } from './Customer/gallery/photos/photos.component';
 import { VideosComponent } from './Customer/gallery/videos/videos.component';
 import { ContactComponent } from './Customer/contact/contact.component';
+import { NewsDetailComponent } from './Customer/news/news-detail/news-detail.component';
 
 const routes: Routes = [
   {path: 'main', component: MainComponent},
+  {path: 'news-detail', component: NewsDetailComponent},
   {path: 'about-us', component: AboutUsComponent, children: [
     { path: "mission",component: MissionComponent},
     { path: "history",component: HistoryComponent},
@@ -46,6 +48,7 @@ const routes: Routes = [
     { path: "videos",component: VideosComponent},
   ]},
   {path: 'contact', component: ContactComponent},
+  {path: '', component: MainComponent},
 ];
 
 @NgModule({

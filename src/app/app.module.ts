@@ -7,8 +7,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HeaderComponent } from './Customer/Components/header/header.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatMenuModule} from '@angular/material/menu';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatMenuModule } from '@angular/material/menu';
 import { SocialMediaComponent } from './Customer/Components/social-media/social-media.component';
 import { MainComponent } from './Customer/main/main.component';
 import { AboutUsComponent } from './Customer/about-us/about-us.component';
@@ -30,7 +30,14 @@ import { GalleryComponent } from './Customer/gallery/gallery.component';
 import { PhotosComponent } from './Customer/gallery/photos/photos.component';
 import { VideosComponent } from './Customer/gallery/videos/videos.component';
 import { ContactComponent } from './Customer/contact/contact.component';
-import {CarouselModule} from 'primeng/carousel';
+import { CarouselModule } from 'primeng/carousel';
+import { FooterComponent } from './Customer/Components/footer/footer.component';
+import { NewsComponent } from './Customer/news/news.component';
+import { NewsDetailComponent } from './Customer/news/news-detail/news-detail.component';
+import { ShortNewsComponent } from './Customer/news/short-news/short-news.component';
+import { DetailHeaderComponent } from './Customer/Components/detail-header/detail-header.component';
+import { ShareButtonsModule } from 'ngx-sharebuttons/buttons'
+import { ShareIconsModule } from 'ngx-sharebuttons/icons'
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +62,12 @@ import {CarouselModule} from 'primeng/carousel';
     GalleryComponent,
     PhotosComponent,
     VideosComponent,
-    ContactComponent
+    ContactComponent,
+    FooterComponent,
+    NewsComponent,
+    NewsDetailComponent,
+    ShortNewsComponent,
+    DetailHeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -64,15 +76,17 @@ import {CarouselModule} from 'primeng/carousel';
     HttpClientModule,
     FormsModule,
     MatMenuModule,
+    ShareButtonsModule.withConfig({debug:true}),
+    ShareIconsModule,
     CarouselModule,
     ReactiveFormsModule,
     TranslateModule.forRoot({
       loader: {
-          provide: TranslateLoader,
-          useFactory: HttpLoaderFactory,
-          deps: [HttpClient]
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
       }
-  })
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
