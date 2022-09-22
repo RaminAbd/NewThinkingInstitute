@@ -1,0 +1,21 @@
+.photo-item {
+  width: 32%;
+  height: 277px;
+}
+.photo-item img{
+  width: 100%;
+  height: 100%;
+  border-radius:8px;
+}
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.content .photo-item {
+  background-color: #fff;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}

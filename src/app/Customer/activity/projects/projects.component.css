@@ -1,0 +1,54 @@
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.project-item {
+  width: 32%;
+  height: 331px;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.project-item img {
+  height: 140px;
+  width: 95%;
+}
+
+.image {
+  padding: 20px;
+}
+
+.project-item h4 {
+  font-family: 'DejaVu Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #000000;
+  margin: 0;
+}
+
+.project-item .duration p {
+  margin: 0;
+  font-family: 'DejaVu Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #000000;
+  margin-top: 15px;
+  margin-bottom: 7px;
+}
+
+.project-item .status p {
+  font-family: 'DejaVu Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #000000;
+  margin:0;
+}

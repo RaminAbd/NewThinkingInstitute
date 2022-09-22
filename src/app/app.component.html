@@ -1,6 +1,17 @@
-<app-header></app-header>
-<app-social-media></app-social-media>
-<div class="pages">
-  <router-outlet></router-outlet>
+<div class="user" *ngIf="!isAdmin">
+  <app-header></app-header>
+  <app-social-media></app-social-media>
+  <div class="pages">
+    <router-outlet></router-outlet>
+  </div>
+  <app-footer></app-footer>
 </div>
-<app-footer></app-footer>
+
+
+
+<div class="admin" *ngIf="isAdmin">
+  <app-sidebar></app-sidebar>
+  <div class="admin-pages">
+    <router-outlet></router-outlet>
+  </div>
+</div>

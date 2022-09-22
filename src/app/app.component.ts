@@ -7,6 +7,7 @@ import {  TranslateService } from '@ngx-translate/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  isAdmin: boolean = true;
   constructor( public translate: TranslateService,){
     this.translate.addLangs(['az-Aze','ka-Geo', 'en-Us']);
     const langExists: boolean = !!localStorage.getItem('systemLanguage');

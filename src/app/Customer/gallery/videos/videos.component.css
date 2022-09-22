@@ -1,0 +1,30 @@
+.video-item {
+  width: 32%;
+
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.content .video-item {
+  background-color: #fff;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.content p {
+  margin: 21px 10px 30px 10px;
+  font-family: 'DejaVu Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21px;
+  color: #081831;
+}
+.content iframe{
+  border-radius: 8px 8px 0 0;
+}

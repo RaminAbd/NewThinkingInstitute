@@ -2,19 +2,23 @@
   <div class="date">
     <p>28 Aug, 2022, 11:35</p>
   </div>
-  <div class="line"></div>
+  <div class="header-line"></div>
   <div class="detail-soc">
     <p>გაზიარება</p>
-    <div class="soc">
+    <!-- <div class="soc">
       <div><i class="pi pi-youtube"></i></div>
       <div><i class="pi pi-facebook"></i></div>
       <div><i class="pi pi-instagram"></i></div>
       <div><img src="assets/images/chain.svg" alt=""></div>
-    </div>
+    </div> -->
 
-    <share-buttons
-    [include]="['facebook']"
-    [url]="'https://google.com'"
-    [autoSetMeta]="'false'"
-    ></share-buttons>
+    <share-buttons theme="circles-dark"
+    [include]="['facebook', 'messenger', 'whatsapp','copy']"
+    [showIcon]="true"
+    [showText]="false"
+    url="https://rodrigo.kamada.com.br/"
+    description="Angular Share Buttons"
+    twitterAccount="rodrigokamada"
+    class="pt-5">
+  </share-buttons>
   </div>

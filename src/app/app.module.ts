@@ -37,7 +37,11 @@ import { NewsDetailComponent } from './Customer/news/news-detail/news-detail.com
 import { ShortNewsComponent } from './Customer/news/short-news/short-news.component';
 import { DetailHeaderComponent } from './Customer/Components/detail-header/detail-header.component';
 import { ShareButtonsModule } from 'ngx-sharebuttons/buttons'
-import { ShareIconsModule } from 'ngx-sharebuttons/icons'
+import { ShareIconsModule } from 'ngx-sharebuttons/icons';
+import { DetailInfoComponent } from './Customer/activity/detail-info/detail-info.component';
+import { ProjectsDetailComponent } from './Customer/activity/projects/projects-detail/projects-detail.component'
+import { AdminComponent } from './Admin/admin.component';
+import { SidebarComponent } from './Admin/Components/sidebar/sidebar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,7 +71,11 @@ import { ShareIconsModule } from 'ngx-sharebuttons/icons'
     NewsComponent,
     NewsDetailComponent,
     ShortNewsComponent,
-    DetailHeaderComponent
+    DetailHeaderComponent,
+    DetailInfoComponent,
+    ProjectsDetailComponent,
+    AdminComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
@@ -85,7 +93,8 @@ import { ShareIconsModule } from 'ngx-sharebuttons/icons'
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
-      }
+      },
+
     })
   ],
   providers: [],

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-videos',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VideosComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private sanitizer: DomSanitizer) { }
+  displayURL:any;
   ngOnInit(): void {
+    this.displayURL = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/74CYIdYoQ5w');
   }
 
 }

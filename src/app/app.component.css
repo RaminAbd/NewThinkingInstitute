@@ -1,4 +1,12 @@
 .pages {
   padding: 90px 60px;
+  min-height: calc(100vh - 466px);
 }
-
+.admin{
+  display: flex;
+}
+.admin-pages{
+  width:calc(100% - 268px );
+  float: right;
+  padding:70px;
+}

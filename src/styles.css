@@ -7,7 +7,7 @@
 body{
   padding: 0 !important;
   margin: 0 !important;
-  background: #B9B9B9;
+  background: #F1F1F1;
 }
 .banner-item{
   position: relative;
@@ -34,4 +34,30 @@ body{
 }
 .p-carousel-content{
   z-index: -1 !important;
+}
+.sb-icon{
+  width: 36px !important;
+  height: 36px !important;
+  color: #000;
+  border: 1px solid black;
+  border-radius: 100%;
+}
+.sb-button{
+  width:36px !important;
+  margin-right: 8px;
+}
+.line {
+  width: 66px;
+  height: 5px;
+  background: #CC3D2B;
+  margin-bottom: 10px;
+}
+h3.page-header {
+  font-family: 'Helvetica';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  color: #000000;
+  margin-bottom: 30px;
 }
