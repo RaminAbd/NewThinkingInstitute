@@ -1,0 +1,18 @@
+.image img{
+  width:100%;
+}
+p, li{
+  font-family: 'DejaVu Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 21px;
+
+color: #000000;
+}
+ul p{
+  margin: 0;
+}
+.mission-wrapper {
+  padding: 0 100px;
+}

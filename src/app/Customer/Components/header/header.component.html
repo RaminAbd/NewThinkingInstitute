@@ -48,11 +48,11 @@
       <div class="lang">
         <ul>
           <li>
-            <p (click)="showLang = true">{{selectedLanguageForUI}}</p>
+            <p style="cursor:pointer" (click)="showLang = !showLang">{{selectedLanguageForUI}}</p>
             <ul *ngIf="showLang">
-              <li (click)="changeLanguage('az-Aze')">AZ</li>
-              <li (click)="changeLanguage('ka-Geo')">KA</li>
-              <li (click)="changeLanguage('en-Us')">EN</li>
+              <li style="cursor:pointer"  (click)="changeLanguage('az-Aze')">AZ</li>
+              <li style="cursor:pointer" (click)="changeLanguage('ka-Geo')">KA</li>
+              <li style="cursor:pointer" (click)="changeLanguage('en-Us')">EN</li>
             </ul>
           </li>
         </ul>

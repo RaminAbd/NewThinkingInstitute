@@ -39,7 +39,11 @@ const routes: Routes = [
     { path: "history",component: HistoryComponent},
     { path: "team",component: TeamComponent},
     { path: "donors-and-partners",component: DonorsAndPartnersComponent},
-
+    {
+      path: '',
+      redirectTo: 'mission',
+      pathMatch: 'full'
+    },
   ]},
   {path: 'activity', component: ActivityComponent, children: [
     { path: "courses",component: CoursesComponent},
@@ -48,6 +52,11 @@ const routes: Routes = [
     { path: "service",component: ServiceComponent},
     { path: "trainings-and-seminars",component:TrainingsAndSeminarsComponent},
     { path: "detail-info",component: DetailInfoComponent},
+    {
+      path: '',
+      redirectTo: 'projects',
+      pathMatch: 'full'
+    },
   ]},
   {path: 'publications', component: PublicationsComponent, children: [
     { path: "accounts",component: AccountsComponent},
@@ -55,10 +64,20 @@ const routes: Routes = [
     { path: "newsletter",component: NewsletterComponent},
     { path: "studies",component: StudiesComponent},
     { path: "news",component: NewsComponent},
+    {
+      path: '',
+      redirectTo: 'news',
+      pathMatch: 'full'
+    },
   ]},
   {path: 'gallery', component: GalleryComponent, children: [
     { path: "photos",component: PhotosComponent},
     { path: "videos",component: VideosComponent},
+    {
+      path: '',
+      redirectTo: 'photos',
+      pathMatch: 'full'
+    },
   ]},
 
   {path: 'contact', component: ContactComponent},

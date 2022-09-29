@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class AboutUsComponent implements OnInit {
 
-  constructor(private router:Router) { this.router.navigate(['/about-us/mission']); }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }

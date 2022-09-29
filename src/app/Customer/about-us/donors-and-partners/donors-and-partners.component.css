@@ -1,0 +1,24 @@
+.donors-wrapper{
+  padding: 0 100px;
+}
+.item{
+  width: 341px;
+    height: 164px;
+    left: 186px;
+    top: 329px;
+    background: #F8F8F8;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.item .image{
+  width: 303px;
+  height: 124px;
+}
+.list{
+  display: flex;
+  justify-content:space-between;
+  flex-wrap: wrap;
+}

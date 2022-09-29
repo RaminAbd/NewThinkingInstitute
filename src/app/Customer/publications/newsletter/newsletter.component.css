@@ -1,0 +1,65 @@
+.studies-wrapper {
+  padding: 0 100px;
+}
+
+.item {
+  height: 233px;
+  background: #FFFFFF;
+  border: 2px dashed #081831;
+  border-radius: 12px;
+  padding: 29px 25px 20px 25px;
+  margin-top: 25px;
+}
+
+.head h4 {
+  font-family: 'DejaVu Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  color: #000000;
+  margin: 0;
+}
+
+.date p {
+  font-family: 'DejaVu Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #818181;
+}
+
+.description p {
+  font-family: 'DejaVu Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  margin-top: 0;
+  line-height: 19px;
+  color: #000000;
+  margin-bottom: 15px;
+}
+
+.pdf {
+  width: 115px;
+  top: 436px;
+  border: 1px solid #DD2025;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  height: 32px;
+  cursor: pointer;
+}
+
+.title p {
+  font-family: 'DejaVu Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #DD2025;
+  margin: 0;
+}
