@@ -69,6 +69,12 @@ const routes: Routes = [
     {path: 'news-item/:id', component: AdminNewsUpsertComponent},
     {path: 'blogs', component: AdminBlogsComponent},
     {path: 'blog/:id', component: AdminBlogUpsertComponent},
+    {
+      path: '',
+      redirectTo: 'news',
+      pathMatch: 'full'
+    },
+
   ]},
 
 ];

@@ -13,7 +13,6 @@
           <th>Image</th>
           <th>Title</th>
           <th>Date</th>
-          <th>Author</th>
           <th>Actions</th>
         </tr>
       </ng-template>
@@ -22,7 +21,6 @@
           <td><img [src]="item.imageUrl" [alt]="item.title" width="100" class="shadow-4" /></td>
           <td>{{item.title}}</td>
           <td>{{item.createdAt | date}}</td>
-          <td>{{item.author}}</td>
           <td>
             <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"
               (click)="editItem(item.id)"></button>

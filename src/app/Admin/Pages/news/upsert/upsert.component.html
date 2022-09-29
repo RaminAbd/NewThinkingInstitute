@@ -1,1 +1,36 @@
-<p>upsert works!</p>
+<div class="news-form">
+  <div class="line"></div>
+  <h3>{{id === 'create' ? "ბლოგის შექმნა" : "ბლოგის რედაქტირება"}}</h3>
+  <div class="title">
+    <div class="item" *ngFor="let item of NewsForm?.title?.inputs">
+      <label for="">Title ( {{item.language}} )</label>
+      <input type="text" [(ngModel)]="item.value">
+    </div>
+  </div>
+  <div class="description">
+    <div class="item" *ngFor="let item of NewsForm?.description?.inputs">
+      <label for="">Description ( {{item.language}} )</label>
+      <textarea type="text" [(ngModel)]="item.value"></textarea>
+    </div>
+  </div>
+  <div class="details">
+    <div class="image">
+        <div class="form_file-select">
+          <div class="form_file-select-button">Upload Image</div>
+          <input (change)="chooseFile($event)" name="image" type="file" accept="image/*" required>
+        </div>
+    </div>
+    <div class="date">
+      <label for="">Date</label>
+      <p-calendar class="calendar" [(ngModel)]="createdAt"></p-calendar>
+    </div>
+
+  </div>
+  <div class="forSlider">
+    <input type="checkbox" [(ngModel)]="NewsForm.isForSlider">
+    <label for="">მთავარზე აჩვენება</label>
+  </div>
+  <div class="button">
+    <button (click)="handleForm()">{{id === "create" ? "Create" : "Update"}}</button>
+  </div>
+</div>

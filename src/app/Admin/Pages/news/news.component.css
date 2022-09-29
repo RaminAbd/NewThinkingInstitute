@@ -1,0 +1,15 @@
+.create-button button{
+  width: 319px;
+  height: 50px;
+  left: 343px;
+  top: 544px;
+  background: #081831;
+  border-radius: 8px;
+  font-family: 'Helvetica';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  color: #FFFFFF;
+  margin-bottom: 50px;
+}

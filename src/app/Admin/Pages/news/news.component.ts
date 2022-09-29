@@ -29,6 +29,8 @@ export class AdminNewsComponent implements OnInit {
   getAll() {
     this.service.GetAll().subscribe(resp => {
       this.News = resp.data
+      console.log(resp.data);
+
     })
   }
   editItem(id: string) {
