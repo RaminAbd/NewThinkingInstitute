@@ -61,3 +61,22 @@ h3.page-header {
   color: #000000;
   margin-bottom: 30px;
 }
+.p-calendar{
+  width:100% !important;
+}
+.date input {
+  height: 50px;
+  left: 342px;
+  top: 169px;
+  background: #FAFAFA;
+  border: 1px solid #B7C7CC;
+  border-radius: 8px;
+  width: 100%;
+
+  padding: 0 15px;
+  outline: none;
+  font-family: 'DejaVu Sans';
+}
+.p-button.p-button-success{
+  margin-right: 10px;
+}

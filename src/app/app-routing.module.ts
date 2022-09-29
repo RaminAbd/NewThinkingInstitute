@@ -27,6 +27,9 @@ import { AdminComponent } from './Admin/admin.component';
 import { NewsComponent } from './Customer/news/news.component';
 import { AdminNewsComponent } from './Admin/Pages/news/news.component';
 // import { NewsComponent } from './Admin/Pages/news/news.component';
+import { AdminBlogsComponent } from './Admin/Pages/blogs/blogs.component';
+import { AdminBlogUpsertComponent } from './Admin/Pages/blogs/upsert/upsert.component';
+import { AdminNewsUpsertComponent } from './Admin/Pages/news/upsert/upsert.component';
 
 const routes: Routes = [
   {path: 'main', component: MainComponent},
@@ -63,6 +66,9 @@ const routes: Routes = [
 
   {path: 'admin', component: AdminComponent, children:[
     {path: 'news', component: AdminNewsComponent},
+    {path: 'news-item/:id', component: AdminNewsUpsertComponent},
+    {path: 'blogs', component: AdminBlogsComponent},
+    {path: 'blog/:id', component: AdminBlogUpsertComponent},
   ]},
 
 ];

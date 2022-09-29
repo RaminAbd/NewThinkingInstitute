@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { News } from 'src/app/Models/News';
+import { NewsService } from '../../../Services/news.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { FileService } from '../../../Services/file.service';
+import { ConfirmationService, MessageService, PrimeNGConfig } from 'primeng/api';
+import { ConfirmPopupModule } from 'primeng/confirmpopup';
 
 @Component({
   selector: 'app-news',
@@ -6,10 +12,68 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./news.component.css']
 })
 export class AdminNewsComponent implements OnInit {
-
-  constructor() { }
+  News: News[] = []
+  constructor( private service: NewsService,
+  private fileService: FileService,
+  private router: Router,
+  private confirmationService:ConfirmationService,
+  private messageService: MessageService,
+  private primengConfig: PrimeNGConfig,
+  private route:ActivatedRoute,
+  private confirmPopupModule:ConfirmPopupModule) { }
 
   ngOnInit(): void {
+    this.primengConfig.ripple = true;
+    this.getAll()
   }
+  getAll() {
+    this.service.GetAll().subscribe(resp => {
+      this.News = resp.data
+    })
+  }
+  editItem(id: string) {
+    this.router.navigate(['admin/news-item', id])
+  }
+  CreateItem() {
+    this.router.navigate(['admin/news-item', "create"])
+  }
+  deleteItem(id: string): boolean {
+    var success = false;
+    this.service.Delete(id).subscribe(resp => {
+      this.getAll();
+      success = resp.succeeded;
+      return success;
+    })
+    return success;
+  }
+  confirm(event: any, id: string) {
+    this.confirmationService.confirm({
+      target: event.target,
+      message: "Are you sure that you want to proceed?",
+      icon: "pi pi-exclamation-triangle",
+      accept: () => {
+        console.log(id);
+        console.log(this.deleteItem(id));
 
+        if (this.deleteItem(id) === true) {
+          this.messageService.add({
+            severity: "success",
+            summary: "Success",
+            detail: "You have deleted"
+          });
+        }
+        else {
+          this.messageService.add({
+            severity: "error",
+            summary: "Rejected",
+            detail: "You have rejected"
+          });
+        }
+      },
+      reject: () => {
+
+      }
+    });
+
+  }
 }

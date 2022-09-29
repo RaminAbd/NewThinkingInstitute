@@ -1,12 +1,12 @@
-<div class="admin-news-wrapper">
+<div class="blogs-wrapper">
   <!-- <div class="line"></div>
-  <h3>სიახლეები</h3> -->
+  <h3>ბლოგები</h3> -->
   <div class="create-button" >
 
-    <button (click)="CreateItem()" style="cursor:pointer">Create News</button>
+    <button (click)="CreateBlog()" style="cursor:pointer">Create Blog</button>
   </div>
   <div class="blogs-list">
-    <p-table [value]="News" responsiveLayout="scroll" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" responsiveLayout="scroll"
+    <p-table [value]="Blogs" responsiveLayout="scroll" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" responsiveLayout="scroll"
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]">
       <ng-template pTemplate="header">
         <tr>
@@ -17,17 +17,17 @@
           <th>Actions</th>
         </tr>
       </ng-template>
-      <ng-template pTemplate="body" let-item>
+      <ng-template pTemplate="body" let-blog>
         <tr>
-          <td><img [src]="item.imageUrl" [alt]="item.title" width="100" class="shadow-4" /></td>
-          <td>{{item.title}}</td>
-          <td>{{item.createdAt | date}}</td>
-          <td>{{item.author}}</td>
+          <td><img [src]="blog.imageUrl" [alt]="blog.title" width="100" class="shadow-4" /></td>
+          <td>{{blog.title}}</td>
+          <td>{{blog.createdAt | date}}</td>
+          <td>{{blog.author}}</td>
           <td>
             <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"
-              (click)="editItem(item.id)"></button>
+              (click)="editBlog(blog.id)"></button>
             <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"
-              (click)="confirm($event, item.id)"></button>
+              (click)="confirm($event, blog.id)"></button>
           </td>
         </tr>
       </ng-template>

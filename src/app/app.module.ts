@@ -42,6 +42,15 @@ import { DetailInfoComponent } from './Customer/activity/detail-info/detail-info
 import { ProjectsDetailComponent } from './Customer/activity/projects/projects-detail/projects-detail.component'
 import { AdminComponent } from './Admin/admin.component';
 import { SidebarComponent } from './Admin/Components/sidebar/sidebar.component';
+import { AdminBlogsComponent } from './Admin/Pages/blogs/blogs.component';
+import {CalendarModule} from 'primeng/calendar';
+import {  AdminBlogUpsertComponent } from './Admin/Pages/blogs/upsert/upsert.component';
+import {TableModule} from 'primeng/table';
+import {ConfirmPopupModule} from 'primeng/confirmpopup';
+import { ConfirmationService, MessageService } from 'primeng/api';
+import { ToastModule } from "primeng/toast";
+import { AdminNewsUpsertComponent } from './Admin/Pages/news/upsert/upsert.component';
+import { AdminNewsComponent } from './Admin/Pages/news/news.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,14 +84,22 @@ import { SidebarComponent } from './Admin/Components/sidebar/sidebar.component';
     DetailInfoComponent,
     ProjectsDetailComponent,
     AdminComponent,
-    SidebarComponent
+    SidebarComponent,
+    AdminBlogsComponent,
+    AdminNewsComponent,
+    AdminBlogUpsertComponent,
+    AdminNewsUpsertComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
+    ToastModule,
     FormsModule,
+    ConfirmPopupModule,
+    CalendarModule,
+    TableModule,
     MatMenuModule,
     ShareButtonsModule.withConfig({debug:true}),
     ShareIconsModule,
@@ -97,7 +114,7 @@ import { SidebarComponent } from './Admin/Components/sidebar/sidebar.component';
 
     })
   ],
-  providers: [],
+  providers: [ConfirmationService, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
