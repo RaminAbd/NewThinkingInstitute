@@ -6,6 +6,7 @@
     <div class="page-links" >
       <ul>
         <li><a [routerLink]="['main']" [routerLinkActive]="['active']">მთავარი</a></li>
+        <li><a [routerLink]="['news']" [routerLinkActive]="['active']">სიახლეები</a></li>
         <li>
           <a [routerLink]="['about-us']" [routerLinkActive]="['active']">ჩვენ შესახებ <img style="margin-left:5px;" src="assets/images/dropmenu.svg" alt=""></a>
           <ul>
@@ -27,7 +28,6 @@
         <li>
           <a [routerLink]="['publications']" [routerLinkActive]="['active']">პუბლიკაციები <img style="margin-left:5px;" src="assets/images/dropmenu.svg" alt=""></a>
           <ul>
-            <li><a [routerLink]="['publications/news']" [routerLinkActive]="['active']">სიახლეები</a></li>
             <li><a [routerLink]="['publications/studies']" [routerLinkActive]="['active']">კვლევები</a></li>
             <li><a [routerLink]="['publications/accounts']" [routerLinkActive]="['active']">ანგარიშები</a></li>
             <li><a [routerLink]="['publications/blogs']" [routerLinkActive]="['active']">ბლოგები</a></li>
@@ -41,7 +41,7 @@
             <li><a [routerLink]="['gallery/videos']" [routerLinkActive]="['active']">ვიდეოები</a></li>
           </ul>
         </li>
-        <li><a [routerLink]="['main']" fragment="contact" >კონთაქტი</a></li>
+
       </ul>
     </div>
     <div class="lang-search">

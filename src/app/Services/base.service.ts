@@ -9,10 +9,14 @@ import { ServiceResponse } from '../Models/ServiceResponse.model';
 export class BaseService {
   protected BaseUrl = "http://maestro2034-001-site1.atempurl.com/api/";
   currentLang:string;
+  langObj:any;
   http: HttpClient;
   constructor(http: HttpClient, translate:TranslateService){
     this.http = http;
     this.currentLang = translate.currentLang;
+    this.langObj = {
+      'Lang': this.currentLang
+    }
   }
   get(url?:string, parameter?:any, paramsObj?:any){
     if(parameter!==null) {

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NewsService } from '../../../Services/news.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-short-news',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShortNewsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private newsService: NewsService) { }
 
   ngOnInit(): void {
   }

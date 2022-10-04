@@ -38,15 +38,7 @@ export class AdminBlogsComponent implements OnInit {
   editBlog(id: string) {
     this.router.navigate(['admin/blog', id])
   }
-  deleteBlog(id: string):boolean {
-    var success = false;
-    this.service.Delete(id).subscribe(resp => {
-      this.getAll();
-      success = resp.succeeded;
-      return success;
-    })
-    return success;
-  }
+
   confirm(event: any, id:string) {
     this.confirmationService.confirm({
       target: event.target,
@@ -54,22 +46,25 @@ export class AdminBlogsComponent implements OnInit {
       icon: "pi pi-exclamation-triangle",
       accept: () => {
         console.log(id);
-        console.log(this.deleteBlog(id));
+        // console.log(this.deleteBlog(id));
+        this.service.Delete(id).subscribe(resp => {
+          this.getAll();
+          if(resp.succeeded === true){
+            this.messageService.add({
+              severity: "success",
+              summary: "Success",
+              detail: "You have deleted"
+            });
+          }
+          else{
+            this.messageService.add({
+              severity: "error",
+              summary: "Rejected",
+              detail: "You have rejected"
+            });
+          }
+        })
 
-        if(this.deleteBlog(id)===true){
-          this.messageService.add({
-            severity: "success",
-            summary: "Success",
-            detail: "You have deleted"
-          });
-        }
-        else{
-          this.messageService.add({
-            severity: "error",
-            summary: "Rejected",
-            detail: "You have rejected"
-          });
-        }
       },
       reject: () => {
 

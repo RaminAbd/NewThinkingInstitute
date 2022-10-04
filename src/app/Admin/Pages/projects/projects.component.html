@@ -1,0 +1,34 @@
+<div class="projects-wrapper">
+  <div class="create-button" >
+    <button (click)="CreateItem()" style="cursor:pointer">Create Project</button>
+  </div>
+  <div class="item-list">
+    <p-table [value]="Items" responsiveLayout="scroll" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" responsiveLayout="scroll"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Image</th>
+          <th>Title</th>
+          <th>Duration</th>
+          <th>Status</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-item>
+        <tr>
+          <td><img [src]="item.image" [alt]="item.title" width="100" class="shadow-4" /></td>
+          <td>{{item.title}}</td>
+          <td>{{item.createdAt | date}}</td>
+          <td>
+            <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"
+              (click)="editItem(item.id)"></button>
+            <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"
+              (click)="confirm($event, item.id)"></button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+    <p-toast></p-toast>
+    <p-confirmPopup></p-confirmPopup>
+
+  </div>
+</div>

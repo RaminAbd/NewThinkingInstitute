@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
-
+@import url("../node_modules/primeicons/primeicons.css");
+@import url("../node_modules/primeng/resources/themes/saga-orange/theme.css");
+@import url("../node_modules/primeng/resources/primeng.min.css");
 @font-face {
   src: url("/assets/fonts/bpg_dejavu_sans.otf");
   font-family: "DejaVu Sans";
@@ -79,4 +81,50 @@ h3.page-header {
 }
 .p-button.p-button-success{
   margin-right: 10px;
+}
+.p-tabview .p-tabview-panels{
+  border-bottom-right-radius: 10px !important;
+  border-bottom-left-radius: 10px !important;
+}
+.p-tabview-nav-content{
+  border-radius:10px 10px 0 0;
+}
+.p-progress-spinner{
+  width: 25px !important;
+    height: 25px !important;
+}
+.cdk-global-overlay-wrapper{
+  position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    background: #0000008a;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.mat-dialog-container{
+  background: #fff;
+  position: relative;
+}
+body.block{
+  overflow: hidden;
+}
+.create-button button{
+  width: 319px;
+  height: 50px;
+  left: 343px;
+  top: 544px;
+  background: #081831;
+  border-radius: 8px;
+  font-family: 'Helvetica';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  color: #FFFFFF;
+  margin-bottom: 50px;
 }

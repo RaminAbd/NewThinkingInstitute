@@ -1,0 +1,17 @@
+<div class="create-video">
+  <div class="title">
+    <div class="item" *ngFor="let name of StatusForm?.name?.inputs">
+      <label for="">Title ( {{name.language}} )</label>
+      <input type="text" [(ngModel)]="name.value">
+    </div>
+  </div>
+  <div class="buttons">
+    <div class="button">
+      <button (click)="CreateStatus()">{{data.action === 'create' ? 'Create' : 'Update'}}</button>
+    </div>
+    <div class="button">
+      <button type="button" class="close-warning" mat-button mat-dialog-close mat-dialog-close="false">Cancel</button>
+    </div>
+  </div>
+
+</div>

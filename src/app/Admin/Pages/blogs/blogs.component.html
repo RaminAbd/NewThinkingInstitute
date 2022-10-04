@@ -2,7 +2,6 @@
   <!-- <div class="line"></div>
   <h3>ბლოგები</h3> -->
   <div class="create-button" >
-
     <button (click)="CreateBlog()" style="cursor:pointer">Create Blog</button>
   </div>
   <div class="blogs-list">
@@ -12,14 +11,14 @@
         <tr>
           <th>Image</th>
           <th>Title</th>
-          <th>Date</th>
+          <th  style="width:130px;">Date</th>
           <th>Author</th>
-          <th>Actions</th>
+          <th style="width:160px;">Actions</th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-blog>
         <tr>
-          <td><img [src]="blog.imageUrl" [alt]="blog.title" width="100" class="shadow-4" /></td>
+          <td><img [src]="blog.image" [alt]="blog.title" width="100" class="shadow-4" /></td>
           <td>{{blog.title}}</td>
           <td>{{blog.createdAt | date}}</td>
           <td>{{blog.author}}</td>

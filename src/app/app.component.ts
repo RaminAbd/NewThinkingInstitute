@@ -14,7 +14,6 @@ export class AppComponent {
     const langExists: boolean = !!localStorage.getItem('systemLanguage');
     this.router.events.subscribe((e) => {
       if (e instanceof NavigationEnd) {
-        console.log((e.url).split('/'));
         if((e.url).split('/')[1]==='admin'){
           this.isAdmin = true;
         }

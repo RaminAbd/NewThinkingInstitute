@@ -1,10 +1,22 @@
 <div class="news-detail-wrapper">
-  <app-detail-header></app-detail-header>
+  <app-detail-header [data]="NewsItem"></app-detail-header>
   <div class="image">
-    <img src="assets/images/banner.png" alt="">
+    <img src="{{NewsItem.image}}" alt="">
   </div>
   <div class="description" style="white-space: pre-line">
-    <p>შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპოგრაფიული ნაწარმის შემქმნელებს, რეალურთან
+    <p>
+      {{NewsItem.description}}
+    </p>
+  </div>
+  <app-short-news></app-short-news>
+</div>
+<!-- <div style="width: 500px;white-space: pre-line">{{text}}</div>
+
+  <textarea name="" id="" cols="30" rows="10" (keypress)="getLine($event)" [(ngModel)]="text"></textarea>
+
+
+
+შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპოგრაფიული ნაწარმის შემქმნელებს, რეალურთან
       მაქსიმალურად მიახლოებული შაბლონი წარუდგინონ შემფასებელს. ხშირადაა შემთხვევა, როდესაც დიზაინის შესრულებისას
       საჩვენებელია, თუ როგორი იქნება
       <br>
@@ -18,11 +30,4 @@
       <br>
       ტექსტის ბლოკი. სწორედ ასეთ დროს არის მოსახერხებელი ამ გენერატორით შექმნილი ტექსტის გამოყენება, რადგან უბრალოდ
       „ტექსტი ტექსტი ტექსტი“ ან სხვა გამეორებადი სიტყვების ჩაყრა, ხელოვნურ ვიზუალურ სიმეტრიას ქმნის და არაბუნებრივად
-      გამოიყურება
-    </p>
-  </div>
-  <app-short-news></app-short-news>
-</div>
-<!-- <div style="width: 500px;white-space: pre-line">{{text}}</div>
-
-  <textarea name="" id="" cols="30" rows="10" (keypress)="getLine($event)" [(ngModel)]="text"></textarea>-->
+      გამოიყურება-->

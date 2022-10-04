@@ -27,10 +27,10 @@
 
   </div>
   <div class="forSlider">
-    <input type="checkbox" [(ngModel)]="NewsForm.isForSlider">
-    <label for="">მთავარზე აჩვენება</label>
+    <input id="forSlider" type="checkbox" [(ngModel)]="NewsForm.isForSlider">
+    <label for="forSlider" style="cursor:pointer">მთავარზე აჩვენება</label>
   </div>
-  <div class="button">
-    <button (click)="handleForm()">{{id === "create" ? "Create" : "Update"}}</button>
+  <div class="button" style="cursor:pointer">
+    <button style="cursor:pointer" (click)="handleForm()">{{id === "create" ? "Create" : "Update"}}</button>
   </div>
 </div>

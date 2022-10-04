@@ -51,6 +51,19 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 import { ToastModule } from "primeng/toast";
 import { AdminNewsUpsertComponent } from './Admin/Pages/news/upsert/upsert.component';
 import { AdminNewsComponent } from './Admin/Pages/news/news.component';
+import {TabViewModule} from 'primeng/tabview';
+import { AdminGalleryComponent } from './Admin/Pages/gallery/gallery.component';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
+import {MatDialogModule} from '@angular/material/dialog';
+import { CreateVideoComponent } from './Admin/Pages/gallery/create-video/create-video.component';
+import { AdminProjectsComponent } from './Admin/Pages/projects/projects.component';
+import { AdminProjectsUpsertComponent } from './Admin/Pages/projects/upsert/upsert.component';
+import {DropdownModule} from 'primeng/dropdown';
+import { StatusesComponent } from './Admin/Pages/statuses/statuses.component';
+import { CreateStatusComponent } from './Admin/Pages/statuses/create-status/create-status.component';
+import { AdminCoursesUpsertComponent } from './Admin/Pages/courses/upsert/upsert.component';
+import { AdminCoursesComponent } from './Admin/Pages/courses/courses.component';
+import {InputSwitchModule} from 'primeng/inputswitch';
 @NgModule({
   declarations: [
     AppComponent,
@@ -88,17 +101,30 @@ import { AdminNewsComponent } from './Admin/Pages/news/news.component';
     AdminBlogsComponent,
     AdminNewsComponent,
     AdminBlogUpsertComponent,
-    AdminNewsUpsertComponent
+    AdminNewsUpsertComponent,
+    AdminGalleryComponent,
+    CreateVideoComponent,
+    AdminProjectsComponent,
+    AdminProjectsUpsertComponent,
+    StatusesComponent,
+    CreateStatusComponent,
+    AdminCoursesComponent,
+    AdminCoursesUpsertComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    ProgressSpinnerModule,
     HttpClientModule,
     ToastModule,
+    MatDialogModule,
     FormsModule,
+    DropdownModule,
     ConfirmPopupModule,
     CalendarModule,
+    InputSwitchModule,
+    TabViewModule,
     TableModule,
     MatMenuModule,
     ShareButtonsModule.withConfig({debug:true}),

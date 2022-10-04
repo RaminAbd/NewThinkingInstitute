@@ -9,4 +9,6 @@
   width:calc(100% - 268px );
   float: right;
   padding:70px;
+  position:absolute;
+  right:0;
 }

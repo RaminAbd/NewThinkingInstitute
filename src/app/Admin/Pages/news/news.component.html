@@ -5,20 +5,20 @@
 
     <button (click)="CreateItem()" style="cursor:pointer">Create News</button>
   </div>
-  <div class="blogs-list">
+  <div class="item-list">
     <p-table [value]="News" responsiveLayout="scroll" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" responsiveLayout="scroll"
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]">
       <ng-template pTemplate="header">
         <tr>
           <th>Image</th>
           <th>Title</th>
-          <th>Date</th>
-          <th>Actions</th>
+          <th  style="width:130px;">Date</th>
+          <th style="width:160px;">Actions</th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-item>
         <tr>
-          <td><img [src]="item.imageUrl" [alt]="item.title" width="100" class="shadow-4" /></td>
+          <td><img [src]="item.image" [alt]="item.title" width="100" class="shadow-4" /></td>
           <td>{{item.title}}</td>
           <td>{{item.createdAt | date}}</td>
           <td>

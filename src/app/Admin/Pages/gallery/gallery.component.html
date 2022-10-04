@@ -1,0 +1,55 @@
+<div class="gallery-wrapper">
+  <p-tabView>
+    <p-tabPanel header="Photos">
+      <div class="photos">
+        <div class="create">
+          <div class="image">
+            <div class="form_file-select">
+              <div class="form_file-select-button">
+                <p-progressSpinner *ngIf="fileLoading" class="spinner"></p-progressSpinner>Upload Image
+              </div>
+              <input (change)="chooseFile($event)" name="image" type="file" accept="image/*" required>
+            </div>
+            <div class="file" *ngIf="file">
+              <a href="{{file.url}}" target="_blank">{{file.fileName}}</a>
+              <i class="pi pi-trash" (click)="deleteAddedImage()"></i>
+            </div>
+          </div>
+          <div class="button">
+            <button style="cursor: pointer" (click)="Create()">Create</button>
+          </div>
+        </div>
+        <div class="content">
+          <div class="photo-item" *ngFor="let item of Photos">
+            <div class="news-delete">
+              <img src="assets/images/Bin.gif" (click)="deleteImage($event, item.id)">
+            </div>
+            <img src="{{item.photo}}" alt="">
+          </div>
+        </div>
+      </div>
+    </p-tabPanel>
+    <p-tabPanel header="Videos">
+      <div class="videos">
+        <div class="create-video">
+          <div class="button">
+            <button (click)="openDialog()">Create</button>
+          </div>
+        </div>
+        <div class="video-content">
+          <div class="video-item" *ngFor="let video of Videos">
+            <iframe width="100%" height="290" [src]="video.videoURL" title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+            <div class="description">
+              <p>შემთხვევითად გენერირებული ტექსტი</p>
+              <i class="pi pi-trash" (click)="deleteVideo($event, video.id)"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </p-tabPanel>
+  </p-tabView>
+  <p-toast></p-toast>
+  <p-confirmPopup></p-confirmPopup>
+</div>

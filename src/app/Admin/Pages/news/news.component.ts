@@ -39,38 +39,29 @@ export class AdminNewsComponent implements OnInit {
   CreateItem() {
     this.router.navigate(['admin/news-item', "create"])
   }
-  deleteItem(id: string): boolean {
-    var success = false;
-    this.service.Delete(id).subscribe(resp => {
-      this.getAll();
-      success = resp.succeeded;
-      return success;
-    })
-    return success;
-  }
   confirm(event: any, id: string) {
     this.confirmationService.confirm({
       target: event.target,
       message: "Are you sure that you want to proceed?",
       icon: "pi pi-exclamation-triangle",
       accept: () => {
-        console.log(id);
-        console.log(this.deleteItem(id));
-
-        if (this.deleteItem(id) === true) {
-          this.messageService.add({
-            severity: "success",
-            summary: "Success",
-            detail: "You have deleted"
-          });
-        }
-        else {
-          this.messageService.add({
-            severity: "error",
-            summary: "Rejected",
-            detail: "You have rejected"
-          });
-        }
+        this.service.Delete(id).subscribe(resp => {
+          this.getAll();
+          if (resp.succeeded === true) {
+            this.messageService.add({
+              severity: "success",
+              summary: "Success",
+              detail: "You have deleted"
+            });
+          }
+          else {
+            this.messageService.add({
+              severity: "error",
+              summary: "Rejected",
+              detail: "You have rejected"
+            });
+          }
+        })
       },
       reject: () => {
 

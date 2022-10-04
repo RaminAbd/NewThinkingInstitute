@@ -1,0 +1,21 @@
+<div class="create-video">
+  <div class="title">
+    <div class="item" *ngFor="let name of videoItem?.title?.inputs">
+      <label for="">Title ( {{name.language}} )</label>
+      <input type="text" [(ngModel)]="name.value">
+    </div>
+  </div>
+  <div class="videoUrl">
+    <label for="">Video Url</label>
+    <input type="text" [(ngModel)]="videoItem.videoURL">
+  </div>
+  <div class="buttons">
+    <div class="button">
+      <button (click)="CreateVideo()">Create</button>
+    </div>
+    <div class="button">
+      <button type="button" class="close-warning" mat-button mat-dialog-close mat-dialog-close="false">Cancel</button>
+    </div>
+  </div>
+
+</div>

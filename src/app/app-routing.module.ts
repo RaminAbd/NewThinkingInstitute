@@ -30,10 +30,17 @@ import { AdminNewsComponent } from './Admin/Pages/news/news.component';
 import { AdminBlogsComponent } from './Admin/Pages/blogs/blogs.component';
 import { AdminBlogUpsertComponent } from './Admin/Pages/blogs/upsert/upsert.component';
 import { AdminNewsUpsertComponent } from './Admin/Pages/news/upsert/upsert.component';
+import { AdminGalleryComponent } from './Admin/Pages/gallery/gallery.component';
+import { AdminProjectsComponent } from './Admin/Pages/projects/projects.component';
+import { AdminProjectsUpsertComponent } from './Admin/Pages/projects/upsert/upsert.component';
+import { StatusesComponent } from './Admin/Pages/statuses/statuses.component';
+import { AdminCoursesComponent } from './Admin/Pages/courses/courses.component';
+import { AdminCoursesUpsertComponent } from './Admin/Pages/courses/upsert/upsert.component';
 
 const routes: Routes = [
   {path: 'main', component: MainComponent},
-  {path: 'news-detail', component: NewsDetailComponent},
+  {path: "news",component: NewsComponent},
+  {path: 'news-detail/:id', component: NewsDetailComponent},
   {path: 'about-us', component: AboutUsComponent,children: [
     { path: "mission",component: MissionComponent},
     { path: "history",component: HistoryComponent},
@@ -63,10 +70,10 @@ const routes: Routes = [
     { path: "blogs",component: BlogsComponent},
     { path: "newsletter",component: NewsletterComponent},
     { path: "studies",component: StudiesComponent},
-    { path: "news",component: NewsComponent},
+
     {
       path: '',
-      redirectTo: 'news',
+      redirectTo: 'studies',
       pathMatch: 'full'
     },
   ]},
@@ -85,7 +92,13 @@ const routes: Routes = [
 
   {path: 'admin', component: AdminComponent, children:[
     {path: 'news', component: AdminNewsComponent},
+    {path: 'statuses', component: StatusesComponent},
+    {path: 'courses', component: AdminCoursesComponent},
+    {path: 'course/:id', component: AdminCoursesUpsertComponent},
+    {path: 'projects', component: AdminProjectsComponent},
+    {path: 'gallery', component: AdminGalleryComponent},
     {path: 'news-item/:id', component: AdminNewsUpsertComponent},
+    {path: 'projects-item/:id', component: AdminProjectsUpsertComponent},
     {path: 'blogs', component: AdminBlogsComponent},
     {path: 'blog/:id', component: AdminBlogUpsertComponent},
     {
