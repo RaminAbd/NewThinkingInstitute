@@ -22,25 +22,25 @@
 .links ul a {
 
   width: 227px;
-  height: 40px;
+  height: 35px;
   padding-left: 35px;
   display: flex;
   align-items: center;
   text-decoration: none;
-margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 .links ul a li {
     color: #fff;
     font-family: 'DejaVu Sans';
     font-style: normal;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 15px;
     line-height: 18px;
     color: #FFFFFF;
 }
 .links ul a.active{
   background: #FFFFFF;
-  border-radius: 8px;
+  border-radius: 5px;
   color: #000;
 }
 .links ul a.active li{

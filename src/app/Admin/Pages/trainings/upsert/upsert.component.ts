@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Course } from '../../../../Models/Course';
-import { CoursesService } from '../../../../Services/courses.service';
+import { Training } from 'src/app/Models/Training';
+import { TrainingsService } from '../../../../Services/trainings.service';
 import { FileService } from '../../../../Services/file.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { formatDate } from '@angular/common';
@@ -10,13 +10,14 @@ import { formatDate } from '@angular/common';
   templateUrl: './upsert.component.html',
   styleUrls: ['./upsert.component.css']
 })
-export class AdminCoursesUpsertComponent implements OnInit {
+export class AdminTrainingsUpsertComponent implements OnInit {
+
   id: any;
- CourseForm: Course = new Course();
- startDate: any;
- endDate: any;
+  TrainingForm: Training = new Training();
+  startDate: any;
+  endDate: any;
   constructor(
-    private service: CoursesService,
+    private service: TrainingsService,
     private fileService: FileService,
     private router: Router,
     private route: ActivatedRoute) { this.id = this.route.snapshot.paramMap.get('id'); }
@@ -29,18 +30,18 @@ export class AdminCoursesUpsertComponent implements OnInit {
       this.getFormForUpdate(this.id);
     }
   }
-  myFormatDate(date:Date){
+  myFormatDate(date: Date) {
     return (formatDate(new Date(date).setDate(new Date(date).getDate() + 1), 'yyyy/MM/dd', 'en'));
   }
   getForm() {
     this.service.GetForm().subscribe(resp => {
-      this.CourseForm = resp.data;
+      this.TrainingForm = resp.data;
     })
   }
   getFormForUpdate(id: string) {
     this.service.GetForUpdate(id).subscribe(resp => {
-      this.CourseForm = resp.data;
-      var dates:any[] = resp.data.duration.split('-');
+      this.TrainingForm = resp.data;
+      var dates: any[] = resp.data.duration.split('-');
       this.startDate = new Date(formatDate(new Date(dates[0]).setDate(new Date(dates[0]).getDate() + 1), 'yyyy/MM/dd', 'en')).toISOString().split('T')[0];
       this.endDate = new Date(formatDate(new Date(dates[1]).setDate(new Date(dates[1]).getDate() + 1), 'yyyy/MM/dd', 'en')).toISOString().split('T')[0];
     })
@@ -50,27 +51,31 @@ export class AdminCoursesUpsertComponent implements OnInit {
     const fd = new FormData();
     fd.append('file', file);
     this.fileService.Create(fd).subscribe((resp: any) => {
-      this.CourseForm.image = resp.data;
+      this.TrainingForm.image = resp.data;
     });
   }
 
   handleForm() {
-    console.log(this.CourseForm);
+    console.log(this.TrainingForm);
     if (this.id === "create") {
-      this.CourseForm.duration = this.myFormatDate(this.startDate) + "-" + this.myFormatDate(this.endDate);
-      this.CourseForm.id = "create";
-      this.service.Create(this.CourseForm).subscribe(resp=>{
-        if(resp.succeeded === true){
-          this.router.navigate(['admin/courses'])
+      this.TrainingForm.duration = this.myFormatDate(this.startDate) + "-" + this.myFormatDate(this.endDate);
+      this.TrainingForm.id = "create";
+      this.service.Create(this.TrainingForm).subscribe(resp => {
+        if (resp.succeeded === true) {
+          console.log(resp);
+          this.router.navigate(['admin/trainings'])
         }
       })
     }
-    else{
-      this.service.Update(this.CourseForm).subscribe(resp=>{
-        if(resp.succeeded === true){
-          this.router.navigate(['admin/courses'])
+    else {
+      this.service.Update(this.TrainingForm).subscribe(resp => {
+        console.log(resp);
+
+        if (resp.succeeded === true) {
+          this.router.navigate(['admin/trainings'])
         }
       })
     }
   }
+
 }

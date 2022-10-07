@@ -43,27 +43,32 @@ import { ProjectsDetailComponent } from './Customer/activity/projects/projects-d
 import { AdminComponent } from './Admin/admin.component';
 import { SidebarComponent } from './Admin/Components/sidebar/sidebar.component';
 import { AdminBlogsComponent } from './Admin/Pages/blogs/blogs.component';
-import {CalendarModule} from 'primeng/calendar';
-import {  AdminBlogUpsertComponent } from './Admin/Pages/blogs/upsert/upsert.component';
-import {TableModule} from 'primeng/table';
-import {ConfirmPopupModule} from 'primeng/confirmpopup';
+import { CalendarModule } from 'primeng/calendar';
+import { AdminBlogUpsertComponent } from './Admin/Pages/blogs/upsert/upsert.component';
+import { TableModule } from 'primeng/table';
+import { ConfirmPopupModule } from 'primeng/confirmpopup';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ToastModule } from "primeng/toast";
 import { AdminNewsUpsertComponent } from './Admin/Pages/news/upsert/upsert.component';
 import { AdminNewsComponent } from './Admin/Pages/news/news.component';
-import {TabViewModule} from 'primeng/tabview';
+import { TabViewModule } from 'primeng/tabview';
 import { AdminGalleryComponent } from './Admin/Pages/gallery/gallery.component';
-import {ProgressSpinnerModule} from 'primeng/progressspinner';
-import {MatDialogModule} from '@angular/material/dialog';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { MatDialogModule } from '@angular/material/dialog';
 import { CreateVideoComponent } from './Admin/Pages/gallery/create-video/create-video.component';
 import { AdminProjectsComponent } from './Admin/Pages/projects/projects.component';
 import { AdminProjectsUpsertComponent } from './Admin/Pages/projects/upsert/upsert.component';
-import {DropdownModule} from 'primeng/dropdown';
+import { DropdownModule } from 'primeng/dropdown';
 import { StatusesComponent } from './Admin/Pages/statuses/statuses.component';
 import { CreateStatusComponent } from './Admin/Pages/statuses/create-status/create-status.component';
 import { AdminCoursesUpsertComponent } from './Admin/Pages/courses/upsert/upsert.component';
 import { AdminCoursesComponent } from './Admin/Pages/courses/courses.component';
-import {InputSwitchModule} from 'primeng/inputswitch';
+import { InputSwitchModule } from 'primeng/inputswitch';
+import { AdminTrainingsComponent } from './Admin/Pages/trainings/trainings.component';
+import { AdminTrainingsUpsertComponent } from './Admin/Pages/trainings/upsert/upsert.component';
+import { AdminServiceUpsertComponent } from './Admin/Pages/service/upsert/upsert.component';
+import { AdminServiceComponent } from './Admin/Pages/service/service.component';
+import { AdminPartnersComponent } from './Admin/Pages/partners/partners.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -110,6 +115,11 @@ import {InputSwitchModule} from 'primeng/inputswitch';
     CreateStatusComponent,
     AdminCoursesComponent,
     AdminCoursesUpsertComponent,
+    AdminServiceComponent,
+    AdminServiceUpsertComponent,
+    AdminTrainingsComponent,
+    AdminTrainingsUpsertComponent,
+    AdminPartnersComponent
   ],
   imports: [
     BrowserModule,
@@ -127,7 +137,7 @@ import {InputSwitchModule} from 'primeng/inputswitch';
     TabViewModule,
     TableModule,
     MatMenuModule,
-    ShareButtonsModule.withConfig({debug:true}),
+    ShareButtonsModule.withConfig({ debug: true }),
     ShareIconsModule,
     CarouselModule,
     ReactiveFormsModule,

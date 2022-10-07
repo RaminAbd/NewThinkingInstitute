@@ -36,6 +36,11 @@ import { AdminProjectsUpsertComponent } from './Admin/Pages/projects/upsert/upse
 import { StatusesComponent } from './Admin/Pages/statuses/statuses.component';
 import { AdminCoursesComponent } from './Admin/Pages/courses/courses.component';
 import { AdminCoursesUpsertComponent } from './Admin/Pages/courses/upsert/upsert.component';
+import { AdminTrainingsComponent } from './Admin/Pages/trainings/trainings.component';
+import { AdminTrainingsUpsertComponent } from './Admin/Pages/trainings/upsert/upsert.component';
+import { AdminServiceComponent } from './Admin/Pages/service/service.component';
+import { AdminServiceUpsertComponent } from './Admin/Pages/service/upsert/upsert.component';
+import { AdminPartnersComponent } from './Admin/Pages/partners/partners.component';
 
 const routes: Routes = [
   {path: 'main', component: MainComponent},
@@ -100,7 +105,12 @@ const routes: Routes = [
     {path: 'news-item/:id', component: AdminNewsUpsertComponent},
     {path: 'projects-item/:id', component: AdminProjectsUpsertComponent},
     {path: 'blogs', component: AdminBlogsComponent},
-    {path: 'blog/:id', component: AdminBlogUpsertComponent},
+    {path: 'blog:/id', component: AdminBlogUpsertComponent},
+    {path: 'trainings', component: AdminTrainingsComponent},
+    {path: 'services', component: AdminServiceComponent},
+    {path: 'partners', component: AdminPartnersComponent},
+    {path: 'service/:id', component: AdminServiceUpsertComponent},
+    {path: 'training/:id', component: AdminTrainingsUpsertComponent},
     {
       path: '',
       redirectTo: 'news',
