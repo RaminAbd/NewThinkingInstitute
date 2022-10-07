@@ -105,7 +105,7 @@ const routes: Routes = [
     {path: 'news-item/:id', component: AdminNewsUpsertComponent},
     {path: 'projects-item/:id', component: AdminProjectsUpsertComponent},
     {path: 'blogs', component: AdminBlogsComponent},
-    {path: 'blog:/id', component: AdminBlogUpsertComponent},
+    {path: 'blog/:id', component: AdminBlogUpsertComponent},
     {path: 'trainings', component: AdminTrainingsComponent},
     {path: 'services', component: AdminServiceComponent},
     {path: 'partners', component: AdminPartnersComponent},

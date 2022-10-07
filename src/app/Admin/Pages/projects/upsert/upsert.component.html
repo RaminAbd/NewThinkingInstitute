@@ -17,7 +17,6 @@
 
    <div class="status" *ngIf="ProjectForm">
     <label for="">Status</label>
-    <input type="input" [(ngModel)]="ProjectForm!.status!.name">
     <p-dropdown [options]="Statuses" [(ngModel)]="selectedStatus" optionLabel="name"></p-dropdown>
    </div>
     <div class="startDate">

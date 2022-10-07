@@ -74,6 +74,7 @@ export class AdminProjectsUpsertComponent implements OnInit {
     // console.log(this.ProjectForm);
     if (this.id === "create") {
       var photoObj:Photo = new Photo();
+      // this.ProjectForm.status
       this.ProjectForm.duration = this.myFormatDate(this.startDate) + "-" + this.myFormatDate(this.endDate);
       // this.ProjectForm.statusId
       console.log(this.ProjectForm);
