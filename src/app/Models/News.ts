@@ -6,4 +6,5 @@ export class News{
   image?: any;
   createdAt: Date;
   isForSlider: boolean;
+  videoURL?:string;
 }

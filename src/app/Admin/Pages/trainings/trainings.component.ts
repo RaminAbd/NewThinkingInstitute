@@ -33,10 +33,10 @@ export class AdminTrainingsComponent implements OnInit {
     })
   }
   CreateBlog() {
-    this.router.navigate(['admin/training', "create"])
+    this.router.navigate(['admin/trainings', "create"])
   }
   editBlog(id: string) {
-    this.router.navigate(['admin/training', id])
+    this.router.navigate(['admin/trainings', id])
   }
   confirm(event: any, id:string) {
     this.confirmationService.confirm({

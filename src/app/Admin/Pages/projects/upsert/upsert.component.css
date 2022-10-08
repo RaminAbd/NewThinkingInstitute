@@ -135,6 +135,9 @@
   opacity:0;
   filter:alpha(opacity=0);
 }
+.button{
+  margin-top: 25px;
+}
 .button button{
   width: 32%;
     height: 50px;
@@ -166,7 +169,7 @@
   .title, .description, .details {
     justify-content: start;
   }
-  .title .item, .description .item, .details .author,  .image, .details .date {
+  .title .item, .description .item, .details .author,  .image, .details .date, .details .startDate, .details .endDate, .details .status {
     width: 320px;
     margin-right: 20px;
   }

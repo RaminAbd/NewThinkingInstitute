@@ -11,7 +11,8 @@ import { Partner } from '../../../Models/Partner';
   styleUrls: ['./partners.component.css']
 })
 export class AdminPartnersComponent implements OnInit {
-
+  fileLoading: boolean = false;
+  file: any;
   Partners: Partner[] = [];
   PartnerForm: Partner = new Partner();
   isUpdate: boolean = false;
@@ -76,20 +77,21 @@ export class AdminPartnersComponent implements OnInit {
     })
   }
   chooseFile(event: any) {
+    this.fileLoading = true;
     const file = event.target.files[0];
     const fd = new FormData();
     fd.append('file', file);
     this.fileService.Create(fd).subscribe((resp: any) => {
       this.PartnerForm.photo = resp.data;
+      this.fileLoading = false;
+      this.file = resp.data;
     });
   }
 
-
-
-
-
-
-
+  deleteAddedImage() {
+    this.PartnerForm.photo = null;
+    this.file = null;
+  }
 
   confirm(event: any, id: string) {
     this.confirmationService.confirm({

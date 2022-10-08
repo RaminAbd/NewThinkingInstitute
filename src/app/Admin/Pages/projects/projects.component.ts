@@ -27,10 +27,10 @@ export class AdminProjectsComponent implements OnInit {
     })
   }
   editItem(id: string) {
-    this.router.navigate(['admin/projects-item', id])
+    this.router.navigate(['admin/projects', id])
   }
   CreateItem() {
-    this.router.navigate(['admin/projects-item', "create"]);
+    this.router.navigate(['admin/projects', "create"]);
   }
 
   confirm(event: any, id: string) {

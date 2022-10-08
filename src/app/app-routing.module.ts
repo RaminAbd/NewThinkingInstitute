@@ -96,21 +96,28 @@ const routes: Routes = [
   {path: '', component: MainComponent},
 
   {path: 'admin', component: AdminComponent, children:[
-    {path: 'news', component: AdminNewsComponent},
     {path: 'statuses', component: StatusesComponent},
-    {path: 'courses', component: AdminCoursesComponent},
-    {path: 'course/:id', component: AdminCoursesUpsertComponent},
-    {path: 'projects', component: AdminProjectsComponent},
     {path: 'gallery', component: AdminGalleryComponent},
-    {path: 'news-item/:id', component: AdminNewsUpsertComponent},
-    {path: 'projects-item/:id', component: AdminProjectsUpsertComponent},
-    {path: 'blogs', component: AdminBlogsComponent},
-    {path: 'blog/:id', component: AdminBlogUpsertComponent},
-    {path: 'trainings', component: AdminTrainingsComponent},
-    {path: 'services', component: AdminServiceComponent},
     {path: 'partners', component: AdminPartnersComponent},
-    {path: 'service/:id', component: AdminServiceUpsertComponent},
-    {path: 'training/:id', component: AdminTrainingsUpsertComponent},
+
+    {path: 'news', component: AdminNewsComponent},
+    {path: 'news/:id', component: AdminNewsUpsertComponent},
+
+    {path: 'courses', component: AdminCoursesComponent},
+    {path: 'courses/:id', component: AdminCoursesUpsertComponent},
+
+    {path: 'projects', component: AdminProjectsComponent},
+    {path: 'projects/:id', component: AdminProjectsUpsertComponent},
+
+    {path: 'blogs', component: AdminBlogsComponent},
+    {path: 'blogs/:id', component: AdminBlogUpsertComponent},
+
+    {path: 'trainings', component: AdminTrainingsComponent},
+    {path: 'trainings/:id', component: AdminTrainingsUpsertComponent},
+
+    {path: 'services', component: AdminServiceComponent},
+    {path: 'services/:id', component: AdminServiceUpsertComponent},
+
     {
       path: '',
       redirectTo: 'news',

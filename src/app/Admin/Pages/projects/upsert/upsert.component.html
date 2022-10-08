@@ -3,14 +3,14 @@
   <h3>{{id === 'create' ? "პროექტის შექმნა" : "პროექტის რედაქტირება"}}</h3>
   <div class="title">
     <div class="item" *ngFor="let item of ProjectForm?.title?.inputs">
-      <label for="">Title ( {{item.language}} )</label>
-      <input type="text" [(ngModel)]="item.value">
+      <label for="">Title ( {{item.language}} )<span style="color:red;margin-left:5px">*</span></label>
+      <input type="text" [(ngModel)]="item.value" [ngStyle]="{ border: '1px solid ' + item.borderColor }">
     </div>
   </div>
   <div class="description">
     <div class="item" *ngFor="let item of ProjectForm?.description?.inputs">
-      <label for="">Description ( {{item.language}} )</label>
-      <textarea type="text" [(ngModel)]="item.value"></textarea>
+      <label for="">Description ( {{item.language}} )<span style="color:red;margin-left:5px">*</span></label>
+      <textarea type="text" [(ngModel)]="item.value" [ngStyle]="{ border: '1px solid ' + item.borderColor }"></textarea>
     </div>
   </div>
   <div class="details">
@@ -21,29 +21,27 @@
    </div>
     <div class="startDate">
       <label for="">Start Date</label>
-      <input type="date" [(ngModel)]="startDate">
+     <p-calendar class="calendar" [(ngModel)]="startDate"></p-calendar>
     </div>
     <div class="endDate">
       <label for="">End Date</label>
-      <input type="date" [(ngModel)]="endDate">
+      <p-calendar class="calendar" [(ngModel)]="endDate"></p-calendar>
     </div>
-    <div class="image">
+    <div class="image" style="position: relative;">
       <div class="form_file-select">
-        <div class="form_file-select-button">Upload Image</div>
+        <div class="form_file-select-button" style="display:flex">
+          <p-progressSpinner *ngIf="fileLoading" class="spinner"></p-progressSpinner>Upload Image
+        </div>
         <input (change)="chooseFile($event)" name="image" type="file" accept="image/*" required>
       </div>
+      <div class="file" *ngIf="file">
+        <a href="{{file.url}}" target="_blank">{{file.fileName}}</a>
+        <i class="pi pi-trash" (click)="deleteAddedImage()"></i>
+      </div>
+    </div>
   </div>
-    <!-- <div class="date">
-      <label for="">Date</label>
-      <p-calendar class="calendar" [(ngModel)]="createdAt"></p-calendar>
-    </div> -->
-
-  </div>
-  <!-- <div class="forSlider">
-    <input id="forSlider" type="checkbox" [(ngModel)]="ProjectForm.isForSlider">
-    <label for="forSlider" style="cursor:pointer">მთავარზე აჩვენება</label>
-  </div> -->
   <div class="button" style="cursor:pointer">
     <button style="cursor:pointer" (click)="handleForm()">{{id === "create" ? "Create" : "Update"}}</button>
   </div>
+  <div class="error" *ngFor="let error of validateResponse.error"><p>{{error}}</p></div>
 </div>

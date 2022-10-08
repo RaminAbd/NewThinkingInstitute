@@ -34,10 +34,10 @@ export class AdminNewsComponent implements OnInit {
     })
   }
   editItem(id: string) {
-    this.router.navigate(['admin/news-item', id])
+    this.router.navigate(['admin/news', id])
   }
   CreateItem() {
-    this.router.navigate(['admin/news-item', "create"])
+    this.router.navigate(['admin/news', "create"])
   }
   confirm(event: any, id: string) {
     this.confirmationService.confirm({

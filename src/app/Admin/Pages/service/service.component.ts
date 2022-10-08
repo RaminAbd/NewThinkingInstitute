@@ -34,10 +34,10 @@ export class AdminServiceComponent implements OnInit {
     })
   }
   CreateBlog() {
-    this.router.navigate(['admin/service', "create"])
+    this.router.navigate(['admin/services', "create"])
   }
   editBlog(id: string) {
-    this.router.navigate(['admin/service', id])
+    this.router.navigate(['admin/services', id])
   }
   confirm(event: any, id:string) {
     this.confirmationService.confirm({

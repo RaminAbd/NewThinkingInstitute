@@ -1,41 +1,48 @@
 <div class="blog-form">
   <div class="line"></div>
-  <h3>{{id === 'create' ? "ბლოგის შექმნა" : "ბლოგის რედაქტირება"}}</h3>
+  <h3>{{id === 'create' ? "კურსის შექმნა" : "კურსის რედაქტირება"}}</h3>
   <div class="title">
     <div class="item" *ngFor="let item of ServiceForm?.title?.inputs">
-      <label for="">Title ( {{item.language}} )</label>
-      <input type="text" [(ngModel)]="item.value">
+      <label for="">Title ( {{item.language}} )<span style="color:red;margin-left:5px">*</span></label>
+      <input type="text" [(ngModel)]="item.value" [ngStyle]="{ border: '1px solid ' + item.borderColor }">
     </div>
   </div>
   <div class="description">
     <div class="item" *ngFor="let item of ServiceForm?.description?.inputs">
-      <label for="">Description ( {{item.language}} )</label>
-      <textarea type="text" [(ngModel)]="item.value"></textarea>
+      <label for="">Description ( {{item.language}} )<span style="color:red;margin-left:5px">*</span></label>
+      <textarea type="text" [(ngModel)]="item.value" [ngStyle]="{ border: '1px solid ' + item.borderColor }"></textarea>
     </div>
   </div>
   <div class="details">
-    <div class="image">
-        <div class="form_file-select">
-          <div class="form_file-select-button">Upload Image</div>
-          <input (change)="chooseFile($event)" name="image" type="file" accept="image/*" required>
+    <div class="image" style="position: relative;">
+      <div class="form_file-select">
+        <div class="form_file-select-button" style="display:flex">
+          <p-progressSpinner *ngIf="fileLoading" class="spinner"></p-progressSpinner>Upload Image
         </div>
+        <input (change)="chooseFile($event)" name="image" type="file" accept="image/*" required>
+      </div>
+      <div class="file" *ngIf="file">
+        <a href="{{file.url}}" target="_blank">{{file.fileName}}</a>
+        <i class="pi pi-trash" (click)="deleteAddedImage()"></i>
+      </div>
     </div>
     <div class="startDate">
       <label for="">Start Date</label>
-      <input type="date" [(ngModel)]="startDate">
+      <p-calendar class="calendar" [(ngModel)]="startDate"></p-calendar>
     </div>
     <div class="endDate">
       <label for="">End Date</label>
-      <input type="date" [(ngModel)]="endDate">
+      <p-calendar class="calendar" [(ngModel)]="endDate"></p-calendar>
     </div>
-    <div class="author">
-        <label for="">Paid</label>
-        <p-inputSwitch [(ngModel)]="ServiceForm.isPaid"></p-inputSwitch>
-        <!-- <input type="text" [(ngModel)]="BlogForm.author"> -->
+    <div class="author" style="margin-top:25px;">
+      <label for="">Paid</label>
+      <p-inputSwitch [(ngModel)]="ServiceForm.isPaid"></p-inputSwitch>
     </div>
-
   </div>
   <div class="button">
     <button (click)="handleForm()">{{id === "create" ? "Create" : "Update"}}</button>
+  </div>
+  <div class="error" *ngFor="let error of validateResponse.error">
+    <p>{{error}}</p>
   </div>
 </div>

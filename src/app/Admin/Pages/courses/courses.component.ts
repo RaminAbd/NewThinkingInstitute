@@ -31,10 +31,10 @@ export class AdminCoursesComponent implements OnInit {
     })
   }
   CreateBlog() {
-    this.router.navigate(['admin/course', "create"])
+    this.router.navigate(['admin/courses', "create"])
   }
   editBlog(id: string) {
-    this.router.navigate(['admin/course', id])
+    this.router.navigate(['admin/courses', id])
   }
   confirm(event: any, id:string) {
     this.confirmationService.confirm({

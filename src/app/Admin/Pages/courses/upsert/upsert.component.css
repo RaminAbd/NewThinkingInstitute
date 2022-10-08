@@ -180,17 +180,29 @@
   font-family: 'DejaVu Sans';
 }
 @media screen and (min-width: 1440px) {
+  .blog-form{
+    width:1000px;
+  }
   .title, .description, .details {
     justify-content: start;
   }
-  .title .item, .description .item, .details .author,  .image, .details .date {
+  .title .item, .description .item, .details .author,  .image, .details .date , .details .startDate, .details .endDate, .details .status{
     width: 320px;
     margin-right: 20px;
+  }
+  .details .endDate{
+    margin: 0;
   }
   .button button{
     width:320px;
   }
   .title .item:last-child, .description .item:last-child  {
     margin-right: 0;
+  }
+
+}
+@media screen and (max-width: 1100px) {
+  .blog-form{
+    width:750px;
   }
 }

@@ -80,6 +80,7 @@
 }
 .image{
   width: 32%;
+  position: relative;
 }
 .image .form_file-select{
   display:block;
@@ -130,6 +131,9 @@
   opacity:0;
   filter:alpha(opacity=0);
 }
+.button{
+  margin-top: 25px;
+}
 .button button{
   width: 32%;
     height: 50px;
@@ -146,6 +150,9 @@
     margin-top: 25px;
 }
 @media screen and (min-width: 1440px) {
+  .blog-form{
+    width:1040px;
+  }
   .title, .description, .details {
     justify-content: start;
   }

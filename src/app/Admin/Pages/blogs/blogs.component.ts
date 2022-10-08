@@ -28,15 +28,17 @@ export class AdminBlogsComponent implements OnInit {
     this.primengConfig.ripple = true;
   }
   CreateBlog() {
-    this.router.navigate(['admin/blog', "create"])
+    this.router.navigate(['admin/blogs', "create"])
   }
   getAll() {
     this.service.GetAll().subscribe(resp => {
+      console.log(resp.data);
+
       this.Blogs = resp.data
     })
   }
   editBlog(id: string) {
-    this.router.navigate(['admin/blog', id])
+    this.router.navigate(['admin/blogs', id])
   }
 
   confirm(event: any, id:string) {
