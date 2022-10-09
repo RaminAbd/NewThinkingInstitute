@@ -34,10 +34,14 @@ body{
 .p-carousel .p-carousel-content .p-carousel-prev, .p-carousel .p-carousel-content .p-carousel-next{
   display: none !important;
 }
+/* }
+
 .p-carousel-content{
   z-index: -1 !important;
 }
-.sb-icon{
+ */
+
+.sb-icon {
   width: 36px !important;
   height: 36px !important;
   color: #000;
