@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NewsService } from '../../Services/news.service';
 import { BlogService } from '../../Services/blog.service';
+import { News } from '../../Models/News';
 
 @Component({
   selector: 'app-main',
@@ -45,7 +46,7 @@ export class MainComponent implements OnInit {
         numScroll: 1
     }
 ];
-
+  slideNews:any = new News();
   ngOnInit(): void {
     this.getAllNews()
   }
@@ -53,6 +54,8 @@ export class MainComponent implements OnInit {
   getAllNews(){
     this.newsService.GetAll().subscribe(resp=>{
       console.log(resp.data);
+      this.slideNews = resp.data.filter((word:any) => word.isForSlider === true);
+      console.log(this.slideNews);
 
     })
   }

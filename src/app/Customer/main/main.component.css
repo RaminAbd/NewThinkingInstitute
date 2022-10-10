@@ -5,6 +5,16 @@
   margin-bottom: 10px;
 }
 
+h3{
+  font-family: 'Helvetica';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  color: #000000;
+  margin-bottom: 30px;
+}
+
 .main-news .main-news-list,
 .main-activity .main-activity-list {
   display: flex;

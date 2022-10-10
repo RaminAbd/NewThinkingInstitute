@@ -47,7 +47,7 @@
   width: 190px;
   /* border:1px solid #fff; */
   height:50px;
-  line-height: 50px;
+  line-height: 42px;
   text-align: center;
   float: left;
   color: #fff;
@@ -65,7 +65,7 @@
   background:#fff;
   min-width: 220px !important;
   color: #000 ;
-  height:50px;
+  height:42px;
 }
 .header-wrapper .blocks .page-links ul li ul li a{
   color: #000 ;

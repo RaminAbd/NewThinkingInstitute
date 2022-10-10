@@ -1,19 +1,21 @@
 <div class="main-wrapper">
   <div class="news-carousel">
-    <p-carousel [value]="news" [autoplayInterval]="8000" [circular]="true">
+    <div class="line"></div>
+    <h3>სიახლეები</h3>
+    <p-carousel [value]="slideNews" [autoplayInterval]="8000" [circular]="true">
       <!-- <ng-template pTemplate="header">
           <h5>Vertical</h5>
       </ng-template> -->
       <ng-template let-car pTemplate="item">
         <div class="banner-item">
           <div class="text">
-            <h4>{{car.header}}</h4>
+            <h4>{{car.title}}</h4>
             <p class="description">{{car.description}}</p>
             <div class="details">
               <div class="date">
-                <p>{{car.date}}</p>
+                <p>{{car.createdAt | date }}</p>
               </div>
-              <a href="https:/google.com" target="_blank" style="z-index:11111111;text-decoration:none;">
+              <a href="news-detail/{{car.id}}" target="_blank" style="z-index:11111111;text-decoration:none;">
                 <div class="link-to-detail">
                   <p>სრულად</p>
                   <i class="pi pi-arrow-right"></i>
@@ -23,7 +25,7 @@
             </div>
           </div>
           <div class="image">
-            <img src="{{car.imageUrl}}" alt="">
+            <img src="{{car.image}}" alt="">
           </div>
 
         </div>
@@ -34,8 +36,7 @@
     <app-short-news></app-short-news>
   </div>
   <div class="main-activity">
-    <div class="line"></div>
-    <h3>საქმიანობა</h3>
+
     <div class="main-activity-list">
       <div class="main-activity-item">
         <div class="circle">
