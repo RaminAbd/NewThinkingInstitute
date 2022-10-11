@@ -3,50 +3,13 @@
   <h3 class="page-header">დონორები და პარტნიორები</h3>
   <div class="content">
     <div class="list">
-      <div class="item">
-        <div class="image">
-          <img src="assets/images/donors.png" alt="">
-        </div>
-      </div>
-      <div class="item">
-        <div class="image">
-          <img src="assets/images/donors.png" alt="">
-        </div>
-      </div>
-      <div class="item">
-        <div class="image">
-          <img src="assets/images/donors.png" alt="">
-        </div>
-      </div>
-      <div class="item">
-        <div class="image">
-          <img src="assets/images/donors.png" alt="">
-        </div>
-      </div>
-      <div class="item">
-        <div class="image">
-          <img src="assets/images/donors.png" alt="">
-        </div>
-      </div>
-      <div class="item">
-        <div class="image">
-          <img src="assets/images/donors.png" alt="">
-        </div>
-      </div>
-      <div class="item">
-        <div class="image">
-          <img src="assets/images/donors.png" alt="">
-        </div>
-      </div>
-      <div class="item">
-        <div class="image">
-          <img src="assets/images/donors.png" alt="">
-        </div>
-      </div>
-      <div class="item">
-        <div class="image">
-          <img src="assets/images/donors.png" alt="">
-        </div>
+      <div class="item" *ngFor="let item of Partners">
+        <a target="_blank" href="{{item.url}}">
+          <div class="image">
+            <img src="{{item.photo}}" alt="">
+          </div>
+        </a>
+
       </div>
     </div>
   </div>

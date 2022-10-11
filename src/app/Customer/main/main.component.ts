@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { NewsService } from '../../Services/news.service';
 import { BlogService } from '../../Services/blog.service';
 import { News } from '../../Models/News';
+import { Blog } from '../../Models/Blog';
+import { CustomerRequest } from '../../Models/CustomerRequest';
+import { CustomerRequestService } from '../../Services/customer-request.service';
 
 @Component({
   selector: 'app-main',
@@ -9,53 +12,51 @@ import { News } from '../../Models/News';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
+  shortBlogs:any[]=[];
+  shortNews:any[]=[];
+  slideNews:any[]=[];
+  CustomerRequest:CustomerRequest = new CustomerRequest();
+  constructor(private newsService: NewsService, private blogsService: BlogService, private customerService:CustomerRequestService) { }
 
-  constructor(private newsService: NewsService, private blogsService: BlogService) { }
-  news = [{
-    'header':"შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს",
-    'description':"შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპოგრაფიული ნაწარმის მქმნელებს, რეალურთან მაქსიმალურად შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპოგრაფიული ნაწარმის მქმნელებს, რეალურთან მაქსიმალურად",
-    'imageUrl': 'assets/images/banner.png',
-    'date': '28 Aug, 2022'
-  },
-  {
-    'header':"შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს",
-    'description':"შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპოგრაფიული ნაწარმის მქმნელებს, რეალურთან მაქსიმალურად შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპოგრაფიული ნაწარმის მქმნელებს, რეალურთან მაქსიმალურად",
-    'imageUrl': 'assets/images/banner.png',
-    'date': '28 Aug, 2022'
-  },
-  {
-    'header':"შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს",
-    'description':"შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპოგრაფიული ნაწარმის მქმნელებს, რეალურთან მაქსიმალურად შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპოგრაფიული ნაწარმის მქმნელებს, რეალურთან მაქსიმალურად",
-    'imageUrl': 'assets/images/banner.png',
-    'date': '28 Aug, 2022'
-  }]
-  responsiveOptions = [
-    {
-        breakpoint: '1024px',
-        numVisible: 3,
-        numScroll: 3
-    },
-    {
-        breakpoint: '768px',
-        numVisible: 2,
-        numScroll: 2
-    },
-    {
-        breakpoint: '560px',
-        numVisible: 1,
-        numScroll: 1
-    }
-];
-  slideNews:any = new News();
   ngOnInit(): void {
     this.getAllNews()
+    this.getAllBlogs();
   }
 
   getAllNews(){
+    this.shortNews = [];
     this.newsService.GetAll().subscribe(resp=>{
-      console.log(resp.data);
       this.slideNews = resp.data.filter((word:any) => word.isForSlider === true);
-      console.log(this.slideNews);
+      var filteredShortNews = resp.data.sort((a:any,b:any)=>{
+        return b.createdAt - a.createdAt;
+      });
+      for(let i = 0;i < 3; i++){
+        this.shortNews.push(filteredShortNews[i]);
+      }
+    })
+  }
+
+  getAllBlogs(){
+    this.blogsService.GetAll().subscribe(resp=>{
+      console.log(resp.data);
+      var filtered = resp.data.sort((a:any,b:any)=>{
+        return b.createdAt - a.createdAt;
+      });
+      for(let i = 0;i < 3; i++){
+        this.shortBlogs.push(filtered[i]);
+      }
+      console.log(this.shortBlogs);
+
+    })
+  }
+  clearInputs(){
+    this.CustomerRequest.fullName = '';
+    this.CustomerRequest.email = '';
+  }
+  Send(){
+    console.log(this.CustomerRequest);
+    this.customerService.CreateRequest(this.CustomerRequest).subscribe(resp=>{
+      console.log(resp.data);
 
     })
   }

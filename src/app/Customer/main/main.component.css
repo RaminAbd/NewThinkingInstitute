@@ -427,3 +427,13 @@ h3{
 .contact-block .cont-label{
   margin-bottom: 5px;
 }
+.main-activity-item a{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+.name-email input[type="text"]:disabled {
+  background: #6e6e6e5c;
+}

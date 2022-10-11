@@ -2,7 +2,8 @@
   <div class="news-carousel">
     <div class="line"></div>
     <h3>სიახლეები</h3>
-    <p-carousel [value]="slideNews" [autoplayInterval]="8000" [circular]="true">
+    <p-carousel *ngIf="slideNews && slideNews.length > 0" [value]="slideNews" [autoplayInterval]="8000"
+      [circular]="true">
       <!-- <ng-template pTemplate="header">
           <h5>Vertical</h5>
       </ng-template> -->
@@ -10,7 +11,10 @@
         <div class="banner-item">
           <div class="text">
             <h4>{{car.title}}</h4>
-            <p class="description">{{car.description}}</p>
+            <p class="description">
+              {{((car.description ) ? (car.description.length > 385 ? car.description.slice(0, 385) + "..." : car.description) : "")}}
+
+            </p>
             <div class="details">
               <div class="date">
                 <p>{{car.createdAt | date }}</p>
@@ -33,75 +37,82 @@
     </p-carousel>
   </div>
   <div class="main-news">
-    <app-short-news></app-short-news>
+    <app-short-news [shortNews]="shortNews"></app-short-news>
   </div>
   <div class="main-activity">
 
     <div class="main-activity-list">
       <div class="main-activity-item">
-        <div class="circle">
-          <img src="assets/images/headphone.svg" alt="">
-        </div>
-        <div class="content">
-          <div class="header">
-            <h4>მომსახურება</h4>
+        <a [routerLink]="['/activity/service']">
+          <div class="circle">
+            <img src="assets/images/headphone.svg" alt="">
           </div>
-          <div class="body">
-            <p>
-              შემთხვევითად გენერირებული ტექსტი
-              დიზაინერებს და ტიპოგრაფიული ნაწარმის
-              მქმნელებს, რეალურთან მაქსიმალურად
-            </p>
+          <div class="content">
+            <div class="header">
+              <h4>მომსახურება</h4>
+            </div>
+            <div class="body">
+              <p>
+                შემთხვევითად გენერირებული ტექსტი
+                დიზაინერებს და ტიპოგრაფიული ნაწარმის
+                მქმნელებს, რეალურთან მაქსიმალურად
+              </p>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
       <div class="main-activity-item">
-        <div class="circle">
-          <img src="assets/images/medal.svg" alt="">
-        </div>
-        <div class="content">
-          <div class="header">
-            <h4>მომსახურება</h4>
+        <a [routerLink]="['/activity/courses']">
+          <div class="circle">
+            <img src="assets/images/medal.svg" alt="">
           </div>
-          <div class="body">
-            <p>
-              შემთხვევითად გენერირებული ტექსტი
-              დიზაინერებს და ტიპოგრაფიული ნაწარმის
-              მქმნელებს, რეალურთან მაქსიმალურად
-            </p>
+          <div class="content">
+            <div class="header">
+              <h4>კურსები</h4>
+            </div>
+            <div class="body">
+              <p>
+                შემთხვევითად გენერირებული ტექსტი
+                დიზაინერებს და ტიპოგრაფიული ნაწარმის
+                მქმნელებს, რეალურთან მაქსიმალურად
+              </p>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
       <div class="main-activity-item">
-        <div class="circle">
-          <img src="assets/images/lightbulb.svg" alt="">
-        </div>
-        <div class="content">
-          <div class="header">
-            <h4>მომსახურება</h4>
+        <a [routerLink]="['/activity/trainings-and-seminars']">
+          <div class="circle">
+            <img src="assets/images/lightbulb.svg" alt="">
           </div>
-          <div class="body">
-            <p>
-              შემთხვევითად გენერირებული ტექსტი
-              დიზაინერებს და ტიპოგრაფიული ნაწარმის
-              მქმნელებს, რეალურთან მაქსიმალურად
-            </p>
+          <div class="content">
+            <div class="header">
+              <h4>ტრენინგ-სემინარები</h4>
+            </div>
+            <div class="body">
+              <p>
+                შემთხვევითად გენერირებული ტექსტი
+                დიზაინერებს და ტიპოგრაფიული ნაწარმის
+                მქმნელებს, რეალურთან მაქსიმალურად
+              </p>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
     </div>
+
   </div>
   <div class="main-news">
     <div class="line"></div>
     <h3>ბლოგები</h3>
     <div class="main-news-list">
-      <div class="main-news-item">
+      <div class="main-news-item" *ngFor="let item of shortBlogs">
         <div class="img">
-          <img src="assets/images/banner.png" alt="">
+          <img src="{{item.image}}" alt="">
         </div>
         <div class="content">
           <div class="header">
-            <h4>შემთხვევითად გენერირებული ტექსტი</h4>
+            <h4>{{((item.title ) ? (item.title.length > 75 ? item.title.slice(0, 75) + "..." : item.title) : "")}}</h4>
           </div>
           <div class="body">
             <div class="author">
@@ -109,80 +120,24 @@
                 <img src="assets/images/author.png" alt="">
               </div>
               <div class="author-name">
-                <p> ასმათ ბეშიძე</p>
+                <p> {{item.author}}</p>
               </div>
             </div>
           </div>
           <div class="details">
             <div class="date">
-              <p>28 Aug, 2022</p>
+              <p>{{item.createdAt | date }}</p>
             </div>
-            <div class="link-to-detail">
-              <p>სრულად</p>
-              <i class="pi pi-arrow-right"></i>
-            </div>
+            <a [routerLink]="['news-detail']"  style="text-decoration:none;">
+              <div class="link-to-detail">
+                <p>სრულად</p>
+                <i class="pi pi-arrow-right"></i>
+              </div>
+            </a>
           </div>
         </div>
       </div>
-      <div class="main-news-item">
-        <div class="img">
-          <img src="assets/images/banner.png" alt="">
-        </div>
-        <div class="content">
-          <div class="header">
-            <h4>შემთხვევითად გენერირებული ტექსტი</h4>
-          </div>
-          <div class="body">
-            <div class="author">
-              <div class="author-img">
-                <img src="assets/images/author.png" alt="">
-              </div>
-              <div class="author-name">
-                <p> ასმათ ბეშიძე</p>
-              </div>
-            </div>
-          </div>
-          <div class="details">
-            <div class="date">
-              <p>28 Aug, 2022</p>
-            </div>
-            <div class="link-to-detail">
-              <p>სრულად</p>
-              <i class="pi pi-arrow-right"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="main-news-item">
-        <div class="img">
-          <img src="assets/images/banner.png" alt="">
-        </div>
-        <div class="content">
-          <div class="header">
-            <h4>შემთხვევითად გენერირებული ტექსტი</h4>
-          </div>
-          <div class="body">
-            <div class="author">
-              <div class="author-img">
-                <img src="assets/images/author.png" alt="">
-              </div>
-              <div class="author-name">
-                <p> ასმათ ბეშიძე</p>
-              </div>
-            </div>
 
-          </div>
-          <div class="details">
-            <div class="date">
-              <p>28 Aug, 2022</p>
-            </div>
-            <div class="link-to-detail">
-              <p>სრულად</p>
-              <i class="pi pi-arrow-right"></i>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
   <div class="main-contact" id="contact">
@@ -196,23 +151,23 @@
         <div class="name-email">
           <div class="name">
             <label for="name">სახელი და გვარი</label>
-            <input type="text" id="name">
+            <input type="text" id="name" [disabled]="CustomerRequest.isAnonymous" [(ngModel)]="CustomerRequest.fullName">
           </div>
           <div class="email">
             <label for="email">E-mail</label>
-            <input type="text" id="email">
+            <input type="text" id="email" [disabled]="CustomerRequest.isAnonymous" [(ngModel)]="CustomerRequest.email">
           </div>
         </div>
         <div class="anonym">
-          <input id="anonym" type="checkbox">
-          <label for="anonym">ანონიმურად გაგზავნა</label>
+          <input id="anonym" type="checkbox" (click)="clearInputs()" [(ngModel)]="CustomerRequest.isAnonymous">
+          <label for="anonym" >ანონიმურად გაგზავნა</label>
         </div>
         <div class="subject">
           <label for="subject">შენიშვნა</label>
-          <textarea name="subject" id="subject" ></textarea>
+          <textarea name="subject" id="subject" [(ngModel)]="CustomerRequest.comment"></textarea>
         </div>
         <div class="button">
-          <button type="submit">გაგზავნა</button>
+          <button type="submit" (click)="Send()">გაგზავნა</button>
         </div>
       </div>
       <div class="contact-info">

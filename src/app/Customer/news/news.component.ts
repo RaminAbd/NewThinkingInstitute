@@ -10,7 +10,7 @@ import { News } from '../../Models/News';
 export class NewsComponent implements OnInit {
 
   constructor(private newsService: NewsService) { }
-  News:News[]=[]
+  News:any[]=[]
   ngOnInit(): void {
     this.getAll()
   }

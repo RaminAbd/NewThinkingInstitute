@@ -7,12 +7,13 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class DetailHeaderComponent implements OnInit {
   @Input() data:any;
-  detailUrl:string;
+  @Input() detailUrl:any;
+  // detailUrl:string;
   constructor() {
   }
 
   ngOnInit(): void {
-    this.detailUrl = `https://localhost:4200/news-detail/${this.data.id}`
+    // this.detailUrl = `https://localhost:4200/news-detail/${this.data.id}`
     console.log(this.detailUrl);
     console.log(this.data);
 

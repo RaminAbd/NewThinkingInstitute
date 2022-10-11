@@ -11,11 +11,17 @@ import { News } from '../../../Models/News';
 export class NewsDetailComponent implements OnInit {
   id:string;
   NewsItem:News = new News()
+  detailUrl:any;
   constructor(private route: ActivatedRoute, private newsService: NewsService) { }
   text:string = "new nesa nesa \n <br> /n nesa";
   ngOnInit(): void {
+    console.log(window.location.origin);
+
     this.id = this.route.snapshot.paramMap.get('id') as string;
     console.log(this.id);
+    this.detailUrl = window.location.origin + "/news-detail/" + this.id;
+    console.log(this.detailUrl);
+
     this.GetNewsdById(this.id)
   }
   GetNewsdById(id:string){
