@@ -1,4 +1,4 @@
-<div class="user" *ngIf="!isAdmin">
+<div class="user" *ngIf="!isAdmin && !isLoginPage" >
   <app-header></app-header>
   <app-social-media></app-social-media>
   <div class="pages">
@@ -9,9 +9,13 @@
 
 
 
-<div class="admin" *ngIf="isAdmin">
+<div class="admin" *ngIf="isAdmin && !isLoginPage">
   <app-sidebar></app-sidebar>
   <div class="admin-pages">
     <router-outlet></router-outlet>
   </div>
+</div>
+
+<div class="login" *ngIf="isLoginPage && !isAdmin">
+    <router-outlet></router-outlet>
 </div>

@@ -1,0 +1,85 @@
+.login-wrapper {
+  height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+}
+.login-form-block{
+
+  width: 460px;
+  height: 483px;
+  left: 490px;
+  top: 220px;
+  background: #FFFFFF;
+  border: 2px solid #081831;
+  border-radius: 10px;
+}
+.logo{
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+}
+.login-form{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+label{
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  color: #1A1A1A;
+  font-family: 'Dejavu Sans';
+}
+.username, .password{
+  display: flex;
+  flex-direction: column;
+}
+.password{
+  margin-top: 15px;
+}
+input{
+  width: 320px;
+    height: 50px;
+    left: 558px;
+    top: 413px;
+    background: #FAFAFA;
+    border: 1px solid #B7C7CC;
+    border-radius: 8px;
+    margin-top: 10px;
+        padding: 0 10px;
+}
+.login-form_checkbox{
+  display: flex;
+    align-items: center;
+    justify-content: start;
+    width: 320px;
+    margin-top: 15px;
+}
+.login-form_checkbox input{
+  width: 15px;
+  height: 15px;
+  margin: 0;
+  margin-right: 10px;
+}
+.button button{
+  width: 319px;
+  height: 50px;
+  left: 560px;
+  top: 599px;
+  background: #081831;
+  border-radius: 8px;
+  font-family: 'DejaVu Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 18px;
+  color: #FFFFFF;
+  margin-top: 15px;
+}

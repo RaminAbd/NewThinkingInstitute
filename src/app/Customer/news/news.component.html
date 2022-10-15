@@ -28,5 +28,9 @@
   </div>
 
 </div>
-
+<div class="pagination">
+  <p *ngIf="Response.hasPrevious">{{Response.currentPage-1}}</p>
+  <p>{{Response.currentPage}}</p>
+  <p *ngIf="Response.hasNext">{{Response.currentPage+1}}</p>
+</div>
 </div>

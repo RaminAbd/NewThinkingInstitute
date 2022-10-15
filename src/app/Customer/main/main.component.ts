@@ -53,11 +53,35 @@ export class MainComponent implements OnInit {
     this.CustomerRequest.fullName = '';
     this.CustomerRequest.email = '';
   }
+  requestMessage={
+    'message':'',
+    'color':''
+  };
+  showCustomerErrorMessage = false;
   Send(){
-    console.log(this.CustomerRequest);
-    this.customerService.CreateRequest(this.CustomerRequest).subscribe(resp=>{
-      console.log(resp.data);
+    if(this.CustomerRequest.comment==='' || this.CustomerRequest.comment === undefined || this.CustomerRequest.comment === null){
+      this.showCustomerErrorMessage = true;
+    }
+    if(!this.CustomerRequest.isAnonymous){
+      if((this.CustomerRequest.fullName ==='' || this.CustomerRequest.fullName === undefined || this.CustomerRequest.fullName === null)
+      || (this.CustomerRequest.email ==='' || this.CustomerRequest.email === undefined || this.CustomerRequest.email === null)){
+        this.showCustomerErrorMessage = true;
+      }
+    }
+    if(!this.showCustomerErrorMessage){
+      console.log(this.CustomerRequest);
+      this.customerService.CreateRequest(this.CustomerRequest).subscribe(resp=>{
+        console.log(resp);
+        if(resp.succeeded){
+          this.requestMessage.message = "Message sent successfully";
+          this.requestMessage.color = "green";
+        }
+        else{
+          this.requestMessage.message = "message not delivered";
+          this.requestMessage.color = "red";
+        }
+      })
+    }
 
-    })
   }
 }

@@ -13,7 +13,8 @@
       <a [routerLink]="['admin/services']" [routerLinkActive]="['active']"><li>მომსახურება</li></a>
       <a [routerLink]="['admin/statuses']" [routerLinkActive]="['active']"><li>სტატუსები</li></a>
       <a [routerLink]="['admin/partners']" [routerLinkActive]="['active']"><li>პარტნიორები</li></a>
-      <a href=""><li>გასვლა</li></a>
+      <a [routerLink]="['admin/requests']" [routerLinkActive]="['active']"><li>Requests</li></a>
+      <a (click)="logout()"><li>გასვლა</li></a>
     </ul>
   </div>
 </div>

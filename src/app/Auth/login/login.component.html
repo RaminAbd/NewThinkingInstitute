@@ -1,0 +1,26 @@
+<div class="login-wrapper">
+  <div class="login-form-block">
+    <div class="logo">
+      <img src="assets/images/logo2.svg" alt="">
+    </div>
+    <div class="form">
+      <form class="login-form" [formGroup]="loginForm">
+        <div class="username">
+          <label for="userName">User Name</label>
+          <input type="text" id="userName" name="userName" formControlName="userName">
+        </div>
+        <div class="password">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" formControlName="password">
+        </div>
+        <div class="login-form_checkbox">
+          <input type="checkbox" formControlName="rememberMe" name="rememberMe" id="rememberMe">
+          <label for="rememberMe"><span></span> Məni xatırla</label>
+        </div>
+        <div class="button">
+          <button type="submit" (click)="login()">Sign In</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

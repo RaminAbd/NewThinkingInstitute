@@ -13,8 +13,13 @@ export class CustomerRequestService extends BaseService {
   CreateRequest(object: CustomerRequest) {
     return this.post('CustomerRequests/CreateRequest/', object);
   }
-  GetAllWithPaging(object:any){
-    return this.get('CustomerRequests/GetAllWithPaging/', null, object);
+  GetAllWithPaging(index:number){
+    var obj = {
+      'PageIndex': index,
+      'PageSize':10,
+      'Lang':'ka-Geo'
+    };
+    return this.get('CustomerRequests/GetAllWithPaging/', null, obj);
   }
   GetById(id:string){
     return this.get('CustomerRequests/GetById/', id, null)

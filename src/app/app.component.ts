@@ -10,17 +10,30 @@ import { Carousel } from 'primeng/carousel';
 })
 export class AppComponent {
   isAdmin: boolean = false;
+  isLoginPage: boolean = false
   constructor( public translate: TranslateService,private router:Router){
     this.translate.addLangs(['az-Aze','ka-Geo', 'en-Us']);
     const langExists: boolean = !!localStorage.getItem('systemLanguage');
     this.router.events.subscribe((e) => {
       if (e instanceof NavigationEnd) {
-        if((e.url).split('/')[1]==='admin'){
-          this.isAdmin = true;
+        console.log((e.url).split('/')[1]);
+
+
+        if((e.url).split('/')[1]==='login'){
+          this.isLoginPage = true;
         }
         else{
-          this.isAdmin = false
+          if((e.url).split('/')[1]==='admin'){
+            this.isAdmin = true;
+          }
+          else{
+            this.isAdmin = false
+          }
+          this.isLoginPage = false
         }
+        console.log(this.isAdmin);
+        console.log(this.isLoginPage);
+
       }
     });
     if (!langExists) {

@@ -167,6 +167,8 @@
           <textarea name="subject" id="subject" [(ngModel)]="CustomerRequest.comment"></textarea>
         </div>
         <div class="button">
+          <p class="requestMessage" style="color:red;" *ngIf="showCustomerErrorMessage">fill required Data</p>
+          <p class="requestMessage" [ngStyle]="{'color' : requestMessage.color}">{{requestMessage.message}}</p>
           <button type="submit" (click)="Send()">გაგზავნა</button>
         </div>
       </div>

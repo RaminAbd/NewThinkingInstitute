@@ -41,8 +41,12 @@ import { AdminTrainingsUpsertComponent } from './Admin/Pages/trainings/upsert/up
 import { AdminServiceComponent } from './Admin/Pages/service/service.component';
 import { AdminServiceUpsertComponent } from './Admin/Pages/service/upsert/upsert.component';
 import { AdminPartnersComponent } from './Admin/Pages/partners/partners.component';
+import { AdminRequestsComponent } from './Admin/Pages/requests/requests.component';
+import { LoginComponent } from './Auth/login/login.component';
+import { AuthGuard } from './Auth/auth.guard';
 
 const routes: Routes = [
+  {path: 'login', component: LoginComponent},
   {path: 'main', component: MainComponent},
   {path: "news",component: NewsComponent},
   {path: 'news-detail/:id', component: NewsDetailComponent},
@@ -95,10 +99,11 @@ const routes: Routes = [
   {path: 'contact', component: ContactComponent},
   {path: '', component: MainComponent},
 
-  {path: 'admin', component: AdminComponent, children:[
+  {path: 'admin', component: AdminComponent, canActivate: [AuthGuard], children:[
     {path: 'statuses', component: StatusesComponent},
     {path: 'gallery', component: AdminGalleryComponent},
     {path: 'partners', component: AdminPartnersComponent},
+    {path: 'requests', component: AdminRequestsComponent},
 
     {path: 'news', component: AdminNewsComponent},
     {path: 'news/:id', component: AdminNewsUpsertComponent},
@@ -117,6 +122,7 @@ const routes: Routes = [
 
     {path: 'services', component: AdminServiceComponent},
     {path: 'services/:id', component: AdminServiceUpsertComponent},
+
 
     {
       path: '',

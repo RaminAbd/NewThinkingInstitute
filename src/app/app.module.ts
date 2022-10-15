@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -69,6 +69,10 @@ import { AdminTrainingsUpsertComponent } from './Admin/Pages/trainings/upsert/up
 import { AdminServiceUpsertComponent } from './Admin/Pages/service/upsert/upsert.component';
 import { AdminServiceComponent } from './Admin/Pages/service/service.component';
 import { AdminPartnersComponent } from './Admin/Pages/partners/partners.component';
+import { AdminRequestsComponent } from './Admin/Pages/requests/requests.component';
+import { LoginComponent } from './Auth/login/login.component';
+import { tokenInterceptor } from './Auth/TokenInterceptor';
+import { RefreshTokenInterceptor } from './Auth/RefreshTokenInterceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -119,7 +123,9 @@ import { AdminPartnersComponent } from './Admin/Pages/partners/partners.componen
     AdminServiceUpsertComponent,
     AdminTrainingsComponent,
     AdminTrainingsUpsertComponent,
-    AdminPartnersComponent
+    AdminPartnersComponent,
+    AdminRequestsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -150,7 +156,13 @@ import { AdminPartnersComponent } from './Admin/Pages/partners/partners.componen
 
     })
   ],
-  providers: [ConfirmationService, MessageService],
+  providers: [
+    ConfirmationService,
+    MessageService,
+    {provide: HTTP_INTERCEPTORS, useClass: tokenInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: RefreshTokenInterceptor, multi: true}
+  ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -37,4 +37,12 @@ export class NewsService extends BaseService{
   Create(obj:any){
     return this.post('News/Create', obj)
   }
+  GetAllWithPaging(index:number){
+    var obj = {
+      'PageIndex': index,
+      'PageSize':1,
+      'Lang':this.currentLang
+    };
+    return this.get('News/GetAllWithPaging/', null, obj);
+  }
 }
