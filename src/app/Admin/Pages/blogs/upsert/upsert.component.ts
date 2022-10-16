@@ -19,7 +19,9 @@ export class AdminBlogUpsertComponent implements OnInit {
   id: any;
   BlogForm: Blog = new Blog();
   fileLoading: boolean = false;
+  authorFileLoading: boolean = false;
   file: any;
+  authorFile:any;
   createdAt: any;
   validateResponse: ServiceResponse = new ServiceResponse();
   constructor(
@@ -31,6 +33,7 @@ export class AdminBlogUpsertComponent implements OnInit {
   ) { this.id = this.route.snapshot.paramMap.get('id'); }
 
   ngOnInit(): void {
+    this.getPhotoForm()
     if (this.id === "create") {
       this.getForm();
       this.createdAt = FormatDate.format(new Date())
@@ -42,6 +45,8 @@ export class AdminBlogUpsertComponent implements OnInit {
 
   getForm() {
     this.service.GetForm().subscribe(resp => {
+      console.log(resp.data, "blog form");
+
       this.BlogForm = resp.data;
     })
   }
@@ -64,12 +69,30 @@ export class AdminBlogUpsertComponent implements OnInit {
       this.file = resp.data;
     });
   }
-
+  chooseFileForAuthor(event: any) {
+    this.authorFileLoading = true;
+    const file = event.target.files[0];
+    const fd = new FormData();
+    fd.append('file', file);
+    this.fileService.Create(fd).subscribe((resp: any) => {
+      this.BlogForm.authorImage = resp.data;
+      this.authorFileLoading = false;
+      this.authorFile = resp.data;
+    });
+  }
+  deleteAddedAuthorImage() {
+    this.BlogForm.authorImage = null;
+    this.authorFile = null;
+  }
   deleteAddedImage() {
     this.BlogForm.image = null;
     this.file = null;
   }
-
+  getPhotoForm(){
+    this.galeryService.GetForm().subscribe(resp=>{
+      console.log(resp, "photo form");
+    })
+  }
   handleForm() {
     this.validateResponse = Validation.validateForm(this.BlogForm, "blog");
     console.log(this.validateResponse);
@@ -80,12 +103,15 @@ export class AdminBlogUpsertComponent implements OnInit {
         console.log(this.BlogForm);
 
         var photoObj: Photo = new Photo();
+        photoObj.id = this.BlogForm.id;
+        photoObj.title = this.BlogForm.title;
+        photoObj.description = this.BlogForm.description;
+        photoObj.photo = this.BlogForm.image;
+        console.log(photoObj);
+
         this.service.Create(this.BlogForm).subscribe(resp=>{
           if(resp.succeeded === true){
-            photoObj.id = this.BlogForm.id;
-            photoObj.title = this.BlogForm.title;
-            photoObj.description = this.BlogForm.description;
-            photoObj.photo = this.BlogForm.image;
+
             this.router.navigate(['admin/blogs'])
             this.galeryService.Create(photoObj).subscribe(resp1 => { })
           }

@@ -8,11 +8,20 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./short-news.component.css']
 })
 export class ShortNewsComponent implements OnInit {
-  @Input() shortNews:any[]=[];
+  shortNews: any[] = []
   constructor(private newsService: NewsService) { }
 
   ngOnInit(): void {
-
+    this.getAll();
   }
-
+  getAll() {
+    this.newsService.GetAll().subscribe(resp => {
+      var filteredShortNews = resp.data.sort((a:any,b:any)=>{
+        return b.createdAt - a.createdAt;
+      });
+      for (let i = 0; i < 3; i++) {
+        this.shortNews.push(filteredShortNews[i])
+      }
+    })
+  }
 }

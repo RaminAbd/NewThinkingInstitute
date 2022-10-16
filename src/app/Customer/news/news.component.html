@@ -1,36 +1,34 @@
 <div class="news-wrapper">
   <div class="line"></div>
-<h3>სიახლეები</h3>
-<div class="main-news-list">
-  <div class="main-news-item" *ngFor="let item of News">
-    <div class="img">
-      <img src="{{item.image}}" alt="">
-    </div>
-    <div class="content">
-      <div class="header">
-        <h4>{{((item.title ) ? (item.title.length > 75 ? item.title.slice(0, 75) + "..." : item.title) : "")}}</h4>
+  <h3>სიახლეები</h3>
+  <div class="main-news-list">
+    <div class="main-news-item" *ngFor="let item of News">
+      <div class="img">
+        <img *ngIf="item.videoURL !== null && item.videoURL !== '' " src="assets/images/videoImage.png" alt="">
+        <img *ngIf="item.videoURL === null || item.videoURL === '' " src="{{item.image}}" alt="">
       </div>
-      <div class="body">
-        <p>{{((item.description ) ? (item.description.length > 95 ? item.description.slice(0, 95) + "..." : item.description) : "")}}
-      </div>
-      <div class="details">
-        <div class="date">
-          <p>{{item.createdAt | date}}</p>
+      <div class="content">
+        <div class="header">
+          <h4>{{((item.title ) ? (item.title.length > 75 ? item.title.slice(0, 75) + "..." : item.title) : "")}}</h4>
         </div>
-        <a [routerLink]="['/news-detail', item.id]"  style="text-decoration:none;">
-        <div class="link-to-detail">
-          <p>სრულად</p>
-          <i class="pi pi-arrow-right"></i>
+        <div class="body">
+          <p>
+            {{((item.description ) ? (item.description.length > 95 ? item.description.slice(0, 95) + "..." : item.description) : "")}}
         </div>
-        </a>
+        <div class="details">
+          <div class="date">
+            <p>{{item.createdAt | date}}</p>
+          </div>
+          <a [routerLink]="['/news-detail', item.id]" style="text-decoration:none;">
+            <div class="link-to-detail">
+              <p>სრულად</p>
+              <i class="pi pi-arrow-right"></i>
+            </div>
+          </a>
+        </div>
       </div>
     </div>
-  </div>
 
-</div>
-<div class="pagination">
-  <p *ngIf="Response.hasPrevious">{{Response.currentPage-1}}</p>
-  <p>{{Response.currentPage}}</p>
-  <p *ngIf="Response.hasNext">{{Response.currentPage+1}}</p>
-</div>
+  </div>
+  <app-pagination [Response]="Response" (Changes)="GetAllWithPaging($event)"></app-pagination>
 </div>

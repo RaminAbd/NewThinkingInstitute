@@ -26,7 +26,7 @@ body{
   width: 12px !important;
     height: 12px !important;
     border-radius: 100% !important;
-    background:#fff !important;
+    background:#c9c9c9 !important;
 }
 .p-carousel .p-carousel-indicators .p-carousel-indicator.p-highlight button{
   background: #CC3D2B !important;

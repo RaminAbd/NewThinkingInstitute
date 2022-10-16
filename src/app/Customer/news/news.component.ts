@@ -14,19 +14,14 @@ export class NewsComponent implements OnInit {
   constructor(private newsService: NewsService) { }
   News:any[]=[]
   ngOnInit(): void {
-    this.getAll()
     this.GetAllWithPaging(1);
   }
-  getAll(){
-    this.newsService.GetAll().subscribe(resp=>{
-      console.log(resp.data);
-      this.News = resp.data;
-    })
-  }
-  GetAllWithPaging(index:number){
+  GetAllWithPaging(index:any){
     this.newsService.GetAllWithPaging(index).subscribe(resp=>{
-      console.log(resp);
       this.Response = resp.data;
+      this.News = resp.data.items;
+      console.log(resp.data.items);
+
     })
   }
 }

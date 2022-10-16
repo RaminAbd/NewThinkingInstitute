@@ -44,6 +44,8 @@ import { AdminPartnersComponent } from './Admin/Pages/partners/partners.componen
 import { AdminRequestsComponent } from './Admin/Pages/requests/requests.component';
 import { LoginComponent } from './Auth/login/login.component';
 import { AuthGuard } from './Auth/auth.guard';
+import { AdminTeamUpsertComponent } from './Admin/Pages/team/upsert/upsert.component';
+import { AdminTeamComponent } from './Admin/Pages/team/team.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -64,10 +66,10 @@ const routes: Routes = [
   {path: 'activity', component: ActivityComponent, children: [
     { path: "courses",component: CoursesComponent},
     { path: "projects",component: ProjectsComponent},
-    { path: "projects-detail",component: ProjectsDetailComponent},
+    { path: "projects/:id",component: ProjectsDetailComponent},
     { path: "service",component: ServiceComponent},
     { path: "trainings-and-seminars",component:TrainingsAndSeminarsComponent},
-    { path: "detail-info",component: DetailInfoComponent},
+    { path: ":type/detail/:id",component: DetailInfoComponent},
     {
       path: '',
       redirectTo: 'projects',
@@ -123,7 +125,8 @@ const routes: Routes = [
     {path: 'services', component: AdminServiceComponent},
     {path: 'services/:id', component: AdminServiceUpsertComponent},
 
-
+    {path: 'team', component: AdminTeamComponent},
+    {path: 'team/:id', component: AdminTeamUpsertComponent},
     {
       path: '',
       redirectTo: 'news',

@@ -27,13 +27,13 @@ export class TrainingsService extends BaseService{
   Update(blogObject:any){
     return this.post('Training/Update',blogObject);
   }
-  GetBlogById(id:string){
+  GetById(id:string){
 
     var obj = {
       'Id' : id,
       'Lang' : this.currentLang
     }
-    return this.get('Training/GetCourseById', null, obj);
+    return this.get('Training/GetTrainingById/', null, obj);
   }
   Create(obj:any){
     return this.post('Training/Create', obj)

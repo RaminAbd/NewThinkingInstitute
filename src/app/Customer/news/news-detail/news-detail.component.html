@@ -1,13 +1,18 @@
 <div class="news-detail-wrapper">
   <app-detail-header [data]="NewsItem" [detailUrl]="detailUrl"></app-detail-header>
   <div class="image">
-    <img src="{{NewsItem.image}}" alt="">
+    <img *ngIf="NewsItem.videoURL === null || NewsItem.videoURL === '' " src="{{NewsItem.image}}" alt="">
+    <iframe *ngIf="NewsItem.videoURL !== null && NewsItem.videoURL !== '' " width="100%" height="290" [src]="NewsItem.videoURL" title="YouTube video player" frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen></iframe>
   </div>
   <div class="description" style="white-space: pre-line">
     <p>
       {{NewsItem.description}}
     </p>
   </div>
+  <div class="line"></div>
+  <h3>სიახლეები</h3>
   <app-short-news></app-short-news>
 </div>
 <!-- <div style="width: 500px;white-space: pre-line">{{text}}</div>

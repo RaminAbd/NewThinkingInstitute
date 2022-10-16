@@ -5,5 +5,6 @@ export class Blog {
   description: MultiLingual;
   createdAt: Date;
   image?: any;
+  authorImage?:any;
   author: string;
 }

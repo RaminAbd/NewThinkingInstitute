@@ -26,19 +26,27 @@ export class MainComponent implements OnInit {
   getAllNews(){
     this.shortNews = [];
     this.newsService.GetAll().subscribe(resp=>{
-      this.slideNews = resp.data.filter((word:any) => word.isForSlider === true);
+      var slide = resp.data.filter((word:any) => word.isForSlider === true);
       var filteredShortNews = resp.data.sort((a:any,b:any)=>{
         return b.createdAt - a.createdAt;
       });
       for(let i = 0;i < 3; i++){
-        this.shortNews.push(filteredShortNews[i]);
+        if(slide[i] !== undefined && (slide[i].videoURL === null || slide[i].videoURL === '')){
+          this.slideNews.push(slide[i]);
+        }
+        if(filteredShortNews[i] !== undefined){
+          this.shortNews.push(filteredShortNews[i]);
+        }
+
       }
+      console.log(this.slideNews);
+
     })
   }
 
   getAllBlogs(){
     this.blogsService.GetAll().subscribe(resp=>{
-      console.log(resp.data);
+      console.log(resp);
       var filtered = resp.data.sort((a:any,b:any)=>{
         return b.createdAt - a.createdAt;
       });
@@ -62,10 +70,16 @@ export class MainComponent implements OnInit {
     if(this.CustomerRequest.comment==='' || this.CustomerRequest.comment === undefined || this.CustomerRequest.comment === null){
       this.showCustomerErrorMessage = true;
     }
+    else{
+      this.showCustomerErrorMessage = false;
+    }
     if(!this.CustomerRequest.isAnonymous){
       if((this.CustomerRequest.fullName ==='' || this.CustomerRequest.fullName === undefined || this.CustomerRequest.fullName === null)
       || (this.CustomerRequest.email ==='' || this.CustomerRequest.email === undefined || this.CustomerRequest.email === null)){
         this.showCustomerErrorMessage = true;
+      }
+      else{
+        this.showCustomerErrorMessage = false;
       }
     }
     if(!this.showCustomerErrorMessage){

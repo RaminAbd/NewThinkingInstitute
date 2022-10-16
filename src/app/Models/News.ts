@@ -4,7 +4,7 @@ export class News{
   title: MultiLingual;
   description: MultiLingual;
   image?: any;
-  createdAt: Date;
+  createdAt: any;
   isForSlider: boolean;
   videoURL?:string;
 }

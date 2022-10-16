@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TeamService } from '../../../Services/team.service';
 
 @Component({
   selector: 'app-team',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./team.component.css']
 })
 export class TeamComponent implements OnInit {
-
-  constructor() { }
+  Founders:any[]=[];
+  Workers:any[]=[];
+  constructor(private service: TeamService) { }
 
   ngOnInit(): void {
+    this.getAll();
   }
-
+  getAll(){
+    this.service.GetAll().subscribe(resp=>{
+      this.Founders = resp.data.filter((word:any) => word.isFounder === true);
+      this.Workers = resp.data.filter((word:any) => word.isFounder === false);
+    })
+  }
 }

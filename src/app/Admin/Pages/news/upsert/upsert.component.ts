@@ -78,6 +78,8 @@ export class AdminNewsUpsertComponent implements OnInit {
       if (this.id === "create") {
         var photoObj: Photo = new Photo();
         this.NewsForm.id = "create";
+        console.log(this.NewsForm);
+
         this.service.Create(this.NewsForm).subscribe(resp => {
           if (resp.succeeded === true) {
             photoObj.id = this.NewsForm.id;
@@ -96,6 +98,8 @@ export class AdminNewsUpsertComponent implements OnInit {
           })
       }
       else {
+        console.log(this.NewsForm);
+
         this.service.Update(this.NewsForm).subscribe(resp => {
           if (resp.succeeded === true) {
             this.router.navigate(['admin/news'])

@@ -26,7 +26,7 @@ export class NewsService extends BaseService{
   Update(blogObject:any){
     return this.post('News/Update',blogObject);
   }
-  GetNewsdById(id:string){
+  GetNewsById(id:string){
 
     var obj = {
       'Id' : id,
@@ -40,7 +40,7 @@ export class NewsService extends BaseService{
   GetAllWithPaging(index:number){
     var obj = {
       'PageIndex': index,
-      'PageSize':1,
+      'PageSize':9,
       'Lang':this.currentLang
     };
     return this.get('News/GetAllWithPaging/', null, obj);

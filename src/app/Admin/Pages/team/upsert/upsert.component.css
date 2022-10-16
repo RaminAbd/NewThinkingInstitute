@@ -24,7 +24,7 @@
 .calendar{
   width: 100% !important;
 }
-.title .item input,  .author input{
+.title .item input, .details .author input{
   height: 50px;
   left: 342px;
   top: 169px;
@@ -44,13 +44,13 @@
   justify-content: space-between;
 }
 
-.description .item,  .author{
+.description .item, .details .author{
   display: flex;
   flex-direction: column;
   width: 32%;
 }
 
-.description .item label, .author label {
+.description .item label, .details .author label {
   font-family: 'DejaVu Sans';
   font-style: normal;
   font-weight: 400;
@@ -76,11 +76,11 @@
 .details{
   display: flex;
   align-items: end;
-  justify-content: start;margin-top: 25px;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 .image{
   width: 32%;
-  position: relative;
 }
 .image .form_file-select{
   display:block;
@@ -119,10 +119,7 @@
   display:inline-block;
   margin-left: 16px;
 }
-.author-details{
-  display: flex;
-  align-items: end;
-}
+
 .image .form_file-select input[type=file]{
   z-index:100;
   cursor:pointer;
@@ -133,9 +130,6 @@
   left:0;
   opacity:0;
   filter:alpha(opacity=0);
-}
-.button{
-  margin-top: 25px;
 }
 .button button{
   width: 32%;
@@ -152,14 +146,51 @@
     color: #FFFFFF;
     margin-top: 25px;
 }
+
+
+.startDate, .details .endDate{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 32%;
+}
+.details label{
+  margin-top: 25px;
+}
+.title .item label, .date label, .details label, .author label {
+  font-family: 'DejaVu Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  color: #1A1A1A;
+  margin-bottom: 8px;
+}
+.details input{
+  height: 50px;
+  left: 342px;
+  top: 169px;
+  background: #FAFAFA;
+  border: 1px solid #B7C7CC;
+  border-radius: 8px;
+  width: 100%;
+
+  padding: 0 15px;
+  outline: none;
+  font-family: 'DejaVu Sans';
+}
+.author{
+  display: flex;
+    align-items: center;
+}
+.author label{
+  margin-right: 15px;
+}
 @media screen and (min-width: 1440px) {
-  .blog-form{
-    width:1040px;
-  }
   .title, .description, .details {
     justify-content: start;
   }
-  .title .item, .description .item,  .author,  .image, .details .date {
+  .title .item, .description .item, .details .author,  .image, .details .date {
     width: 320px;
     margin-right: 20px;
   }

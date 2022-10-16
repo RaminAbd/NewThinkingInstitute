@@ -1,17 +1,10 @@
 <h2>{{data.title}}</h2>
   <div class="date">
-    <p>{{data.createdAt}}</p>
+    <p>{{data.createdAt | date}}</p>
   </div>
   <div class="header-line"></div>
   <div class="detail-soc">
     <p>გაზიარება</p>
-    <!-- <div class="soc">
-      <div><i class="pi pi-youtube"></i></div>
-      <div><i class="pi pi-facebook"></i></div>
-      <div><i class="pi pi-instagram"></i></div>
-      <div><img src="assets/images/chain.svg" alt=""></div>
-    </div> -->
-
     <share-buttons theme="circles-dark"
     [include]="['facebook', 'messenger', 'whatsapp','copy']"
     [showIcon]="true"

@@ -2,53 +2,24 @@
   <div class="line"></div>
   <h3 class="page-header">პროექტები</h3>
   <div class="content">
-    <div class="project-item">
-      <div class="image">
-        <img src="assets/images/projectLogo1.png" alt="">
-      </div>
-      <div class="header">
-        <h4>ნამახვანის ჰესების კასკადის პროექტის
-          გარშემო გარიგების, კორუფციისა და
-          ინტერესთა კონფლიქტის საქმეები</h4>
-      </div>
-      <div class="duration">
-        <p>ხანგრძლივობა: 2021-2022 წელი</p>
-      </div>
-      <div class="status">
-        <p>სტატუსი: დასრულებული</p>
-      </div>
+    <div class="project-item" *ngFor="let item of Projects">
+      <a [routerLink]="['/activity/projects', item.id]" style="height: 100%;width: 100%;text-decoration: none; cursor: pointer;">
+        <div class="image">
+          <img src="{{item.image}}" alt="">
+        </div>
+        <div class="header">
+          <h4>{{item.title}}</h4>
+        </div>
+        <div class="duration">
+          <p>ხანგრძლივობა: {{item.duration}}</p>
+        </div>
+        <div class="status">
+          <p>სტატუსი: {{item.status}}</p>
+        </div>
+      </a>
+
     </div>
-    <div class="project-item">
-      <div class="image">
-        <img src="assets/images/projectLogo2.png" alt="">
-      </div>
-      <div class="header">
-        <h4>ნამახვანის ჰესების კასკადის პროექტის
-          გარშემო გარიგების, კორუფციისა და
-          ინტერესთა კონფლიქტის საქმეები</h4>
-      </div>
-      <div class="duration">
-        <p>ხანგრძლივობა: 2021-2022 წელი</p>
-      </div>
-      <div class="status">
-        <p>სტატუსი: დასრულებული</p>
-      </div>
-    </div>
-    <div class="project-item">
-      <div class="image">
-        <img src="assets/images/projectLogo1.png" alt="">
-      </div>
-      <div class="header">
-        <h4>ნამახვანის ჰესების კასკადის პროექტის
-          გარშემო გარიგების, კორუფციისა და
-          ინტერესთა კონფლიქტის საქმეები</h4>
-      </div>
-      <div class="duration">
-        <p>ხანგრძლივობა: 2021-2022 წელი</p>
-      </div>
-      <div class="status">
-        <p>სტატუსი: დასრულებული</p>
-      </div>
-    </div>
+
   </div>
+  <app-pagination [Response]="Response" (Changes)="GetAllWithPaging($event)"></app-pagination>
 </div>

@@ -7,5 +7,6 @@ export class Project{
   image?: any;
   duration: string;
   isForSlider: boolean;
-  status:ProjectStatus;
+  statusDisplayName:any;
+  statusId:string;
 }

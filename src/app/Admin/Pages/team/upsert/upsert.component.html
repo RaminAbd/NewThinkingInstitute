@@ -1,0 +1,53 @@
+<div class="blog-form">
+  <div class="line"></div>
+  <h3>{{id === 'create' ? "თანამშრომლის შექმნა" : "თანამშრომლის რედაქტირება"}}</h3>
+  <div class="title">
+    <div class="item">
+      <label for="">Full Name</label>
+      <input type="text" [(ngModel)]="TeamItem.fullName">
+    </div>
+    <div class="item">
+      <label for="">Position</label>
+      <input type="text" [(ngModel)]="TeamItem.position">
+    </div>
+    <div class="item">
+      <label for="">Contact Mobile</label>
+      <input type="text" [(ngModel)]="TeamItem.contactMobile">
+    </div>
+  </div>
+  <div class="title">
+    <div class="item">
+      <label for="">Email</label>
+      <input type="text" [(ngModel)]="TeamItem.email">
+    </div>
+    <div class="item">
+      <label for="">Facebook Link</label>
+      <input type="text" [(ngModel)]="TeamItem.facebookLink">
+    </div>
+    <div class="item">
+      <label for="">Address</label>
+      <input type="text" [(ngModel)]="TeamItem.address">
+    </div>
+  </div>
+  <div class="author" style="margin-top:25px;">
+    <label for="">Founder</label>
+    <p-inputSwitch [(ngModel)]="TeamItem.isFounder"></p-inputSwitch>
+  </div>
+  <div class="details">
+    <div class="image" style="position: relative;">
+      <div class="form_file-select">
+        <div class="form_file-select-button" style="display:flex">
+          <p-progressSpinner *ngIf="fileLoading" class="spinner"></p-progressSpinner>Upload Image
+        </div>
+        <input (change)="chooseFile($event)" name="image" type="file" accept="image/*" required>
+      </div>
+      <div class="file" *ngIf="file">
+        <a href="{{file.url}}" target="_blank">{{file.fileName}}</a>
+        <i class="pi pi-trash" (click)="deleteAddedImage()"></i>
+      </div>
+    </div>
+  </div>
+  <div class="button">
+    <button (click)="handleForm()">{{id === "create" ? "Create" : "Update"}}</button>
+  </div>
+</div>

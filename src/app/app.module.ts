@@ -73,6 +73,9 @@ import { AdminRequestsComponent } from './Admin/Pages/requests/requests.componen
 import { LoginComponent } from './Auth/login/login.component';
 import { tokenInterceptor } from './Auth/TokenInterceptor';
 import { RefreshTokenInterceptor } from './Auth/RefreshTokenInterceptor';
+import { PaginationComponent } from './Customer/Components/pagination/pagination.component';
+import { AdminTeamUpsertComponent } from './Admin/Pages/team/upsert/upsert.component';
+import { AdminTeamComponent } from './Admin/Pages/team/team.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -125,7 +128,10 @@ import { RefreshTokenInterceptor } from './Auth/RefreshTokenInterceptor';
     AdminTrainingsUpsertComponent,
     AdminPartnersComponent,
     AdminRequestsComponent,
-    LoginComponent
+    LoginComponent,
+    PaginationComponent,
+    AdminTeamComponent,
+    AdminTeamUpsertComponent
   ],
   imports: [
     BrowserModule,

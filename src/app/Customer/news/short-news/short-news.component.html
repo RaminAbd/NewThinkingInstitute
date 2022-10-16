@@ -2,7 +2,8 @@
 <div class="main-news-list">
   <div class="main-news-item" *ngFor="let item of shortNews">
     <div class="img">
-      <img src="{{item.image}}" alt="">
+      <img *ngIf="item.videoURL !== null && item.videoURL !== '' " src="assets/images/videoImage.png" alt="">
+      <img *ngIf="item.videoURL === null || item.videoURL === '' " src="{{item.image}}" alt="">
     </div>
     <div class="content">
       <div class="header">

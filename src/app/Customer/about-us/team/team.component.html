@@ -5,68 +5,31 @@
   <div class="content">
     <h4>დამფუძნებელთა კრება</h4>
     <div class="list">
-      <div class="item">
+      <div class="item" *ngFor="let item of Founders">
         <div class="image">
           <img src="assets/images/team.png" alt="">
         </div>
         <div class="details">
-          <h5>არიზ დაშდამიროვი - გამგეობის თავმჯდომარე</h5>
-          <p>საკონტაქტო ნომერი: 577 27 80 90</p>
-          <p>ელ-ფოსტა: ariz.dashdemirov@gmail.com</p>
-          <p>ელ-ფოსტა: ariz.dashdemirov@gmail.com</p>
-          <p>მისამართი: მარნეულის მუნიციპალიტეტი სოფ. მოლაოღლი</p>
+          <h5>{{item.fullName}} - {{item.position}}</h5>
+          <p>საკონტაქტო ნომერი: {{item.contactMobile}}</p>
+          <p>ელ-ფოსტა: {{item.email}}</p>
+          <p>Facebook: {{item.facebookLink}} </p>
+          <p>მისამართი: {{item.address}}</p>
         </div>
       </div>
-      <div class="item">
-        <div class="image">
-          <img src="assets/images/team.png" alt="">
-        </div>
-        <div class="details">
-          <h5>არიზ დაშდამიროვი - გამგეობის თავმჯდომარე</h5>
-          <p>საკონტაქტო ნომერი: 577 27 80 90</p>
-          <p>ელ-ფოსტა: ariz.dashdemirov@gmail.com</p>
-          <p>ელ-ფოსტა: ariz.dashdemirov@gmail.com</p>
-          <p>მისამართი: მარნეულის მუნიციპალიტეტი სოფ. მოლაოღლი</p>
-        </div>
-      </div>
-      <div class="item">
-        <div class="image">
-          <img src="assets/images/team.png" alt="">
-        </div>
-        <div class="details">
-          <h5>არიზ დაშდამიროვი - გამგეობის თავმჯდომარე</h5>
-          <p>საკონტაქტო ნომერი: 577 27 80 90</p>
-          <p>ელ-ფოსტა: ariz.dashdemirov@gmail.com</p>
-          <p>ელ-ფოსტა: ariz.dashdemirov@gmail.com</p>
-          <p>მისამართი: მარნეულის მუნიციპალიტეტი სოფ. მოლაოღლი</p>
-        </div>
-      </div>
-      <div class="item">
-        <div class="image">
-          <img src="assets/images/team.png" alt="">
-        </div>
-        <div class="details">
-          <h5>არიზ დაშდამიროვი - გამგეობის თავმჯდომარე</h5>
-          <p>საკონტაქტო ნომერი: 577 27 80 90</p>
-          <p>ელ-ფოსტა: ariz.dashdemirov@gmail.com</p>
-          <p>ელ-ფოსტა: ariz.dashdemirov@gmail.com</p>
-          <p>მისამართი: მარნეულის მუნიციპალიტეტი სოფ. მოლაოღლი</p>
-        </div>
-      </div>
-
     </div>
     <h4>თანამშრომლები</h4>
     <div class="list">
-      <div class="item">
+      <div class="item" *ngFor="let item of Workers">
         <div class="image">
           <img src="assets/images/team.png" alt="">
         </div>
         <div class="details">
-          <h5>არიზ დაშდამიროვი - გამგეობის თავმჯდომარე</h5>
-          <p>საკონტაქტო ნომერი: 577 27 80 90</p>
-          <p>ელ-ფოსტა: ariz.dashdemirov@gmail.com</p>
-          <p>ელ-ფოსტა: ariz.dashdemirov@gmail.com</p>
-          <p>მისამართი: მარნეულის მუნიციპალიტეტი სოფ. მოლაოღლი</p>
+          <h5>{{item.fullName}} - {{item.position}}</h5>
+          <p>საკონტაქტო ნომერი: {{item.contactMobile}}</p>
+          <p>ელ-ფოსტა: {{item.email}}</p>
+          <p>Facebook: {{item.facebookLink}} </p>
+          <p>მისამართი: {{item.address}}</p>
         </div>
       </div>
     </div>

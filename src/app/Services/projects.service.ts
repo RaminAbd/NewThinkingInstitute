@@ -26,7 +26,7 @@ export class ProjectsService extends BaseService{
   Update(blogObject:any){
     return this.post('Project/Update',blogObject);
   }
-  GetNewsdById(id:string){
+  GetProjectById(id:string){
 
     var obj = {
       'Id' : id,
@@ -36,5 +36,13 @@ export class ProjectsService extends BaseService{
   }
   Create(obj:any){
     return this.post('Project/Create', obj)
+  }
+  GetAllWithPaging(index:number){
+    var obj = {
+      'PageIndex': index,
+      'PageSize':9,
+      'Lang':this.currentLang
+    };
+    return this.get('Project/GetAllWithPaging/', null, obj);
   }
 }
