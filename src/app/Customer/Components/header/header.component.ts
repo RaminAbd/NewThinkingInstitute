@@ -9,7 +9,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class HeaderComponent implements OnInit {
   selectedLanguageForUI:string = "";
   showLang:boolean = false;
-
+  active:boolean = false;
   constructor( public translate: TranslateService){
     this.getLanguageIdentifier(this.translate.currentLang)
   }
@@ -43,6 +43,13 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    var links = document.querySelectorAll('ul li ul li');
+    console.log(links);
+    for(let i = 0;i<links.length;i++){
+      links[i].addEventListener('click',()=>{
+        this.active = false
+      })
+    }
   }
 
 }

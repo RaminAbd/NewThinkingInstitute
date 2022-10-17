@@ -10,10 +10,13 @@
       <ng-template let-car pTemplate="item">
         <div class="banner-item">
           <div class="text">
-            <h4>{{car.title}}</h4>
-            <p class="description">
+            <h4 *ngIf="!responsive">{{car.title}}</h4>
+            <h4 *ngIf="responsive"> {{((car.title ) ? (car.title.length > 90 ? car.title.slice(0, 90) + "..." : car.title) : "")}}</h4>
+            <p class="description" *ngIf="!responsive">
               {{((car.description ) ? (car.description.length > 385 ? car.description.slice(0, 385) + "..." : car.description) : "")}}
-
+            </p>
+            <p class="description" *ngIf="responsive">
+              {{((car.description ) ? (car.description.length > 300 ? car.description.slice(0, 300) + "..." : car.description) : "")}}
             </p>
             <div class="details">
               <div class="date">

@@ -5,6 +5,7 @@ import { News } from '../../Models/News';
 import { Blog } from '../../Models/Blog';
 import { CustomerRequest } from '../../Models/CustomerRequest';
 import { CustomerRequestService } from '../../Services/customer-request.service';
+import { Platform } from '@angular/cdk/platform';
 
 @Component({
   selector: 'app-main',
@@ -15,8 +16,17 @@ export class MainComponent implements OnInit {
   shortBlogs:any[]=[];
   shortNews:any[]=[];
   slideNews:any[]=[];
+  responsive:boolean = false;
   CustomerRequest:CustomerRequest = new CustomerRequest();
-  constructor(private newsService: NewsService, private blogsService: BlogService, private customerService:CustomerRequestService) { }
+  constructor(private newsService: NewsService, private blogsService: BlogService, private customerService:CustomerRequestService) {
+      console.log(window.screen.width, "jdslnvklsdnvsdlkvn");
+    if(window.screen.width <  800){
+      this.responsive = true;
+    }else{
+      this.responsive = false;
+    }
+
+   }
 
   ngOnInit(): void {
     this.getAllNews()

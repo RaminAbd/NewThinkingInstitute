@@ -9,7 +9,14 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ShortNewsComponent implements OnInit {
   shortNews: any[] = []
-  constructor(private newsService: NewsService) { }
+  responsive:boolean = false;
+  constructor(private newsService: NewsService) {
+    if(window.screen.width <  800){
+      this.responsive = true;
+    }else{
+      this.responsive = false;
+    }
+   }
 
   ngOnInit(): void {
     this.getAll();

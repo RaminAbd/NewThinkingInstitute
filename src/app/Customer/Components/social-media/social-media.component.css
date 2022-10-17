@@ -1,16 +1,23 @@
-.social-media{
+.social-media {
   position: fixed;
-    width: 54px;
-    height: 162px;
-    right: 0;
-    top: 266px;
-    background: #CC3D2B;
-    border-radius: 8px 0px 0px 8px;
+  width: 54px;
+  height: 162px;
+  right: 0;
+  top: 266px;
+  background: #CC3D2B;
+  border-radius: 8px 0px 0px 8px;
 }
-.social-media .links{
+
+.social-media .links {
   height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+@media screen and (max-width:800px) {
+  .social-media {
+    display: none;
+  }
 }
