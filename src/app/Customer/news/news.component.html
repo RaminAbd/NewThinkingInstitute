@@ -1,11 +1,10 @@
 <div class="news-wrapper">
   <div class="line"></div>
-  <h3>სიახლეები</h3>
+  <h3>{{'News' | translate}}</h3>
   <div class="main-news-list">
     <div class="main-news-item" *ngFor="let item of News">
       <div class="img">
-        <img *ngIf="item.videoURL !== null && item.videoURL !== '' " src="assets/images/videoImage.png" alt="">
-        <img *ngIf="item.videoURL === null || item.videoURL === '' " src="{{item.image}}" alt="">
+        <img src="{{item.image}}" alt="">
       </div>
       <div class="content">
         <div class="header">
@@ -30,5 +29,5 @@
     </div>
 
   </div>
-  <app-pagination [Response]="Response" (Changes)="GetAllWithPaging($event)"></app-pagination>
+  <app-pagination [Response]="Response" (Changes)="GetAllWithPaging($event, lang)"></app-pagination>
 </div>

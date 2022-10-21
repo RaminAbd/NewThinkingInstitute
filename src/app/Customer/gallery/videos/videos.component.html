@@ -1,38 +1,15 @@
 <div class="videos">
   <div class="line"></div>
-  <h3 class="page-header">ვიდეოები</h3>
+  <h3 class="page-header">{{'Videos' | translate}}</h3>
   <div class="content">
-    <div class="video-item">
-      <iframe width="100%" height="290" [src]="displayURL" title="YouTube video player" frameborder="0"
+    <div class="video-item" *ngFor="let video of Videos">
+      <iframe width="100%" height="290" [src]="video.videoURL" title="YouTube video player" frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen></iframe>
       <div class="description">
-        <p>შემთხვევითად გენერირებული ტექსტი</p>
+        <p>{{video.title}}</p>
       </div>
     </div>
-    <div class="video-item">
-      <iframe width="100%" height="290" [src]="displayURL" title="YouTube video player" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
-      <div class="description">
-        <p>შემთხვევითად გენერირებული ტექსტი</p>
-      </div>
-    </div>
-    <div class="video-item">
-      <iframe width="100%" height="290" [src]="displayURL" title="YouTube video player" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
-      <div class="description">
-        <p>შემთხვევითად გენერირებული ტექსტი</p>
-      </div>
-    </div>
-     <div class="video-item">
-      <iframe width="100%" height="290" [src]="displayURL" title="YouTube video player" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
-      <div class="description">
-        <p>შემთხვევითად გენერირებული ტექსტი</p>
-      </div>
-    </div>
+
   </div>
 </div>

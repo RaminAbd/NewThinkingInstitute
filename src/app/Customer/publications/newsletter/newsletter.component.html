@@ -1,42 +1,22 @@
 <div class="studies-wrapper">
   <div class="line"></div>
-  <h3 class="page-header">საინფორმაციო ბიულეტენი</h3>
+  <h3 class="page-header">{{'Research' | translate}}</h3>
   <div class="list">
-    <div class="item">
-      <div class="content">
+    <div class="item" *ngFor="let item of researchItems">
+      <div class="content" style="height: 100%;">
         <div class="head">
-          <h4>სიტუაციის ანალიზი - კოვიდ-პანდემიის გავლენა სექსუალურ და რეპროდუქციულ ჯანმრთელობასთან დაკავშირებულ უფლებებზე მომუშავე ადგილობრივი არასამთავრობო ორგანიზაციების მუშაობაზე</h4>
+          <h4>{{item.title}}</h4>
         </div>
         <div class="date">
-          <p>28 Aug, 2022, 11:35</p>
+          <p>{{item.createdAt}}</p>
         </div>
         <div class="description">
-          <p>კოვიდ-19-ით გამოწვეულმა პანდემიამ და მასთან დაკავშირებულმა შეზღუდვებმა გავლენა იქონია მნიშვნელოვან სერვისებზე წვდომაზე ყველასთვის, განსაკუთრებით, მოწყვლადი და მარგინალიზებული ჯგუფის წარმომადგენელი ქალებისთვის.</p>
+          <p>{{item.description}}</p>
         </div>
-        <div class="pdf">
+
+        <div (click)="GetDocumentation(item.file)" class="pdf" >
           <div class="icon">
-            <img src="assets/images/pdf.svg" alt="">
-          </div>
-          <div class="title">
-            <p>ჩამოწერა</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="item">
-      <div class="content">
-        <div class="head">
-          <h4>სიტუაციის ანალიზი - კოვიდ-პანდემიის გავლენა სექსუალურ და რეპროდუქციულ ჯანმრთელობასთან დაკავშირებულ უფლებებზე მომუშავე ადგილობრივი არასამთავრობო ორგანიზაციების მუშაობაზე</h4>
-        </div>
-        <div class="date">
-          <p>28 Aug, 2022, 11:35</p>
-        </div>
-        <div class="description">
-          <p>კოვიდ-19-ით გამოწვეულმა პანდემიამ და მასთან დაკავშირებულმა შეზღუდვებმა გავლენა იქონია მნიშვნელოვან სერვისებზე წვდომაზე ყველასთვის, განსაკუთრებით, მოწყვლადი და მარგინალიზებული ჯგუფის წარმომადგენელი ქალებისთვის.</p>
-        </div>
-        <div class="pdf">
-          <div class="icon">
-            <img src="assets/images/pdf.svg" alt="">
+            <img src="assets/images/pdfIcon.svg" alt="">
           </div>
           <div class="title">
             <p>ჩამოწერა</p>

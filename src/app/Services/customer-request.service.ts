@@ -15,8 +15,8 @@ export class CustomerRequestService extends BaseService {
   }
   GetAllWithPaging(index:number){
     var obj = {
-      'PageIndex': index,
-      'PageSize':10,
+      'PageIndex': 1,
+      'PageSize':1000,
       'Lang':'ka-Geo'
     };
     return this.get('CustomerRequests/GetAllWithPaging/', null, obj);

@@ -1,0 +1,172 @@
+
+
+.image {
+  height: 439px;
+  width: 100%;
+}
+
+.image img {
+  border-radius: 8px;
+  width: 100%;
+  height: 100%;
+}
+.description{
+  margin: 50px 0;
+}
+.description p {
+  font-family: 'DejaVu Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  color: #000000;
+}
+
+.line {
+  width: 66px;
+  height: 5px;
+  background: #CC3D2B;
+  margin-bottom: 10px;
+}
+
+ .main-news-list{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+h3{
+  font-family: 'Helvetica';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  color: #000000;
+  margin-bottom: 30px;
+}
+
+
+
+.link-to-detail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.link-to-detail p {
+  margin: 0;
+  margin-right: 10px;
+  font-family: 'DejaVu Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 17px;
+  color: #CC3D2B;
+  cursor: pointer;
+}
+
+.link-to-detail i {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 17px;
+  cursor: pointer;
+  color: #CC3D2B;
+}
+
+.date p {
+  margin: 0 !important;
+  font-family: 'DejaVu Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 17px;
+  color: #818181;
+}
+
+
+
+.main-news-item {
+  background: #FFFFFF;
+  box-shadow: 0px 4px 20px rgba(210, 210, 210, 0.25);
+  border-radius: 8px;
+  height: 470px;
+  width: 32%;
+  margin-bottom: 40px;
+}
+
+ .img {
+  height: 290px;
+  width: 100%;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+  border-radius: 0;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+ .content {
+  padding: 21px 11px;
+  position: relative;
+  width: 100%;
+  height: 175px;
+}
+
+.content .header h4 {
+  font-family: 'DejaVu Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21px;
+  color: #081831;
+  margin: 0 0 8px 0;
+}
+
+.content .body p {
+  font-family: 'DejaVu Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #000000;
+  margin: 0;
+}
+
+.content .details {
+  position: absolute;
+  width: 94%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  bottom: 20px;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.author-img {
+  width: 32px;
+  height: 32px;
+  margin-right: 6px;
+
+}
+
+.author-img img {
+  border-radius: 100%;
+}
+
+.author p {
+  font-family: 'DejaVu Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #000000;
+}

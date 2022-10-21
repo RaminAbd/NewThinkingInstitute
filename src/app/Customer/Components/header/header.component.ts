@@ -10,6 +10,7 @@ export class HeaderComponent implements OnInit {
   selectedLanguageForUI:string = "";
   showLang:boolean = false;
   active:boolean = false;
+
   constructor( public translate: TranslateService){
     this.getLanguageIdentifier(this.translate.currentLang)
   }

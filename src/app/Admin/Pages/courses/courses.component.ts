@@ -26,7 +26,7 @@ export class AdminCoursesComponent implements OnInit {
     this.primengConfig.ripple = true;
   }
   getAll() {
-    this.service.GetAll().subscribe(resp => {
+    this.service.GetAll('ka-Geo').subscribe(resp => {
       this.Courses = resp.data
     })
   }

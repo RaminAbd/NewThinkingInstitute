@@ -12,9 +12,9 @@ export class ServiceService extends BaseService{
   GetForm(){
     return this.get('Service/GetForm', null, null);
   }
-  GetAll(){
+  GetAll(lang:string){
     var obj = {
-      'Lang':this.currentLang
+      'Lang':lang
     }
     return this.get('Service/GetAll', null, obj)
   }
@@ -27,13 +27,15 @@ export class ServiceService extends BaseService{
   Update(blogObject:any){
     return this.post('Service/Update',blogObject);
   }
-  GetById(id:string){
+  GetById(id:string, lang:string){
+
 
     var obj = {
       'Id' : id,
-      'Lang' : this.currentLang
+      'Lang' : lang
     }
-    return this.get('Service/GetServiceById/', null, obj);
+    console.log(obj);
+    return this.get('Service/GetServiceById', null, obj);
   }
   Create(obj:any){
     return this.post('Service/Create', obj)

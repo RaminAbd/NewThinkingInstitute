@@ -14,9 +14,9 @@ export class TeamService extends BaseService{
   Delete(newsItemId:string){
     return this.delete('TeamMembers/Delete/',newsItemId);
   }
-  GetAll(){
+  GetAll(lang:string){
     var obj = {
-      'Lang':this.currentLang
+      'Lang':lang
     }
     return this.get('TeamMembers/GetAll/', null, obj)
   }

@@ -1,13 +1,45 @@
 <div class="history-wrapper">
   <div class="line"></div>
-  <h3 class="page-header">ისტორია</h3>
+  <h3 class="page-header">{{'History' | translate}}</h3>
   <div class="content">
     <div class="image">
       <img src="assets/images/mission.png" alt="">
     </div>
-    <div class="description">
-      <p>შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპოგრაფიული ნაწარმის შემქმნელებს, რეალურთან მაქსიმალურად მიახლოებული შაბლონი წარუდგინონ შემფასებელს. ხშირადაა შემთხვევა, როდესაც დიზაინის შესრულებისას საჩვენებელია, თუ როგორი იქნება ტექსტის ბლოკი. სწორედ ასეთ დროს არის მოსახერხებელი ამ გენერატორით შექმნილი ტექსტის გამოყენება, რადგან უბრალოდ „ტექსტი ტექსტი ტექსტი“ ან სხვა გამეორებადი სიტყვების ჩაყრა, ხელოვნურ ვიზუალურ სიმეტრიას ქმნის და არაბუნებრივად გამოიყურება</p>
-
+    <div class="description" *ngIf="translate.currentLang === 'ka-Geo'">
+      <p> 2015 წელს მარნეულის მუნიციპალიტეტის სოფელ მოლაოღლუში „ტასოს ფონდის“ მხარდაჭერით დაარსდა „მოლაოღლის სათემო
+        ცენტრი“ როგორც საინიციატივო ჯგუფი. ხოლო 2017 წელს კი სოფელ ხულდარაში გაიხსნა მეორე, “ხულდარის სათემო ცენტრი”.
+        <br>
+        <br>
+        ორგანიზაციამ 2018 წელს „ახალი აზროვნების ინსტიტუტის“ სახელწოდებით ოფიციალურად გაიარა რეგისტრაცია როგორც
+        არასამთავრობო ორგანიზაცია. დღეს ორგანიზაციამ გააფართოვა თავისი სამუშაო არეალი, გადაიქცა რეგიონალურ ორგანიზაციად
+        და მარნეულისა და გარდაბნის მუნიციპალიტეტებში დაარსებული სათემო ცენტრებთან გაფორმებული მემორანდუმის საფუძველზე
+        შექმნა “სათემო ცენტრების ქსელი”.
+      </p>
+    </div>
+    <div class="description" *ngIf="translate.currentLang === 'az-Aze'">
+      <p> 2015-ci ildə Marneuli bələdiyyəsinin Molaoğlu kəndində “Taso Fondunun” dəstəyi ilə təşəbbüs qrupu - “Mollaoğlu
+        İcma Mərkəzi” təsis edilmişdir. 2017-ci ildə isə Xüldərə kəndində ikinci mərkəz - “Xüldərə İcma Mərkəzi”
+        fəaliyyətə başlamışdır.
+        <br>
+        <br>
+        Təşəbbüs qrupu 2018-ci ildə “Yeni Düşüncə İnstitutu” adı ilə qeyri-hökumət təşkilatı kimi rəsmi olaraq
+        qeydiyyatdan keçmişdir. Bu gün qurum öz təsir dairəsini genişləndirərək regional təşkilata çevrilmiş, Marneuli
+        və Qardabani
+        bələdiyyələrində yaradılmış icma mərkəzləri ilə imzalanmış memorandum əsasında isə “İcma Mərkəzləri Şəbəkəsini”
+        yaratmışdır .
+      </p>
+    </div>
+    <div class="description" *ngIf="translate.currentLang === 'en-Us'">
+      <p>In 2015, an initiative group - "Mollaoglu Community Center" was established in Mollaoglu village of Marneuli
+        municipality with the support of "Taso Foundation". In 2017, the second center - "Khuldara Community Center"
+        started functioning in Khuldara village.
+        <br>
+        <br>
+        In 2018 the initiative group was officially registered as a non-governmental organization under the name of "New
+        Thinking Institute". Today, the NGO expanded its scope of activity and turned into a regional organization, and
+        based on the memorandums signed with the community centers established in Marneuli and Gardabani municipalities,
+        "Network of Community Centers" was established.
+      </p>
     </div>
   </div>
 </div>

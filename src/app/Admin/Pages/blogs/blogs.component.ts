@@ -31,9 +31,8 @@ export class AdminBlogsComponent implements OnInit {
     this.router.navigate(['admin/blogs', "create"])
   }
   getAll() {
-    this.service.GetAll().subscribe(resp => {
+    this.service.GetAll('ka-Geo').subscribe(resp => {
       console.log(resp.data);
-
       this.Blogs = resp.data
     })
   }

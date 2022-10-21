@@ -21,6 +21,7 @@ export class AdminServiceComponent implements OnInit {
     private confirmationService:ConfirmationService,
     private messageService: MessageService,
     private primengConfig: PrimeNGConfig,
+
   ) { }
 
 
@@ -29,7 +30,7 @@ export class AdminServiceComponent implements OnInit {
     this.primengConfig.ripple = true;
   }
   getAll() {
-    this.service.GetAll().subscribe(resp => {
+    this.service.GetAll('ka-Geo').subscribe(resp => {
       this.Services = resp.data
     })
   }

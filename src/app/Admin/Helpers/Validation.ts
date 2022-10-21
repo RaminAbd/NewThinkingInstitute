@@ -20,10 +20,14 @@ export class Validation {
         this.finishValid = false;
       }
       else {
-        if ((form.videoURL !== '' && form.videoURL !== null) && (form.image !== null)) {
-          ErrorArray.push("Delete a photo or video");
-          this.finishValid = false;
-        }
+        // if ((form.videoURL !== '' && form.videoURL !== null) && (form.image !== null)) {
+        //   ErrorArray.push("Delete a photo or video");
+        //   this.finishValid = false;
+        // }
+      }
+      if ((form.videoURL !== null || form.videoURL !== undefined || form.videoURL !== '') && (form.image === null || form.image === undefined)) {
+        ErrorArray.push("Please add an image");
+        this.finishValid = false;
       }
     }
     if(type === "blog"){

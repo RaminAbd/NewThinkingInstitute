@@ -11,9 +11,11 @@ export class NewsService extends BaseService{
   GetForm(){
     return this.get('News/GetForm', null, null);
   }
-  GetAll(){
+  GetAll(lang:string){
+    console.log(lang, "lang in service");
+
     var obj = {
-      'Lang':this.currentLang
+      'Lang':lang
     }
     return this.get('News/GetAll', null, obj)
   }
@@ -26,22 +28,21 @@ export class NewsService extends BaseService{
   Update(blogObject:any){
     return this.post('News/Update',blogObject);
   }
-  GetNewsById(id:string){
-
+  GetNewsById(id:string, lang:string){
     var obj = {
       'Id' : id,
-      'Lang' : this.currentLang
+      'Lang' : lang
     }
     return this.get('News/GetNewsById', null, obj);
   }
   Create(obj:any){
     return this.post('News/Create', obj)
   }
-  GetAllWithPaging(index:number){
+  GetAllWithPaging(index:number, lang:string){
     var obj = {
       'PageIndex': index,
       'PageSize':9,
-      'Lang':this.currentLang
+      'Lang':lang
     };
     return this.get('News/GetAllWithPaging/', null, obj);
   }

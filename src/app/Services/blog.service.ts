@@ -12,9 +12,9 @@ export class BlogService extends BaseService{
   GetForm(){
     return this.get('Blog/GetForm', null, null);
   }
-  GetAll(){
+  GetAll(lang:string){
     var obj = {
-      'Lang':this.currentLang
+      'Lang':lang
     }
     return this.get('Blog/GetAll', null, obj)
   }
@@ -27,15 +27,23 @@ export class BlogService extends BaseService{
   Update(blogObject:any){
     return this.post('Blog/Update',blogObject);
   }
-  GetBlogById(id:string){
+  GetBlogById(id:string, lang:string){
 
     var obj = {
       'Id' : id,
-      'Lang' : this.currentLang
+      'Lang' : lang
     }
     return this.get('Blog/GetBlogById', null, obj);
   }
   Create(obj:any){
     return this.post('Blog/Create', obj)
+  }
+  GetAllWithPaging(index:number, lang:string){
+    var obj = {
+      'PageIndex': index,
+      'PageSize':9,
+      'Lang':lang
+    };
+    return this.get('Blog/GetAllWithPaging/', null, obj);
   }
 }

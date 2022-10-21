@@ -76,3 +76,17 @@
 .contact-block .cont-label{
   margin-bottom: 5px;
 }
+.links{
+  display: flex;flex-direction: column;
+}
+.links a{
+  text-decoration: none;
+  color: #fff;
+  font-family: 'DejaVu Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #FFFFFF;
+  margin-bottom: 10px;
+}

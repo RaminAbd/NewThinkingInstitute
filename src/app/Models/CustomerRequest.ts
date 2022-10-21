@@ -3,4 +3,5 @@ export class CustomerRequest{
   email: string;
   isAnonymous: boolean;
   comment: string;
+  createdAt?:any;
 }

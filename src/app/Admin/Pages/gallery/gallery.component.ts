@@ -46,8 +46,10 @@ export class AdminGalleryComponent implements OnInit {
     return this.sanitizer.bypassSecurityTrustResourceUrl(customUrl);
   }
   getAllVideos() {
-    this.videoService.GetAll().subscribe(resp => {
+    this.videoService.GetAll('ka-Geo').subscribe(resp => {
       this.Videos = resp.data;
+      console.log(this.Videos);
+
       this.Videos.forEach(item => {
         item.videoURL = this.TrustUrl(item.videoURL)
       })

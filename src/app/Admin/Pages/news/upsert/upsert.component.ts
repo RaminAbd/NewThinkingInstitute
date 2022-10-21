@@ -9,6 +9,8 @@ import { Photo } from 'src/app/Models/Photo';
 import { Validation } from '../../../Helpers/Validation';
 import { ServiceResponse } from '../../../../Models/ServiceResponse.model';
 import { FormatDate } from '../../../Helpers/DateFormat';
+import { GaleryVideoItemService } from '../../../../Services/galery-video-item.service';
+import { Video } from '../../../../Models/Video';
 
 @Component({
   selector: 'app-upsert',
@@ -27,7 +29,8 @@ export class AdminNewsUpsertComponent implements OnInit {
     private fileService: FileService,
     private router: Router,
     private galeryService: GaleryPhotoItemService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private videoService: GaleryVideoItemService
   ) { this.id = this.route.snapshot.paramMap.get('id'); }
 
   ngOnInit(): void {
@@ -87,7 +90,21 @@ export class AdminNewsUpsertComponent implements OnInit {
             photoObj.description = this.NewsForm.description;
             photoObj.photo = this.NewsForm.image;
             this.router.navigate(['admin/news'])
-            this.galeryService.Create(photoObj).subscribe(resp1 => { })
+            if(this.NewsForm.videoURL ===null || this.NewsForm.videoURL === undefined || this.NewsForm.videoURL === ""){
+              this.galeryService.Create(photoObj).subscribe(resp1 => { })
+            }
+            else{
+              console.log("video");
+
+              var videoItem = new Video();
+              videoItem.title = this.NewsForm.title;
+              videoItem.description = this.NewsForm.description;
+              videoItem.videoURL = this.NewsForm.videoURL;
+              videoItem.id="create";
+              console.log(videoItem);
+
+               this.videoService.Create(videoItem).subscribe(resp1 => {})
+            }
           }
           else {
             alert("Some error occurred!")

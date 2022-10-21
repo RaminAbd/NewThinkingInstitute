@@ -11,6 +11,8 @@ export class PaginationComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.Response);
+
   }
   GetAllWithPaging(e:any){
     this.Changes.emit(e);

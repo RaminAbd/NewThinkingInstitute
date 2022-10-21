@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class DetailHeaderComponent implements OnInit {
   @Input() data:any;
   @Input() detailUrl:any;
+  @Input() type:any;
   // detailUrl:string;
   constructor() {
   }

@@ -1,0 +1,14 @@
+<div class="news-detail-wrapper">
+  <app-detail-header [data]="AccountsItem" [detailUrl]="detailUrl"></app-detail-header>
+  <div class="image">
+    <img src="{{AccountsItem.image}}" alt="">
+  </div>
+  <div class="description" style="white-space: pre-line">
+    <p>
+      {{AccountsItem.description}}
+    </p>
+  </div>
+  <div class="line"></div>
+  <h3>{{'News' | translate}}</h3>
+  <app-short-news></app-short-news>
+</div>

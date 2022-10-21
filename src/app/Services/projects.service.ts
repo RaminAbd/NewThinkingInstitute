@@ -26,22 +26,22 @@ export class ProjectsService extends BaseService{
   Update(blogObject:any){
     return this.post('Project/Update',blogObject);
   }
-  GetProjectById(id:string){
+  GetProjectById(id:string, lang:string){
 
     var obj = {
       'Id' : id,
-      'Lang' : this.currentLang
+      'Lang' : lang
     }
     return this.get('Project/GetProjectById', null, obj);
   }
   Create(obj:any){
     return this.post('Project/Create', obj)
   }
-  GetAllWithPaging(index:number){
+  GetAllWithPaging(index:number, lang:string){
     var obj = {
       'PageIndex': index,
       'PageSize':9,
-      'Lang':this.currentLang
+      'Lang':lang
     };
     return this.get('Project/GetAllWithPaging/', null, obj);
   }

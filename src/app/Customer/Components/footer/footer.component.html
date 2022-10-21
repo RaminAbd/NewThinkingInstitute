@@ -1,11 +1,9 @@
-
 <div class="footer">
   <div class="cols">
     <div class="logo-and-soc">
       <div class="logo">
         <img src="assets/images/logo.svg" alt="">
       </div>
-      <p>მიჰყევით</p>
       <div class="soc">
         <div><i class="pi pi-youtube"></i></div>
         <div><i class="pi pi-facebook"></i></div>
@@ -13,38 +11,37 @@
       </div>
     </div>
     <div class="footer-about-us">
-      <h5>ჩვენ შესახებ</h5>
+      <h5>{{'About Us' | translate}}</h5>
       <div class="links">
-        <p>მისია</p>
-        <p>ისტორია</p>
-        <p>გუნდი</p>
-        <p>დონორები და პარტნიორები</p>
-        <p>დაეხმარე ფონდს </p>
+        <a [routerLink]="['about-us/mission']" >{{'Mission' | translate}}</a>
+        <a [routerLink]="['about-us/history']" >{{'History' | translate}}</a>
+        <a [routerLink]="['about-us/team']" >{{'Team' | translate}}</a>
+        <a [routerLink]="['about-us/donors-and-partners']" >{{'Donors and partners' | translate}}</a>
       </div>
     </div>
     <div class="footer-activity">
-      <h5>საქმიანობა</h5>
+      <h5>{{'Activity' | translate}}</h5>
       <div class="links">
-        <p>პროექტები</p>
-        <p>მომსახურება</p>
-        <p>კურსები</p>
-        <p>ტრენინგ-სემინარი</p>
+        <a [routerLink]="['activity/projects']" >{{'Projects' | translate}}</a>
+        <a [routerLink]="['activity/service']" >{{'Service' | translate}}</a>
+        <a [routerLink]="['activity/courses']" >{{'Courses' | translate}}</a>
+        <a [routerLink]="['activity/trainings-and-seminars']" >{{'Training and Seminar' | translate}}</a>
       </div>
     </div>
     <div class="footer-contact">
-      <h5>კონტაქტი</h5>
+      <h5>{{'Contact' | translate}}</h5>
       <div class="contact-details">
         <div class="email">
-          <p class="cont-label">ელ. ფოსტა</p>
+          <p class="cont-label">{{'Email' | translate}}</p>
           <p>mimdevelopment12@gmail.com</p>
         </div>
         <div class="phone">
-          <p class="cont-label">ტელეფონი</p>
+          <p class="cont-label">{{'Telephone' | translate}}</p>
           <p>577 27 80 90</p>
         </div>
         <div class="address">
-          <p class="cont-label">მისამართი</p>
-          <p>NTI ( New Thinking Institute)</p>
+          <p class="cont-label">{{'Adress' | translate}}</p>
+          <p>{{'FullAddress' | translate}}</p>
         </div>
       </div>
     </div>

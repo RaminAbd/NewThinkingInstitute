@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ServiceService } from '../../../Services/service.service';
 import { CoursesService } from '../../../Services/courses.service';
 import { TrainingsService } from '../../../Services/trainings.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-detail-info',
@@ -13,29 +14,37 @@ export class DetailInfoComponent implements OnInit {
   id: string;
   type: string;
   Item: any;
+  lang:string;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private serviceService: ServiceService,
     private coursesService: CoursesService,
     private trainingsService: TrainingsService,
+    private translate: TranslateService
   ) {
+    this.lang = this.translate.currentLang;
+    this.translate.onLangChange.subscribe((lang) => {
+      this.lang = lang.lang;
+     });
     this.id = this.route.snapshot.paramMap.get('id') as string;
     this.type = this.route.snapshot.paramMap.get('type') as string;
   }
-  getService(id:string){
-    this.serviceService.GetById(id).subscribe(resp => {
+  getService(id:string, lang:string){
+    this.serviceService.GetById(id, lang).subscribe(resp => {
+      console.log(resp);
+
       this.Item = resp.data;
-      console.log(this.Item);
+      // console.log(this.Item);
     })
   }
-  getCourse(id:string) {
-    this.coursesService.GetById(id).subscribe(resp => {
+  getCourse(id:string, lang:string) {
+    this.coursesService.GetById(id, lang).subscribe(resp => {
       this.Item = resp.data;
     })
   }
-  getTraining(id:string) {
-    this.trainingsService.GetById(id).subscribe(resp => {
+  getTraining(id:string, lang:string) {
+    this.trainingsService.GetById(id, lang).subscribe(resp => {
       this.Item = resp.data;
     })
   }
@@ -43,15 +52,15 @@ export class DetailInfoComponent implements OnInit {
     console.log(this.type);
     switch (this.type) {
       case 'service': {
-        this.getService(this.id);
+        this.getService(this.id, this.lang);
         break;
       }
       case 'courses': {
-        this.getCourse(this.id);
+        this.getCourse(this.id, this.lang);
         break;
       }
       case 'trainings-and-seminars': {
-        this.getTraining(this.id);
+        this.getTraining(this.id, this.lang);
         break;
       }
       default: {

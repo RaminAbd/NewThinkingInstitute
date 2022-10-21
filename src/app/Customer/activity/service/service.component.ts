@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../../../Services/service.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-service',
@@ -8,12 +9,15 @@ import { ServiceService } from '../../../Services/service.service';
 })
 export class ServiceComponent implements OnInit {
   Services:any[]=[];
-  constructor(private service:ServiceService) { }
+  constructor(private service:ServiceService, private translate: TranslateService) { }
   ngOnInit(): void {
-    this.getAll()
+    this.getAll(this.translate.currentLang)
+    this.translate.onLangChange.subscribe((lang) => {
+      this.getAll(lang.lang)
+     });
   }
-  getAll(){
-    this.service.GetAll().subscribe(resp=>{
+  getAll(lang:string){
+    this.service.GetAll(lang).subscribe(resp=>{
       this.Services = resp.data;
       console.log(resp.data);
     })

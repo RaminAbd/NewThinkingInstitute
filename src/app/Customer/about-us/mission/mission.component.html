@@ -1,28 +1,50 @@
 <div class="mission-wrapper">
   <div class="line"></div>
-  <h3 class="page-header">მისია</h3>
+  <h3 class="page-header">{{'Mission' | translate}}</h3>
   <div class="content">
     <div class="image">
       <img src="assets/images/mission.png" alt="">
     </div>
-    <div class="description">
+    <div class="description" *ngIf="translate.currentLang === 'ka-Geo'">
       <p>ორგანიზაციის მისიას წარმოადგენს სამოქალაქო საზოგადოების ჩამოყალიბება, მასში ეთნიკური უმცირესობების ინტეგრაციისა და საკუთარი თავის რეალიზების ხელშეწყობა.</p>
       <ul>
-        <p>ორგანიზაცია მიზნად ისახავს</p>
-        <li>დემოკრატიული განვითარების ხელშეწყობას;</li>
-        <li>ქალთა და ახალგაზრდობის მონაწილეობის უზრუნველყოფას სოციალური სამართლიანობის, მშვიდობის,    დემოკრატიული და ეკონომიკური განვითარების საქმეში.</li>
-        <li>საქართველოში გენდერული თანასწორობის მიღწევის ხელშეწყობას</li>
-        <li>ქალთა უფლებებისა და თავისუფლებების დაცვას </li>
-        <li>ეთნიკურ უმცირესობების წარმომადგენელთა განვითარებასა და ჩართულობას საზოგადოებრივ ცხოვრებაში;</li>
-        <li>სათემო განვითარების ხელშეწყობას;</li>
-        <li>გარემოსა დაცვას.</li>
+        <p>ორგანიზაცია მიზნად ისახავს:</p>
+        <li>დემოკრატიული ჩართულობის ხელშეწყობას;</li>
+        <li>ქალთა და ახალგაზრდების მონაწილეობის უზრუნველყოფას სოციალური სამართლიანობის, მშვიდობის, დემოკრატიული და ეკონომიკური განვითარების პროცესში;</li>
+        <li>საქართველოში გენდერული თანასწორობის მიღწევის ხელშეწყობას;</li>
+        <li>ქალთა უფლებებისა და თავისუფლებების დაცვას;</li>
+        <li>ეთნიკური უმცირესობების წარმომადგენელთა განვითარებასა და ჩართულობას საზოგადოებრივ ცხოვრებაში;</li>
+        <li>თემის განვითარების ხელშეწყობას;</li>
+        <li>გარემოს დაცვას.</li>
       </ul>
-      <p>2015 წელს მარნეულის მუნიციპალიტეტის სოფელ მოლაოღლუში „ტასოს ფონდის“ მხარდაჭერით დაარსდა „მოლაოღლის სათემო ცენტრი“ როგორც საინიციატივო ჯგუფი.  ხოლო 2017 წელს კი სოფელ ხულდარაში გაიხსნა მეორე, “ხულდარის სათემო ცენტრი”.
-        <br>
-        <br>
-        ორფანიზაციამ 2018 წელს „ახალი აზროვნების ინსტიტუტის“ სახელწოდებით ოფიციალურად გაიარა რეგისტრაცია როგორც არასამთავრობო ორგანიზაცია.
-        დღეს ორნიზაციამ გააფართოვა თავისი სამუშაო არეალი, გადაიქცა რეგიონალურ ორგანიზაციად და მარნეულისა და გარდაბნის მუნიციპალიტეტებში დაარსებული სათემო ცენტრებთან გაფორმებული მემორანდუმის საფუძველზე შექმნა “სათემო ცენტრების ქსელი”.
-        </p>
+    </div>
+
+    <div class="description" *ngIf="translate.currentLang === 'az-Aze'">
+      <p>Təşkilatın əsas missiyası etnik azlıqların inteqrasiya olduğu və özünü təsdiq edə bildiyi vətandaş cəmiyyəti formalaşdırmaqdır.</p>
+      <ul>
+        <p>Təşkilatın məqsədləri aşağıdakılardır:</p>
+        <li>Demokratik iştirakın təmin edilməsi;</li>
+        <li>Sosial ədalət, sülh, demokratik və iqtisadi inkişaf prosesində qadınlar və gənclərin iştirakının təmin edilməsi;</li>
+        <li>Gürcüstanda gender bərabərliyinin təmin olunmasına dəstək;</li>
+        <li>Qadın hüquq və azadlıqlarının müdafiəsi;</li>
+        <li>Etnik azlıq nümayəndələrinin inkişafı və onların ictimai həyata cəlb edilməsi;</li>
+        <li>İcmanın inkişafına dəstək;</li>
+        <li>Ətraf mühitin mühafizəsi.</li>
+      </ul>
+    </div>
+
+    <div class="description" *ngIf="translate.currentLang === 'en-Us'">
+      <p>The main mission of the organization is to form a civil society in which ethnic minorities are integrated and can assert themselves.</p>
+      <ul>
+        <p>The goals of the organization are as follows:</p>
+        <li>Ensuring democratic participation;</li>
+        <li>Ensuring the participation of women and youth in the process of social justice, peace, democratic and economic development;</li>
+        <li>Supporting gender equality in Georgia;</li>
+        <li>Protection of women's rights and freedoms;</li>
+        <li>Development of ethnic minority representatives and their involvement in public life;</li>
+        <li>Supporting community development;</li>
+        <li>Environmental Protection.</li>
+      </ul>
     </div>
   </div>
 </div>

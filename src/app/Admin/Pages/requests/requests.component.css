@@ -1,0 +1,26 @@
+.detail-info{
+  width: 100%;
+    background: #fff;
+    min-height: 250px;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+}
+.name-email{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 85px;
+}
+
+.detail-info p{
+  font-family: 'DejaVu Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+
+
+

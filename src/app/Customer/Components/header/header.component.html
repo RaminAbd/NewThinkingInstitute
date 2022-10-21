@@ -8,47 +8,46 @@
     </div>
     <div class="page-links">
       <ul>
-        <li><a [routerLink]="['main']" [routerLinkActive]="['active']">მთავარი</a></li>
-        <li><a [routerLink]="['news']" [routerLinkActive]="['active']">სიახლეები</a></li>
+        <li><a [routerLink]="['main']" [routerLinkActive]="['active']">{{'Home' | translate}}</a></li>
+        <li><a [routerLink]="['news']" [routerLinkActive]="['active']">{{'News' | translate}}</a></li>
         <li>
-          <a [routerLink]="['about-us']" [routerLinkActive]="['active']">ჩვენ შესახებ <img style="margin-left:5px;"
+          <a [routerLink]="['about-us']" [routerLinkActive]="['active']">{{'About Us' | translate}} <img style="margin-left:5px;"
               src="assets/images/dropmenu.svg" alt=""></a>
           <ul>
-            <li><a [routerLink]="['about-us/mission']" [routerLinkActive]="['active']">მისია</a></li>
-            <li><a [routerLink]="['about-us/history']" [routerLinkActive]="['active']">ისტორია</a></li>
-            <li><a [routerLink]="['about-us/team']" [routerLinkActive]="['active']">გუნდი</a></li>
-            <li><a [routerLink]="['about-us/donors-and-partners']" [routerLinkActive]="['active']">დონორები და
-                პარტნიორები</a></li>
+            <li><a [routerLink]="['about-us/mission']" [routerLinkActive]="['active']">{{'Mission' | translate}}</a></li>
+            <li><a [routerLink]="['about-us/history']" [routerLinkActive]="['active']">{{'History' | translate}}</a></li>
+            <li><a [routerLink]="['about-us/team']" [routerLinkActive]="['active']">{{'Team' | translate}}</a></li>
+            <li><a [routerLink]="['about-us/donors-and-partners']" [routerLinkActive]="['active']">{{'Donors and partners' | translate}}</a></li>
           </ul>
         </li>
         <li>
-          <a [routerLink]="['activity']" [routerLinkActive]="['active']">საქმიანობა <img style="margin-left:5px;"
+          <a [routerLink]="['activity']" [routerLinkActive]="['active']">{{'Activity' | translate}} <img style="margin-left:5px;"
               src="assets/images/dropmenu.svg" alt=""></a>
           <ul>
-            <li><a [routerLink]="['activity/projects']" [routerLinkActive]="['active']">პროექტები</a></li>
-            <li><a [routerLink]="['activity/service']" [routerLinkActive]="['active']">მომსახურება</a></li>
-            <li><a [routerLink]="['activity/courses']" [routerLinkActive]="['active']">კურსები</a></li>
+            <li><a [routerLink]="['activity/projects']" [routerLinkActive]="['active']">{{'Projects' | translate}}</a></li>
+            <li><a [routerLink]="['activity/service']" [routerLinkActive]="['active']">{{'Service' | translate}}</a></li>
+            <li><a [routerLink]="['activity/courses']" [routerLinkActive]="['active']">{{'Courses' | translate}}</a></li>
             <li><a [routerLink]="['activity/trainings-and-seminars']"
-                [routerLinkActive]="['active']">ტრენინგ-სემინარი</a></li>
+                [routerLinkActive]="['active']">{{'Training and Seminar' | translate}}</a></li>
           </ul>
         </li>
         <li>
-          <a [routerLink]="['publications']" [routerLinkActive]="['active']">პუბლიკაციები <img style="margin-left:5px;"
+          <a [routerLink]="['publications']" [routerLinkActive]="['active']">{{'Publication' | translate}} <img style="margin-left:5px;"
               src="assets/images/dropmenu.svg" alt=""></a>
           <ul>
-            <li><a [routerLink]="['publications/studies']" [routerLinkActive]="['active']">კვლევები</a></li>
-            <li><a [routerLink]="['publications/accounts']" [routerLinkActive]="['active']">ანგარიშები</a></li>
-            <li><a [routerLink]="['publications/blogs']" [routerLinkActive]="['active']">ბლოგები</a></li>
-            <li><a [routerLink]="['publications/newsletter']" [routerLinkActive]="['active']">საინფორმაციო ბიულეტენი</a>
+            <li><a [routerLink]="['publications/studies']" [routerLinkActive]="['active']">{{'Research' | translate}}</a></li>
+            <li><a [routerLink]="['publications/accounts']" [routerLinkActive]="['active']">{{'Reports' | translate}}</a></li>
+            <li><a [routerLink]="['publications/blogs']" [routerLinkActive]="['active']">{{'Blogs' | translate}}</a></li>
+            <li><a [routerLink]="['publications/newsletter']" [routerLinkActive]="['active']">{{'Newsletter' | translate}}</a>
             </li>
           </ul>
         </li>
         <li>
-          <a [routerLink]="['gallery']" [routerLinkActive]="['active']">გალერია <img style="margin-left:5px;"
+          <a [routerLink]="['gallery']" [routerLinkActive]="['active']">{{'Gallery' | translate}} <img style="margin-left:5px;"
               src="assets/images/dropmenu.svg" alt=""></a>
           <ul>
-            <li><a [routerLink]="['gallery/photos']" [routerLinkActive]="['active']">ფოტოები</a></li>
-            <li><a [routerLink]="['gallery/videos']" [routerLinkActive]="['active']">ვიდეოები</a></li>
+            <li><a [routerLink]="['gallery/photos']" [routerLinkActive]="['active']">{{'Photos' | translate}}</a></li>
+            <li><a [routerLink]="['gallery/videos']" [routerLinkActive]="['active']">{{'Videos' | translate}}</a></li>
           </ul>
         </li>
 
@@ -76,47 +75,46 @@
     </div>
     <div class="responsive-links" [ngClass]="{'active': active}">
       <ul>
-        <li><a [routerLink]="['main']" [routerLinkActive]="['active']" (click)="active = false">მთავარი</a></li>
-        <li><a [routerLink]="['news']" [routerLinkActive]="['active']" (click)="active = false">სიახლეები</a></li>
+        <li><a [routerLink]="['main']" [routerLinkActive]="['active']" (click)="active = false">{{'Home' | translate}}</a></li>
+        <li><a [routerLink]="['news']" [routerLinkActive]="['active']" (click)="active = false">{{'News' | translate}}</a></li>
         <li>
-          <a [routerLink]="['about-us']" [routerLinkActive]="['active']">ჩვენ შესახებ <img style="margin-left:5px;"
+          <a [routerLink]="['about-us']" [routerLinkActive]="['active']">{{'About Us' | translate}}<img style="margin-left:5px;"
               src="assets/images/dropmenu.svg" alt=""></a>
           <ul>
-            <li><a [routerLink]="['about-us/mission']" [routerLinkActive]="['active']">მისია</a></li>
-            <li><a [routerLink]="['about-us/history']" [routerLinkActive]="['active']">ისტორია</a></li>
-            <li><a [routerLink]="['about-us/team']" [routerLinkActive]="['active']">გუნდი</a></li>
-            <li><a [routerLink]="['about-us/donors-and-partners']" [routerLinkActive]="['active']">დონორები და
-                პარტნიორები</a></li>
+            <li><a [routerLink]="['about-us/mission']" [routerLinkActive]="['active']">{{'Mission' | translate}}</a></li>
+            <li><a [routerLink]="['about-us/history']" [routerLinkActive]="['active']">{{'History' | translate}}</a></li>
+            <li><a [routerLink]="['about-us/team']" [routerLinkActive]="['active']">{{'Team' | translate}}</a></li>
+            <li><a [routerLink]="['about-us/donors-and-partners']" [routerLinkActive]="['active']">{{'Donors and partners' | translate}}</a></li>
           </ul>
         </li>
         <li>
-          <a [routerLink]="['activity']" [routerLinkActive]="['active']">საქმიანობა <img style="margin-left:5px;"
+          <a [routerLink]="['activity']" [routerLinkActive]="['active']">{{'Activity' | translate}} <img style="margin-left:5px;"
               src="assets/images/dropmenu.svg" alt=""></a>
           <ul>
-            <li><a [routerLink]="['activity/projects']" [routerLinkActive]="['active']">პროექტები</a></li>
-            <li><a [routerLink]="['activity/service']" [routerLinkActive]="['active']">მომსახურება</a></li>
-            <li><a [routerLink]="['activity/courses']" [routerLinkActive]="['active']">კურსები</a></li>
+            <li><a [routerLink]="['activity/projects']" [routerLinkActive]="['active']">{{'Projects' | translate}}</a></li>
+            <li><a [routerLink]="['activity/service']" [routerLinkActive]="['active']">{{'Service' | translate}}</a></li>
+            <li><a [routerLink]="['activity/courses']" [routerLinkActive]="['active']">{{'Courses' | translate}}</a></li>
             <li><a [routerLink]="['activity/trainings-and-seminars']"
-                [routerLinkActive]="['active']">ტრენინგ-სემინარი</a></li>
+                [routerLinkActive]="['active']">{{'Training and Seminar' | translate}}</a></li>
           </ul>
         </li>
         <li>
-          <a [routerLink]="['publications']" [routerLinkActive]="['active']">პუბლიკაციები <img style="margin-left:5px;"
+          <a [routerLink]="['publications']" [routerLinkActive]="['active']">{{'Publication' | translate}}  <img style="margin-left:5px;"
               src="assets/images/dropmenu.svg" alt=""></a>
           <ul>
-            <li><a [routerLink]="['publications/studies']" [routerLinkActive]="['active']">კვლევები</a></li>
-            <li><a [routerLink]="['publications/accounts']" [routerLinkActive]="['active']">ანგარიშები</a></li>
-            <li><a [routerLink]="['publications/blogs']" [routerLinkActive]="['active']">ბლოგები</a></li>
-            <li><a [routerLink]="['publications/newsletter']" [routerLinkActive]="['active']">საინფორმაციო ბიულეტენი</a>
+            <li><a [routerLink]="['publications/studies']" [routerLinkActive]="['active']">{{'Research' | translate}}</a></li>
+            <li><a [routerLink]="['publications/accounts']" [routerLinkActive]="['active']">{{'Reports' | translate}}</a></li>
+            <li><a [routerLink]="['publications/blogs']" [routerLinkActive]="['active']">{{'Blogs' | translate}}</a></li>
+            <li><a [routerLink]="['publications/newsletter']" [routerLinkActive]="['active']"> {{'Newsletter' | translate}}</a>
             </li>
           </ul>
         </li>
         <li>
-          <a [routerLink]="['gallery']" [routerLinkActive]="['active']">გალერია <img style="margin-left:5px;"
+          <a [routerLink]="['gallery']" [routerLinkActive]="['active']">{{'Gallery' | translate}} <img style="margin-left:5px;"
               src="assets/images/dropmenu.svg" alt=""></a>
           <ul>
-            <li><a [routerLink]="['gallery/photos']" [routerLinkActive]="['active']">ფოტოები</a></li>
-            <li><a [routerLink]="['gallery/videos']" [routerLinkActive]="['active']">ვიდეოები</a></li>
+            <li><a [routerLink]="['gallery/photos']" [routerLinkActive]="['active']">{{'Photos' | translate}}</a></li>
+            <li><a [routerLink]="['gallery/videos']" [routerLinkActive]="['active']">{{'Videos' | translate}}</a></li>
           </ul>
         </li>
 

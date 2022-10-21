@@ -76,6 +76,14 @@ import { RefreshTokenInterceptor } from './Auth/RefreshTokenInterceptor';
 import { PaginationComponent } from './Customer/Components/pagination/pagination.component';
 import { AdminTeamUpsertComponent } from './Admin/Pages/team/upsert/upsert.component';
 import { AdminTeamComponent } from './Admin/Pages/team/team.component';
+import { BlogsDetailComponent } from './Customer/publications/blogs/blogs-detail/blogs-detail.component';
+import { AdminAccountsUpsertComponent } from './Admin/Pages/accounts/upsert/upsert.component';
+import { AdminAccountsComponent } from './Admin/Pages/accounts/accounts.component';
+import { AccountsDetailComponent } from './Customer/publications/accounts/accounts-detail/accounts-detail.component';
+import { AdminResearchComponent } from './Admin/Pages/research/research.component';
+import { AdminResearchUpsertComponent } from './Admin/Pages/research/upsert/upsert.component';
+import { AdminNewsletterUpsertComponent } from './Admin/Pages/newsletter/upsert/upsert.component';
+import { AdminNewsletterComponent } from './Admin/Pages/newsletter/newsletter.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -131,7 +139,15 @@ import { AdminTeamComponent } from './Admin/Pages/team/team.component';
     LoginComponent,
     PaginationComponent,
     AdminTeamComponent,
-    AdminTeamUpsertComponent
+    AdminTeamUpsertComponent,
+    BlogsDetailComponent,
+    AdminAccountsUpsertComponent,
+    AdminAccountsComponent,
+    AccountsDetailComponent,
+    AdminResearchComponent,
+    AdminResearchUpsertComponent,
+    AdminNewsletterUpsertComponent,
+    AdminNewsletterComponent,
   ],
   imports: [
     BrowserModule,

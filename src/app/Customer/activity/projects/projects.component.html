@@ -1,6 +1,6 @@
 <div class="projects">
   <div class="line"></div>
-  <h3 class="page-header">პროექტები</h3>
+  <h3 class="page-header">{{'Projects' | translate}}</h3>
   <div class="content">
     <div class="project-item" *ngFor="let item of Projects">
       <a [routerLink]="['/activity/projects', item.id]" style="height: 100%;width: 100%;text-decoration: none; cursor: pointer;">
@@ -21,5 +21,5 @@
     </div>
 
   </div>
-  <app-pagination [Response]="Response" (Changes)="GetAllWithPaging($event)"></app-pagination>
+  <app-pagination [Response]="Response" (Changes)="GetAllWithPaging($event, lang)"></app-pagination>
 </div>

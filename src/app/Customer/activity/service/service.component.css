@@ -69,3 +69,12 @@
   line-height: 19px;
   color: #FFFFFF;
 }
+.head-text{
+  font-family: 'DejaVu Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 19px;
+margin: 16px 0 30px 0;
+color: #000000;
+}

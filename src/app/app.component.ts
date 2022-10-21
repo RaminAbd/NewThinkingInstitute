@@ -31,8 +31,6 @@ export class AppComponent {
           }
           this.isLoginPage = false
         }
-        console.log(this.isAdmin);
-        console.log(this.isLoginPage);
 
       }
     });

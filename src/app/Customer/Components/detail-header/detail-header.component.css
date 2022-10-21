@@ -52,3 +52,19 @@ h2 {
   margin-right: 10px;
   border: 1px solid #081831
 }
+.date{
+  display: flex;
+}
+.author{
+  display: flex;
+  margin-left: 55px;
+  align-items: center;
+}
+.author img{
+
+  width: 32px;
+  background: #f9f9f9;
+  margin-right: 10px;
+  height: 32px;
+
+}

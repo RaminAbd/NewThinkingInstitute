@@ -5,6 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FileService } from '../../../Services/file.service';
 import { ConfirmationService, MessageService, PrimeNGConfig } from 'primeng/api';
 import { ConfirmPopupModule } from 'primeng/confirmpopup';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-news',
@@ -20,17 +21,17 @@ export class AdminNewsComponent implements OnInit {
   private messageService: MessageService,
   private primengConfig: PrimeNGConfig,
   private route:ActivatedRoute,
-  private confirmPopupModule:ConfirmPopupModule) { }
-
+  private confirmPopupModule:ConfirmPopupModule, private translate: TranslateService) { }
+    lang: string;
   ngOnInit(): void {
     this.primengConfig.ripple = true;
-    this.getAll()
+    this.lang = this.translate.currentLang;
+    this.getAll('ka-Geo')
   }
-  getAll() {
-    this.service.GetAll().subscribe(resp => {
+  getAll(lang:string) {
+    this.service.GetAll(lang).subscribe(resp => {
       this.News = resp.data
       console.log(resp.data);
-
     })
   }
   editItem(id: string) {
@@ -46,7 +47,7 @@ export class AdminNewsComponent implements OnInit {
       icon: "pi pi-exclamation-triangle",
       accept: () => {
         this.service.Delete(id).subscribe(resp => {
-          this.getAll();
+          this.getAll(this.lang);
           if (resp.succeeded === true) {
             this.messageService.add({
               severity: "success",

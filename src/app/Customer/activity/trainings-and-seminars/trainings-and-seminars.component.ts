@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TrainingsService } from '../../../Services/trainings.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-trainings-and-seminars',
@@ -9,12 +10,15 @@ import { TrainingsService } from '../../../Services/trainings.service';
 export class TrainingsAndSeminarsComponent implements OnInit {
 
   Services:any[]=[];
-  constructor(private service:TrainingsService) { }
+  constructor(private service:TrainingsService, private translate:TranslateService) { }
   ngOnInit(): void {
-    this.getAll()
+    this.getAll(this.translate.currentLang)
+    this.translate.onLangChange.subscribe((lang) => {
+      this.getAll(lang.lang)
+     });
   }
-  getAll(){
-    this.service.GetAll().subscribe(resp=>{
+  getAll(lang:string){
+    this.service.GetAll(lang).subscribe(resp=>{
       this.Services = resp.data;
       console.log(resp.data);
     })

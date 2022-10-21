@@ -13,16 +13,15 @@
   position: fixed;
 }
 .links{
-  margin-top: 50px;
+  margin-top: 0px;
 }
 .links ul{
   padding: 0;
   list-style: none;
 }
 .links ul a {
-
   width: 227px;
-  height: 35px;
+  height: 30px;
   padding-left: 35px;
   display: flex;
   align-items: center;

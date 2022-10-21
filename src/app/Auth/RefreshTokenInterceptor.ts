@@ -27,10 +27,10 @@ export class RefreshTokenInterceptor implements HttpInterceptor {
           }
           var rememberMe = localStorage.getItem('rememberMe') ==='true' ? true : false;
           if(rememberMe === true){
-            this.authService.SignIn(loginObj).subscribe(data=>{ })
+            this.authService.SignIn(loginObj).subscribe(data=>{this.router.navigate(['admin']) })
           }
           else{
-            this.router.navigate(['./login'])
+            this.router.navigate(['/login'])
           }
         }
 

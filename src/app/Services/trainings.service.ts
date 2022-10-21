@@ -12,9 +12,9 @@ export class TrainingsService extends BaseService{
   GetForm(){
     return this.get('Training/GetForm', null, null);
   }
-  GetAll(){
+  GetAll(lang:string){
     var obj = {
-      'Lang':this.currentLang
+      'Lang':lang
     }
     return this.get('Training/GetAll', null, obj)
   }
@@ -27,11 +27,11 @@ export class TrainingsService extends BaseService{
   Update(blogObject:any){
     return this.post('Training/Update',blogObject);
   }
-  GetById(id:string){
+  GetById(id:string, lang:string){
 
     var obj = {
       'Id' : id,
-      'Lang' : this.currentLang
+      'Lang' : lang
     }
     return this.get('Training/GetTrainingById/', null, obj);
   }

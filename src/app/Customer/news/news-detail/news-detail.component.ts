@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { NewsService } from '../../../Services/news.service';
 import { News } from '../../../Models/News';
 import { DomSanitizer } from '@angular/platform-browser';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-news-detail',
@@ -13,27 +14,28 @@ export class NewsDetailComponent implements OnInit {
   id:string;
   NewsItem:News = new News()
   detailUrl:any;
-  constructor(private route: ActivatedRoute, private newsService: NewsService,private sanitizer: DomSanitizer,) { }
+  constructor(private route: ActivatedRoute, private newsService: NewsService,private sanitizer: DomSanitizer,private translate: TranslateService) { }
   text:string = "new nesa nesa \n <br> /n nesa";
   ngOnInit(): void {
-    console.log(window.location.origin);
-
     this.id = this.route.snapshot.paramMap.get('id') as string;
-    console.log(this.id);
     this.detailUrl = window.location.origin + "/news-detail/" + this.id;
-    console.log(this.detailUrl);
+    this.GetNewsById(this.id, this.translate.currentLang)
+    this.translate.onLangChange.subscribe((lang) => {
+      this.GetNewsById(this.id, lang.lang)
+    });
 
-    this.GetNewsById(this.id)
   }
   TrustUrl(url: any) {
-    //https://www.youtube.com/embed/AK-cb91BuAw
     var customUrl = `https://www.youtube.com/embed/` + url.split('/')[3];
     return this.sanitizer.bypassSecurityTrustResourceUrl(customUrl);
   }
-  GetNewsById(id:string){
-    this.newsService.GetNewsById(id).subscribe(resp =>{
-      console.log(resp.data);
-      resp.data.videoURL = this.TrustUrl(resp.data.videoURL);
+  GetNewsById(id:string, lang:string){
+    this.newsService.GetNewsById(id, lang).subscribe(resp =>{
+      console.log(resp);
+      if(resp.data.videoURL !==null && resp.data.videoURL !==undefined && resp.data.videoURL !==''){
+        resp.data.videoURL = this.TrustUrl(resp.data.videoURL);
+      }
+
       this.NewsItem = resp.data;
     })
   }

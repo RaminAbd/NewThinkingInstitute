@@ -4,6 +4,7 @@ import { TeamService } from '../../../Services/team.service';
 import { FileService } from '../../../Services/file.service';
 import { Router } from '@angular/router';
 import { ConfirmationService, MessageService, PrimeNGConfig } from 'primeng/api';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-team',
@@ -19,6 +20,7 @@ export class AdminTeamComponent implements OnInit {
     private confirmationService:ConfirmationService,
     private messageService: MessageService,
     private primengConfig: PrimeNGConfig,
+    private translate: TranslateService
   ) { }
 
 
@@ -27,7 +29,7 @@ export class AdminTeamComponent implements OnInit {
     this.primengConfig.ripple = true;
   }
   getAll() {
-    this.service.GetAll().subscribe(resp => {
+    this.service.GetAll(this.translate.currentLang).subscribe(resp => {
       this.TeamItems = resp.data
     })
   }

@@ -46,6 +46,15 @@ import { LoginComponent } from './Auth/login/login.component';
 import { AuthGuard } from './Auth/auth.guard';
 import { AdminTeamUpsertComponent } from './Admin/Pages/team/upsert/upsert.component';
 import { AdminTeamComponent } from './Admin/Pages/team/team.component';
+import { BlogsDetailComponent } from './Customer/publications/blogs/blogs-detail/blogs-detail.component';
+import { AdminAccountsUpsertComponent } from './Admin/Pages/accounts/upsert/upsert.component';
+import { AdminAccountsComponent } from './Admin/Pages/accounts/accounts.component';
+import { AccountsDetailComponent } from './Customer/publications/accounts/accounts-detail/accounts-detail.component';
+import { AdminResearchComponent } from './Admin/Pages/research/research.component';
+import { AdminResearchUpsertComponent } from './Admin/Pages/research/upsert/upsert.component';
+import { AdminNewsletterComponent } from './Admin/Pages/newsletter/newsletter.component';
+import { AdminNewsletterUpsertComponent } from './Admin/Pages/newsletter/upsert/upsert.component';
+
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -78,7 +87,9 @@ const routes: Routes = [
   ]},
   {path: 'publications', component: PublicationsComponent, children: [
     { path: "accounts",component: AccountsComponent},
+    { path: "accounts/:id",component: AccountsDetailComponent},
     { path: "blogs",component: BlogsComponent},
+    { path: "blogs/:id",component: BlogsDetailComponent},
     { path: "newsletter",component: NewsletterComponent},
     { path: "studies",component: StudiesComponent},
 
@@ -99,7 +110,11 @@ const routes: Routes = [
   ]},
 
   {path: 'contact', component: ContactComponent},
-  {path: '', component: MainComponent},
+  {
+    path: '',
+    redirectTo: 'main',
+    pathMatch: 'full'
+  },
 
   {path: 'admin', component: AdminComponent, canActivate: [AuthGuard], children:[
     {path: 'statuses', component: StatusesComponent},
@@ -127,6 +142,16 @@ const routes: Routes = [
 
     {path: 'team', component: AdminTeamComponent},
     {path: 'team/:id', component: AdminTeamUpsertComponent},
+
+    {path: 'accounts', component: AdminAccountsComponent},
+    {path: 'accounts/:id', component: AdminAccountsUpsertComponent},
+
+    {path: 'research', component: AdminResearchComponent},
+    {path: 'research/:id', component: AdminResearchUpsertComponent},
+
+    {path: 'newsletter', component: AdminNewsletterComponent},
+    {path: 'newsletter/:id', component: AdminNewsletterUpsertComponent},
+
     {
       path: '',
       redirectTo: 'news',

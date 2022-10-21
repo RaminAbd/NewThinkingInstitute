@@ -1,7 +1,7 @@
 <div class="main-wrapper">
   <div class="news-carousel">
     <div class="line"></div>
-    <h3>სიახლეები</h3>
+    <h3>{{'News' | translate}}</h3>
     <p-carousel *ngIf="slideNews && slideNews.length > 0" [value]="slideNews" [autoplayInterval]="8000"
       [circular]="true">
       <!-- <ng-template pTemplate="header">
@@ -11,12 +11,17 @@
         <div class="banner-item">
           <div class="text">
             <h4 *ngIf="!responsive">{{car.title}}</h4>
-            <h4 *ngIf="responsive"> {{((car.title ) ? (car.title.length > 90 ? car.title.slice(0, 90) + "..." : car.title) : "")}}</h4>
-            <p class="description" *ngIf="!responsive">
+            <h4 *ngIf="responsive">
+              {{((car.title ) ? (car.title.length > 90 ? car.title.slice(0, 90) + "..." : car.title) : "")}}</h4>
+
+            <p class="description" *ngIf="!responsive && !isPhoneSize">
               {{((car.description ) ? (car.description.length > 385 ? car.description.slice(0, 385) + "..." : car.description) : "")}}
             </p>
-            <p class="description" *ngIf="responsive">
+            <p class="description" *ngIf="responsive ">
               {{((car.description ) ? (car.description.length > 300 ? car.description.slice(0, 300) + "..." : car.description) : "")}}
+            </p>
+            <p class="description" *ngIf="isPhoneSize">
+              {{((car.description ) ? (car.description.length > 200 ? car.description.slice(0, 200) + "..." : car.description) : "")}}
             </p>
             <div class="details">
               <div class="date">
@@ -52,13 +57,11 @@
           </div>
           <div class="content">
             <div class="header">
-              <h4>მომსახურება</h4>
+              <h4>{{'Service' | translate}}</h4>
             </div>
             <div class="body">
               <p>
-                შემთხვევითად გენერირებული ტექსტი
-                დიზაინერებს და ტიპოგრაფიული ნაწარმის
-                მქმნელებს, რეალურთან მაქსიმალურად
+                {{'ServiceText' | translate}}
               </p>
             </div>
           </div>
@@ -71,13 +74,11 @@
           </div>
           <div class="content">
             <div class="header">
-              <h4>კურსები</h4>
+              <h4>{{'Courses' | translate}}</h4>
             </div>
             <div class="body">
               <p>
-                შემთხვევითად გენერირებული ტექსტი
-                დიზაინერებს და ტიპოგრაფიული ნაწარმის
-                მქმნელებს, რეალურთან მაქსიმალურად
+                {{'CoursesText' | translate}}
               </p>
             </div>
           </div>
@@ -90,13 +91,11 @@
           </div>
           <div class="content">
             <div class="header">
-              <h4>ტრენინგ-სემინარები</h4>
+              <h4>{{'Training and Seminar' | translate}}</h4>
             </div>
             <div class="body">
               <p>
-                შემთხვევითად გენერირებული ტექსტი
-                დიზაინერებს და ტიპოგრაფიული ნაწარმის
-                მქმნელებს, რეალურთან მაქსიმალურად
+                {{'TrainingsText' | translate}}
               </p>
             </div>
           </div>
@@ -105,9 +104,9 @@
     </div>
 
   </div>
-  <div class="main-news">
+  <div class="main-news blogs">
     <div class="line"></div>
-    <h3>ბლოგები</h3>
+    <h3>{{'Blogs' | translate}}</h3>
     <div class="main-news-list">
       <div class="main-news-item" *ngFor="let item of shortBlogs">
         <div class="img">
@@ -120,7 +119,7 @@
           <div class="body">
             <div class="author">
               <div class="author-img">
-                <img src="assets/images/author.png" alt="">
+                <img src="{{item.authorImage}}" alt="">
               </div>
               <div class="author-name">
                 <p> {{item.author}}</p>
@@ -131,7 +130,7 @@
             <div class="date">
               <p>{{item.createdAt | date }}</p>
             </div>
-            <a [routerLink]="['news-detail']"  style="text-decoration:none;">
+            <a href="publications/blogs/{{item.id}}" target="_blank" style="text-decoration:none;">
               <div class="link-to-detail">
                 <p>სრულად</p>
                 <i class="pi pi-arrow-right"></i>
@@ -145,34 +144,35 @@
   </div>
   <div class="main-contact" id="contact">
     <div class="line"></div>
-    <h3>კონტაქტი</h3>
-    <h5>შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპოგრაფიული ნაწარმის შემქმნელებს, რეალურთან
-      მაქსიმალურად
+    <h3>{{'Contact' | translate}}</h3>
+    <h5>{{'ContactUsText' | translate}}
     </h5>
     <div class="contact-block">
       <div class="contact-form">
         <div class="name-email">
           <div class="name">
-            <label for="name">სახელი და გვარი</label>
-            <input type="text" id="name" [disabled]="CustomerRequest.isAnonymous" [(ngModel)]="CustomerRequest.fullName">
+            <label for="name">{{'NameAndSurname' | translate}}</label>
+            <input type="text" id="name" style="outline: none;" [disabled]="CustomerRequest.isAnonymous"
+              [(ngModel)]="CustomerRequest.fullName">
           </div>
           <div class="email">
-            <label for="email">E-mail</label>
-            <input type="text" id="email" [disabled]="CustomerRequest.isAnonymous" [(ngModel)]="CustomerRequest.email">
+            <label for="email">{{'Email' | translate}}</label>
+            <input type="text" id="email" style="outline: none;" [disabled]="CustomerRequest.isAnonymous"
+              [(ngModel)]="CustomerRequest.email">
           </div>
         </div>
         <div class="anonym">
           <input id="anonym" type="checkbox" (click)="clearInputs()" [(ngModel)]="CustomerRequest.isAnonymous">
-          <label for="anonym" >ანონიმურად გაგზავნა</label>
+          <label for="anonym">{{'Anonymously' | translate}}</label>
         </div>
         <div class="subject">
-          <label for="subject">შენიშვნა</label>
-          <textarea name="subject" id="subject" [(ngModel)]="CustomerRequest.comment"></textarea>
+          <label for="subject">{{'Comment' | translate}}</label>
+          <textarea name="subject" id="subject" style="outline: none;" [(ngModel)]="CustomerRequest.comment"></textarea>
         </div>
         <div class="button">
           <p class="requestMessage" style="color:red;" *ngIf="showCustomerErrorMessage">fill required Data</p>
           <p class="requestMessage" [ngStyle]="{'color' : requestMessage.color}">{{requestMessage.message}}</p>
-          <button type="submit" (click)="Send()">გაგზავნა</button>
+          <button type="submit" (click)="Send()">{{'Send' | translate}}</button>
         </div>
       </div>
       <div class="contact-info">
@@ -181,16 +181,16 @@
         </div>
         <div class="contact-details">
           <div class="email">
-            <p class="cont-label">ელ. ფოსტა</p>
+            <p class="cont-label">{{'Email' | translate}}</p>
             <p>mimdevelopment12@gmail.com</p>
           </div>
           <div class="phone">
-            <p class="cont-label">ტელეფონი</p>
+            <p class="cont-label">{{'Telephone' | translate}}</p>
             <p>577 27 80 90</p>
           </div>
           <div class="address">
-            <p class="cont-label">მისამართი</p>
-            <p>NTI ( New Thinking Institute)</p>
+            <p class="cont-label">{{'Adress' | translate}}</p>
+            <p>{{'FullAddress' | translate}}</p>
           </div>
           <div class="contact-soc-media">
             <div><i class="pi pi-youtube"></i></div>

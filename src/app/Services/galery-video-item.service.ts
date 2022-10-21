@@ -12,7 +12,8 @@ export class GaleryVideoItemService extends BaseService{
   Create(object:any){
     return this.post('GaleryVideoItem/Create/', object);
   }
-  GetAll(){
+  GetAll(lang:string){
+    this.langObj.Lang = lang;
     return this.get('GaleryVideoItem/GetAll/', null,this.langObj)
   }
   Delete(id:string){
