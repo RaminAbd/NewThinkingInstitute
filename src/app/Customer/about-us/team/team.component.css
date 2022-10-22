@@ -23,6 +23,7 @@ color: #000000;
 }
 .item p{
   margin: 0;
+ word-break: break-all;
 }
 .item h5{
   font-family: 'DejaVu Sans';

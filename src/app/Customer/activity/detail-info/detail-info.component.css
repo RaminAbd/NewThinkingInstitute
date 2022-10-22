@@ -74,3 +74,25 @@ color: #000000;
   color: #FFFFFF;
   margin: 0;
 }
+@media screen and (max-width:800px) {
+  .det-info h3{
+    font-size: 20px;
+  }
+  .content{
+    align-items:start;
+    flex-direction: column;
+  }
+  .content .image{
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  .content .content-inline{
+    width: 100%;
+  }
+  .duration p{
+    font-size: 15px;
+  }
+  .status p{
+    font-size: 17px;
+  }
+}

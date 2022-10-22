@@ -26,6 +26,11 @@ export class BlogsComponent implements OnInit {
     this.blogsService.GetAllWithPaging(index, lang).subscribe(resp=>{
       this.Response = resp.data;
       this.Blogs = resp.data.items;
+      window.scroll({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      });
     })
   }
 }

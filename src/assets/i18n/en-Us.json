@@ -1,6 +1,7 @@
 {
   "welcome":"hello",
-  "search":"search",
+  "search":"Search",
+  "search-parameter": "Search parameter",
   "Home" : "Home",
   "About Us" : "About Us",
   "Mission" : "Mission",

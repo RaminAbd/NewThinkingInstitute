@@ -20,7 +20,7 @@ export class AccountsDetailComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id') as string;
     this.GetNewsById(this.id, this.translate.currentLang)
-    this.detailUrl = window.location.origin + "/news-detail/" + this.id;
+    this.detailUrl = window.location.origin + "/news/" + this.id;
     this.translate.onLangChange.subscribe((lang) => {
       // this.lang = lang.lang;
       this.GetNewsById(this.id, lang.lang)

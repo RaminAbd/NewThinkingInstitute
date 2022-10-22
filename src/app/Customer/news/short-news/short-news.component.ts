@@ -11,19 +11,20 @@ import { TranslateService } from '@ngx-translate/core';
 export class ShortNewsComponent implements OnInit {
   shortNews: any[] = []
   responsive:boolean = false;
+  lang:any;
   constructor(private newsService: NewsService, private translate: TranslateService) {
     if(window.screen.width <  800){
       this.responsive = true;
     }else{
       this.responsive = false;
     }
-
     this.translate.onLangChange.subscribe((lang) => {
-      this.getAll(lang.lang);
+     this.lang = lang.lang;
     });
    }
 
   ngOnInit(): void {
+    this.getAll(this.translate.currentLang)
   }
   getAll(lang:string) {
     this.shortNews = []

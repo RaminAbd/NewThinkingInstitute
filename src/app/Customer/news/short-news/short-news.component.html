@@ -1,6 +1,6 @@
 
 <div class="main-news-list">
-  <div class="main-news-item" *ngFor="let item of shortNews">
+  <a class="main-news-item" style="text-decoration:none;" [routerLink]="['/news', item.id]" target="_blank" *ngFor="let item of shortNews">
     <div class="img">
       <img src="{{item.image}}" alt="">
     </div>
@@ -17,7 +17,7 @@
         <div class="date">
           <p>{{item.createdAt | date}}</p>
         </div>
-        <a [routerLink]="['/news-detail', item.id]"  style="text-decoration:none;">
+        <a [routerLink]="['/news', item.id]"  style="text-decoration:none;">
           <div class="link-to-detail">
             <p>სრულად</p>
             <i class="pi pi-arrow-right"></i>
@@ -26,6 +26,6 @@
 
       </div>
     </div>
-  </div>
+  </a>
 
 </div>

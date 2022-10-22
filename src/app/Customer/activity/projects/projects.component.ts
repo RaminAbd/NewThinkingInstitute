@@ -27,6 +27,11 @@ export class ProjectsComponent implements OnInit {
       this.Response = resp.data;
       this.Projects = resp.data.items;
       console.log(resp.data);
+      window.scroll({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      });
     })
   }
 }

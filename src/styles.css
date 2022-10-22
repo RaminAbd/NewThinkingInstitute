@@ -263,6 +263,7 @@ p-dropdown,
       top: 135px !important;
       width: 100%;
       left: 0;
+      height:0 !important;
   }
   .text .details{
     bottom:-40px !important;
@@ -274,8 +275,15 @@ p-dropdown,
   .main-news .main-news-item{
     width: 100% !important;
     margin-bottom: 25px !important;
+    border-radius: 0 !important;
+    background-color: transparent!important;
+    box-shadow:none !important;
     display: flex !important;
-    height: 73px !important;
+    height: 95px !important;
+    border-bottom: 1px solid rgba(117, 117, 117, 0.25);
+    padding-bottom: 15px;
+
+
   }
   .main-news .main-news-list{
     flex-direction: column !important;
@@ -287,16 +295,21 @@ p-dropdown,
   }
   .main-news .main-news-item img{
     border-radius: 8px !important;
+    object-fit: cover;
   }
   .main-news .main-news-item  .content{
     padding: 6px !important;
     height: auto !important;
+    margin-left: 9px;
   }
   .main-news .main-news-item .content .body{
     display: none !important;
   }
   .main-news .main-news-item .link-to-detail{
     display: none !important;
+  }
+  .main-news.blogs .main-news-item .link-to-detail{
+    display:flex !important;
   }
   .main-activity .main-activity-list{
     flex-direction: column !important;
@@ -317,7 +330,7 @@ p-dropdown,
     margin: 20px 0 10px 0 !important;
   }
   .main-news, .main-activity, .main-contact{
-    margin-top: 35px !important;
+    margin-top: 45px !important;
   }
   .contact-block{
     height: 510px !important;
@@ -462,5 +475,40 @@ p-dropdown,
   }
   .banner-item  .text .details{
     bottom:20px !important;
+  }
+  .banner-item .link-to-detail  p{
+    margin-top: 0 !important;
+  }
+  .p-carousel-item, .p-carousel-item .banner-item, .p-carousel-item .banner-item .image, .p-carousel-item .banner-item .image img{
+    border-radius: 8px 8px 0 0 !important;
+    border: none !important;
+  }
+  .line{
+    height:3px !important;
+  }
+  .main-wrapper h3{
+    font-size: 20px !important;
+    margin-top: 9px !important;
+    margin-bottom: 15px !important;
+  }
+  .content .header h4{
+    font-size:15px !important;
+  }
+  .main-wrapper .content .details{
+    bottom:0 !important;
+  }
+  .main-wrapper .main-news-item .date p{
+    font-size:12px !important;
+  }
+  .main-news.blogs .main-news-list .main-news-item:first-child{
+    background: #FFFFFF !important;
+    box-shadow: 0px 4px 20px rgb(210 210 210 / 25%) !important;
+    border-radius: 8px !important;
+    display: flex !important;
+    height: auto !important;
+    flex-direction: column !important;
+  }
+  .footer p{
+    margin-bottom:3px !important;
   }
 }

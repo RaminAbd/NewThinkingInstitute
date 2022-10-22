@@ -4,7 +4,9 @@
   height: 439px;
   width: 100%;
 }
-
+h3{
+  font-family: 'Dejavu Sans';
+}
 .image img {
   border-radius: 8px;
   width: 100%;
@@ -20,4 +22,9 @@
   font-size: 18px;
   line-height: 28px;
   color: #000000;
+}
+@media screen and (max-width: 800px) {
+  .image {
+    height: auto !important;
+  }
 }

@@ -24,4 +24,8 @@ export class CustomerRequestService extends BaseService {
   GetById(id:string){
     return this.get('CustomerRequests/GetById/', id, null)
   }
+
+  Delete(blogId:string){
+    return this.delete('CustomerRequests/Delete/',blogId);
+  }
 }

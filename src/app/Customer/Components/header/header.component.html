@@ -1,9 +1,24 @@
 <div class="header-wrapper"  [ngClass]="{'active': active}">
   <div class="blocks">
     <div class="logo">
-      <img class="logo" src="assets/images/logo.svg" alt="logo">
-      <div class="burger" (click)="active = !active">
-        <img src="assets/images/burger.svg" alt="burger">
+      <div class="burger" (click)="openMenu()">
+        <img src="assets/images/burger.svg" *ngIf="!active" alt="burger">
+        <i class="pi pi-times" *ngIf="active"></i>
+      </div>
+      <img class="logo" [routerLink]="['main']" src="assets/images/logo.svg" alt="logo">
+      <div class="search myclass" >
+        <div class="search-block" style="z-index: 2;">
+          <!-- <input type="text" placeholder="{{'search'| translate}}"> -->
+          <i class="pi pi-times" *ngIf="showSearch" (click)="openSearch()"></i>
+          <i class="pi pi-search" *ngIf="!showSearch" (click)="openSearch()"></i>
+        </div>
+        <div class="search-input-block" style="z-index: 1;" *ngIf="showSearch">
+          <div class="search-second">
+            <input type="text" class="input" autofocus [(ngModel)]="searchText" placeholder="{{'search'| translate}}">
+            <i class="pi pi-search"  (click)="search()"></i>
+          </div>
+
+        </div>
       </div>
     </div>
     <div class="page-links">
@@ -54,6 +69,16 @@
       </ul>
     </div>
     <div class="lang-search">
+      <div class="search" >
+        <div class="search-block" style="z-index: 2;">
+          <!-- <input type="text" placeholder="{{'search'| translate}}"> -->
+          <i class="pi pi-times" *ngIf="showSearch" (click)="openSearch()"></i>
+          <i class="pi pi-search" *ngIf="!showSearch" (click)="openSearch()"></i>
+        </div>
+        <div class="search-input-block" style="z-index: 1;" *ngIf="showSearch">
+          <input type="text" class="input" autofocus (keyup.enter)="search()" [(ngModel)]="searchText" placeholder="{{'search'| translate}}">
+        </div>
+      </div>
       <div class="lang">
         <ul>
           <li>
@@ -66,17 +91,12 @@
           </li>
         </ul>
       </div>
-      <div class="search">
-        <div class="search-block">
-          <input type="text" placeholder="{{'search'| translate}}">
-          <i class="pi pi-search"></i>
-        </div>
-      </div>
+
     </div>
     <div class="responsive-links" [ngClass]="{'active': active}">
       <ul>
-        <li><a [routerLink]="['main']" [routerLinkActive]="['active']" (click)="active = false">{{'Home' | translate}}</a></li>
-        <li><a [routerLink]="['news']" [routerLinkActive]="['active']" (click)="active = false">{{'News' | translate}}</a></li>
+        <li><a [routerLink]="['main']" [routerLinkActive]="['active']" (click)="activerespMenu() ">{{'Home' | translate}}</a></li>
+        <li><a [routerLink]="['news']" [routerLinkActive]="['active']" (click)="activerespMenu()">{{'News' | translate}}</a></li>
         <li>
           <a [routerLink]="['about-us']" [routerLinkActive]="['active']">{{'About Us' | translate}}<img style="margin-left:5px;"
               src="assets/images/dropmenu.svg" alt=""></a>
@@ -119,6 +139,11 @@
         </li>
 
       </ul>
+      <div class="lang-switcher">
+        <div class="item" *ngFor="let item of languages" (click)="changeLanguage(item.key)" [ngClass]="{'active': item.selected}">
+          <p>{{item.value}}</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>

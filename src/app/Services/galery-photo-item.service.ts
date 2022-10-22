@@ -21,4 +21,12 @@ export class GaleryPhotoItemService extends BaseService{
   GetForm(){
     return this.get('GaleryPhotoItem/GetForm', null, null);
   }
+  GetAllWithPaging(index:number){
+    var obj = {
+      'PageIndex': index,
+      'PageSize':9,
+      'Lang':this.currentLang
+    };
+    return this.get('GaleryPhotoItem/GetAllWithPaging/', null, obj);
+  }
 }

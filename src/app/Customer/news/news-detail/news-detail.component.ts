@@ -18,7 +18,7 @@ export class NewsDetailComponent implements OnInit {
   text:string = "new nesa nesa \n <br> /n nesa";
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id') as string;
-    this.detailUrl = window.location.origin + "/news-detail/" + this.id;
+    this.detailUrl = window.location.origin + "/news/" + this.id;
     this.GetNewsById(this.id, this.translate.currentLang)
     this.translate.onLangChange.subscribe((lang) => {
       this.GetNewsById(this.id, lang.lang)
@@ -29,11 +29,12 @@ export class NewsDetailComponent implements OnInit {
     var customUrl = `https://www.youtube.com/embed/` + url.split('/')[3];
     return this.sanitizer.bypassSecurityTrustResourceUrl(customUrl);
   }
+  videoURL:any;
   GetNewsById(id:string, lang:string){
     this.newsService.GetNewsById(id, lang).subscribe(resp =>{
       console.log(resp);
       if(resp.data.videoURL !==null && resp.data.videoURL !==undefined && resp.data.videoURL !==''){
-        resp.data.videoURL = this.TrustUrl(resp.data.videoURL);
+        this.videoURL = this.TrustUrl(resp.data.videoURL);
       }
 
       this.NewsItem = resp.data;

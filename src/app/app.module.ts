@@ -84,6 +84,7 @@ import { AdminResearchComponent } from './Admin/Pages/research/research.componen
 import { AdminResearchUpsertComponent } from './Admin/Pages/research/upsert/upsert.component';
 import { AdminNewsletterUpsertComponent } from './Admin/Pages/newsletter/upsert/upsert.component';
 import { AdminNewsletterComponent } from './Admin/Pages/newsletter/newsletter.component';
+import { SearchResultComponent } from './Customer/search-result/search-result.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -148,6 +149,7 @@ import { AdminNewsletterComponent } from './Admin/Pages/newsletter/newsletter.co
     AdminResearchUpsertComponent,
     AdminNewsletterUpsertComponent,
     AdminNewsletterComponent,
+    SearchResultComponent
   ],
   imports: [
     BrowserModule,

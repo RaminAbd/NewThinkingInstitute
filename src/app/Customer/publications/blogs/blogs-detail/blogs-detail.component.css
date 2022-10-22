@@ -170,3 +170,8 @@ img {
   line-height: 19px;
   color: #000000;
 }
+@media screen and (max-width: 800px) {
+  .main-news.blogs {
+    display:none
+  }
+}

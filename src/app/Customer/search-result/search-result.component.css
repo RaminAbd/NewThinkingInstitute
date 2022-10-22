@@ -1,0 +1,30 @@
+.results .count p{
+  font-family: 'DejaVu Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  color: #000000;
+}
+p{
+  font-family: 'DejaVu Sans';
+}
+h3, h4{
+  font-family: 'DejaVu Sans';
+}
+.results .item h5{
+  font-family: 'DejaVu Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  color: #CC3D2B;
+  margin-bottom: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  height: 1.2em;
+  white-space: nowrap;
+}
+.results a{
+  color: #CC3D2B;
+}

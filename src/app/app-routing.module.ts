@@ -54,13 +54,15 @@ import { AdminResearchComponent } from './Admin/Pages/research/research.componen
 import { AdminResearchUpsertComponent } from './Admin/Pages/research/upsert/upsert.component';
 import { AdminNewsletterComponent } from './Admin/Pages/newsletter/newsletter.component';
 import { AdminNewsletterUpsertComponent } from './Admin/Pages/newsletter/upsert/upsert.component';
+import { SearchResultComponent } from './Customer/search-result/search-result.component';
 
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'main', component: MainComponent},
+  {path: 'search-result/:text', component: SearchResultComponent},
   {path: "news",component: NewsComponent},
-  {path: 'news-detail/:id', component: NewsDetailComponent},
+  {path: 'news/:id', component: NewsDetailComponent},
   {path: 'about-us', component: AboutUsComponent,children: [
     { path: "mission",component: MissionComponent},
     { path: "history",component: HistoryComponent},

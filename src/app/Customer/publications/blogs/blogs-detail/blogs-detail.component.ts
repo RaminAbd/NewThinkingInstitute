@@ -17,7 +17,7 @@ export class BlogsDetailComponent implements OnInit {
   constructor(private route: ActivatedRoute, private blogsService: BlogService, private translate: TranslateService) {this.id = this.route.snapshot.paramMap.get('id') as string; }
 
   ngOnInit(): void {
-    this.detailUrl = window.location.origin + "/news-detail/" + this.id;
+    this.detailUrl = window.location.origin + "/news/" + this.id;
     this.getById(this.id, this.translate.currentLang)
     this.translate.onLangChange.subscribe((lang) => {
       // this.lang = lang.lang;

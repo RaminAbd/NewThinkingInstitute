@@ -29,6 +29,11 @@ export class NewsComponent implements OnInit {
       this.Response = resp.data;
       this.News = resp.data.items;
       console.log(resp.data.items);
+      window.scroll({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      });
     })
   }
 }

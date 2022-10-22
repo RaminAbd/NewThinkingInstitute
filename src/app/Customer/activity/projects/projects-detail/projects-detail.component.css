@@ -43,3 +43,22 @@ font-size: 18px;
 line-height: 28px;
 color: #000000;
 }
+@media screen and (max-width:800px) {
+  .content{
+    align-items:start;
+    flex-direction: column;
+  }
+  .content .image{
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  .content .inline-content{
+    width: 100%;
+  }
+  .duration p{
+    font-size: 15px;
+  }
+  .status p{
+    font-size: 17px;
+  }
+}

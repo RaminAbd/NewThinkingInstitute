@@ -8,40 +8,43 @@
       {{Item.description}}
     </p>
   </div>
-  <div class="line"></div>
-  <h3>{{'Blogs' | translate}}</h3>
-  <div class="main-news-list">
-    <div class="main-news-item" *ngFor="let item of shortBlogs">
-      <div class="img">
-        <img src="{{item.image}}" alt="">
-      </div>
-      <div class="content">
-        <div class="header">
-          <h4>{{((item.title ) ? (item.title.length > 75 ? item.title.slice(0, 75) + "..." : item.title) : "")}}</h4>
-        </div>
-        <div class="body">
-          <div class="author">
-            <div class="author-img">
-              <img src="{{item.authorImage}}" alt="">
-            </div>
-            <div class="author-name">
-              <p> {{item.author}}</p>
-            </div>
-          </div>
-        </div>
-        <div class="details">
-          <div class="date">
-            <p>{{item.createdAt | date }}</p>
-          </div>
-          <a [routerLink]="['/publications/blogs', item.id]" target="_blank"  style="text-decoration:none;">
-            <div class="link-to-detail">
-              <p>სრულად</p>
-              <i class="pi pi-arrow-right"></i>
-            </div>
-          </a>
-        </div>
-      </div>
-    </div>
 
+  <div class="main-news blogs">
+    <div class="line"></div>
+    <h3>{{'Blogs' | translate}}</h3>
+    <div class="main-news-list">
+      <div class="main-news-item" *ngFor="let item of shortBlogs">
+        <div class="img">
+          <img src="{{item.image}}" alt="">
+        </div>
+        <div class="content">
+          <div class="header">
+            <h4>{{((item.title ) ? (item.title.length > 75 ? item.title.slice(0, 75) + "..." : item.title) : "")}}</h4>
+          </div>
+          <div class="body">
+            <div class="author">
+              <div class="author-img">
+                <img src="{{item.authorImage}}" alt="">
+              </div>
+              <div class="author-name">
+                <p> {{item.author}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="details">
+            <div class="date">
+              <p>{{item.createdAt | date }}</p>
+            </div>
+            <a href="publications/blogs/{{item.id}}" target="_blank" style="text-decoration:none;">
+              <div class="link-to-detail">
+                <p>სრულად</p>
+                <i class="pi pi-arrow-right"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </div>
