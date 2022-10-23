@@ -19,3 +19,32 @@
   border-radius: 8px;
   margin-bottom: 20px;
 }
+.lightbox{
+  display:none;
+}
+.lightbox.active{
+  position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: #000000c9;
+    width: 100%;
+    display: flex;
+    z-index: 3;
+    align-items: center;
+    justify-content: center;
+}
+.lightbox.active img{
+  width: 80%;
+  border-radius: 8px;
+}
+
+.closeBtn{
+  position: absolute;
+  top: 30px;
+  right: 30px;
+}
+.closeBtn i{
+  color: #fff;
+  font-size: 20px;
+}

@@ -42,5 +42,6 @@
   "seeAll" : "See all",
   "founders" : "Assembly of founders",
   "colleagues" : "Colleagues",
-  "contactPhone" : "Phone"
+  "contactPhone" : "Phone",
+  "countSearchResult":"Number of search results"
 }

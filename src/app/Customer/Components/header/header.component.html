@@ -10,12 +10,12 @@
         <div class="search-block" style="z-index: 2;">
           <!-- <input type="text" placeholder="{{'search'| translate}}"> -->
           <i class="pi pi-times" *ngIf="showSearch" (click)="openSearch()"></i>
-          <i class="pi pi-search" *ngIf="!showSearch" (click)="openSearch()"></i>
+          <i class="pi pi-search" style="cursor:pointer;" *ngIf="!showSearch" (click)="openSearch()"></i>
         </div>
         <div class="search-input-block" style="z-index: 1;" *ngIf="showSearch">
           <div class="search-second">
             <input type="text" class="input" autofocus [(ngModel)]="searchText" placeholder="{{'search'| translate}}">
-            <i class="pi pi-search"  (click)="search()"></i>
+            <i class="pi pi-search" style="cursor:pointer;" (click)="search()"></i>
           </div>
 
         </div>
@@ -73,7 +73,7 @@
         <div class="search-block" style="z-index: 2;">
           <!-- <input type="text" placeholder="{{'search'| translate}}"> -->
           <i class="pi pi-times" *ngIf="showSearch" (click)="openSearch()"></i>
-          <i class="pi pi-search" *ngIf="!showSearch" (click)="openSearch()"></i>
+          <i class="pi pi-search" style="cursor:pointer;" *ngIf="!showSearch" (click)="openSearch()"></i>
         </div>
         <div class="search-input-block" style="z-index: 1;" *ngIf="showSearch">
           <input type="text" class="input" autofocus (keyup.enter)="search()" [(ngModel)]="searchText" placeholder="{{'search'| translate}}">

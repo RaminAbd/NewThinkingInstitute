@@ -41,5 +41,6 @@
   "seeAll" : "სრულად",
   "founders" : "დამფუძნებელთა კრება",
   "colleagues" : "თანამშრომლები",
-  "contactPhone" : "საკონტაქტო ნომერი"
+  "contactPhone" : "საკონტაქტო ნომერი",
+  "countSearchResult":"ძიების შედეგების რაოდენობა"
 }

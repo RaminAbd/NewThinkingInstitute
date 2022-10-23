@@ -2,10 +2,16 @@
   <div class="line"></div>
   <h3 class="page-header">{{'Photos' | translate}}</h3>
   <div class="content">
-    <div class="photo-item" *ngFor="let photo of Photos">
+    <div class="photo-item" *ngFor="let photo of Photos" (click)="openLightBox(photo)">
      <img src="{{photo.photo}}" alt="">
     </div>
 
+  </div>
+  <div class="lightbox" [ngClass]="{'active': lightBoxActive}">
+    <div class="closeBtn">
+      <i class="pi pi-times" (click)="closeLightbox()"></i>
+    </div>
+    <img src="{{item.photo}}" alt="">
   </div>
   <app-pagination [Response]="Response" (Changes)="GetAllPhotos($event)"></app-pagination>
 </div>

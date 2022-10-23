@@ -4,10 +4,10 @@
   <h4>{{'search-parameter' | translate}} : {{searchText}}</h4>
   <div class="results">
     <div class="count">
-      <p>შედეგი: {{result.length}}</p>
+      <p>{{'countSearchResult' | translate}}: {{result.length}}</p>
     </div>
     <div class="item" *ngFor="let item of result">
-      <h5 (click)="goToItem(item)"><a >{{item.title}}</a></h5>
+      <h5 syle="cursor:pointer;" (click)="goToItem(item)"><a >{{item.title}}</a></h5>
       <p *ngIf="!isPhoneSize">{{item.description}}</p>
       <p *ngIf="isPhoneSize">{{((item.description ) ? (item.description.length > 100 ? item.description.slice(0, 100) + "..." : item.description) : "")}}</p>
 
