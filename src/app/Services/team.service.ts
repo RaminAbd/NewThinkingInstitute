@@ -14,16 +14,31 @@ export class TeamService extends BaseService{
   Delete(newsItemId:string){
     return this.delete('TeamMembers/Delete/',newsItemId);
   }
-  GetAll(lang:string){
-    var obj = {
-      'Lang':lang
-    }
-    return this.get('TeamMembers/GetAll/', null, obj)
-  }
+  // GetAll(lang:string){
+  //   var obj = {
+  //     'Lang':lang
+  //   }
+  //   return this.get('TeamMembers/GetAll/', null, obj)
+  // }
   GetById(id:string){
     return this.get('TeamMembers/GetById/', id, null);
   }
   Update(object:any){
     return this.post('TeamMembers/Update/',object);
+  }
+  GetForm(){
+    return this.get('TeamMembers/GetForm', null, null);
+  }
+  GetForUpdate(id:string){
+    return this.get('TeamMembers/GetForUpdate/',id, null);
+  }
+  GetAll(lang:string){
+    return this.get('TeamMembers/GetAll/',lang, null)
+  }
+  CreateWithForm(form:any){
+    return this.post('TeamMembers/CreateWithForm', form);
+  }
+  UpdateWithForm(obj:any){
+    return this.post('TeamMembers/UpdateWithForm', obj);
   }
 }

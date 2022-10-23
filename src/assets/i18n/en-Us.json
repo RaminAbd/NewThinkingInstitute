@@ -15,6 +15,7 @@
   "Training and Seminar" : "Training / Seminar",
   "Publication" : "Publication",
   "Research":"Research",
+  "Reports":"Reports",
   "Tədqiqatlar":"Tədqiqatlar",
   "Blogs":"Blogs",
   "Newsletter":"Newsletter",
@@ -36,6 +37,10 @@
   "Telephone":"Telephone",
   "Adress":"Adress",
   "Send":"Send",
-  "FullAddress":"Marneuli, Khuldara village"
-
+  "FullAddress":"Marneuli, Khuldara village",
+  "share" : "Share",
+  "seeAll" : "See all",
+  "founders" : "Assembly of founders",
+  "colleagues" : "Colleagues",
+  "contactPhone" : "Phone"
 }

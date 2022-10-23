@@ -17,8 +17,10 @@ export class ProjectsComponent implements OnInit {
     this.lang = this.translate.currentLang;
     this.GetAllWithPaging(1, this.translate.currentLang)
     this.translate.onLangChange.subscribe((lang) => {
-      this.GetAllWithPaging(1, lang.lang)
-      this.lang = lang.lang;
+      if(this.lang !== lang.lang){
+        this.lang = lang.lang
+        this.GetAllWithPaging(1, lang.lang)
+      }
      });
 
   }

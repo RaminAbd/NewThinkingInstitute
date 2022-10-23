@@ -25,17 +25,17 @@ export class DetailInfoComponent implements OnInit {
   ) {
     this.lang = this.translate.currentLang;
     this.translate.onLangChange.subscribe((lang) => {
-      this.lang = lang.lang;
+      if(this.lang !== lang.lang){
+        this.lang = lang.lang
+        this.switchType()
+      }
      });
     this.id = this.route.snapshot.paramMap.get('id') as string;
     this.type = this.route.snapshot.paramMap.get('type') as string;
   }
   getService(id:string, lang:string){
     this.serviceService.GetById(id, lang).subscribe(resp => {
-      console.log(resp);
-
       this.Item = resp.data;
-      // console.log(this.Item);
     })
   }
   getCourse(id:string, lang:string) {
@@ -50,6 +50,9 @@ export class DetailInfoComponent implements OnInit {
   }
   ngOnInit(): void {
     console.log(this.type);
+    this.switchType();
+  }
+  switchType(){
     switch (this.type) {
       case 'service': {
         this.getService(this.id, this.lang);
@@ -69,8 +72,5 @@ export class DetailInfoComponent implements OnInit {
         break;
       }
     }
-
-
   }
-
 }

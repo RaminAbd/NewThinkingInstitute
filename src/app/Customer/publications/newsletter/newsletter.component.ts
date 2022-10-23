@@ -11,10 +11,13 @@ import { TranslateService } from '@ngx-translate/core';
 export class NewsletterComponent implements OnInit {
 
   researchItems: Research[] = [];
+  lang:any;
   constructor(private researchService: NewsletterService, private translate: TranslateService) {
     this.translate.onLangChange.subscribe((lang) => {
-      // this.lang = lang.lang;
-      this.GetAll(lang.lang)
+      if(this.lang !== lang.lang){
+        this.lang = lang.lang
+        this.GetAll(lang.lang)
+      }
     });
   }
 

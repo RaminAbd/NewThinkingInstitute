@@ -1,8 +1,9 @@
+import { MultiLingual } from './MultiLingual.model';
 export class TeamItem{
   id?:string;
-  fullName: string;
+  fullName: MultiLingual;
   image: any;
-  position: string;
+  position: MultiLingual;
   contactMobile: string;
   email: string;
   facebookLink: string;

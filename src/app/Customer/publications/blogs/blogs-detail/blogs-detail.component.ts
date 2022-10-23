@@ -15,13 +15,17 @@ export class BlogsDetailComponent implements OnInit {
   detailUrl:any;
   shortBlogs:any[]=[]
   constructor(private route: ActivatedRoute, private blogsService: BlogService, private translate: TranslateService) {this.id = this.route.snapshot.paramMap.get('id') as string; }
-
+  lang:any;
   ngOnInit(): void {
     this.detailUrl = window.location.origin + "/news/" + this.id;
     this.getById(this.id, this.translate.currentLang)
     this.translate.onLangChange.subscribe((lang) => {
-      // this.lang = lang.lang;
-      this.getById(this.id, lang.lang)
+      if(this.lang !== lang.lang){
+        this.lang = lang.lang
+        this.getAllBlogs( lang.lang)
+        this.getById(this.id, lang.lang)
+      }
+
     });
     this.getAllBlogs(this.translate.currentLang)
   }

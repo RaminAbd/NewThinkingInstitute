@@ -17,13 +17,16 @@ export class AccountsDetailComponent implements OnInit {
   detailUrl:any;
   constructor(private route: ActivatedRoute, private service: AccountsService,private sanitizer: DomSanitizer,private translate: TranslateService) { }
   text:string = "new nesa nesa \n <br> /n nesa";
+  lang:any;
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id') as string;
     this.GetNewsById(this.id, this.translate.currentLang)
     this.detailUrl = window.location.origin + "/news/" + this.id;
     this.translate.onLangChange.subscribe((lang) => {
-      // this.lang = lang.lang;
-      this.GetNewsById(this.id, lang.lang)
+      if(this.lang !== lang.lang){
+        this.lang = lang.lang
+        this.GetNewsById(this.id, lang.lang)
+      }
     });
   }
 

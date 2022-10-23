@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { NewsService } from '../../Services/news.service';
 import { BlogService } from '../../Services/blog.service';
 import { News } from '../../Models/News';
@@ -14,7 +14,7 @@ import { ShortsService } from 'src/app/Services/shorts.service';
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
-export class MainComponent implements OnInit {
+export class MainComponent implements OnInit, OnChanges {
   shortBlogs: any[] = [];
   shortNews: any[] = [];
   slideNews: any[] = [];
@@ -44,11 +44,18 @@ export class MainComponent implements OnInit {
     this.shortNews = []
     this.lang = this.translate.currentLang;
     this.translate.onLangChange.subscribe((lang) => {
-      this.lang = lang.lang
+      if (this.lang !== lang.lang) {
+        this.lang = lang.lang
+        this.getShorts(this.lang)
+      }
+
     });
   }
-  getShorts(lang: string){
-    this.shortService.GetShorts(lang).subscribe(resp=>{
+  getShorts(lang: string) {
+    this.shortService.GetShorts(lang).subscribe(resp => {
+      this.slideNews = [];
+      this.shortNews = [];
+      this.shortBlogs = [];
       this.slideNews = resp.data.slider;
       this.shortNews = resp.data.news;
       this.shortBlogs = resp.data.blogs;
@@ -57,49 +64,10 @@ export class MainComponent implements OnInit {
     })
   }
   ngOnInit(): void {
-    // this.getAllNews(this.lang)
-    // this.getAllBlogs(this.lang);
     this.getShorts(this.lang)
   }
-
-  getAllNews(lang: string) {
-    this.shortNews = [];
-    this.slideNews = [];
-    this.newsService.GetAll(lang).subscribe(resp => {
-      var slide = resp.data.filter((word: any) => word.isForSlider === true);
-      var filteredShortNews = resp.data.sort((a: any, b: any) => {
-        return b.createdAt - a.createdAt;
-      });
-      for (let i = 0; i < 3; i++) {
-        if (slide[i] !== undefined) {
-          this.slideNews.push(slide[i]);
-        }
-        if (filteredShortNews[i] !== undefined) {
-          this.shortNews.push(filteredShortNews[i]);
-        }
-
-      }
-
-    })
+  ngOnChanges() {
   }
-
-  getAllBlogs(lang: string) {
-    this.shortBlogs = []
-    this.blogsService.GetAll(lang).subscribe(resp => {
-      console.log(resp);
-      var filtered = resp.data.sort((a: any, b: any) => {
-        return b.createdAt - a.createdAt;
-      });
-      for (let i = 0; i < 3; i++) {
-        this.shortBlogs.push(filtered[i]);
-      }
-      console.log(this.shortBlogs);
-
-    })
-  }
-
-
-
 
   clearInputs() {
     this.CustomerRequest.fullName = '';

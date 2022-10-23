@@ -21,7 +21,7 @@
           <td *ngIf="item.image && !item.videoURL"><a href="{{item.image}}" target="_blank">{{item.image}}</a></td>
           <td *ngIf="!item.image && item.videoURL"><a href="{{item.videoURL}}" target="_blank">{{item.videoURL}}</a></td>
           <td>{{item.title}}</td>
-          <td>{{item.createdAt }}</td>
+          <td>{{item.createdAt | date}}</td>
           <td>
             <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"
               (click)="editItem(item.id)"></button>

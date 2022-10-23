@@ -15,6 +15,7 @@
   "Training and Seminar" : "Təlim / Seminar",
   "Publication" : "Nəşrlər",
   "Research":"Tədqiqatlar",
+  "Reports":"Hesabatlar",
   "Tədqiqatlar":"Hesabatlar",
   "Blogs":"Bloqlar",
   "Newsletter":"İnformasiya bülleteni",
@@ -32,9 +33,15 @@
   "NameAndSurname":"Ad və soyad",
   "Email": "E-poçt",
   "Anonymously":"Anonim olaraq göndərmək",
-  "Comment": "Şərh",
+  "Comment": "Rəy",
   "Telephone":"Telefon",
   "Adress":"Ünvan",
-  "Send":"Göndərmək",
-  "FullAddress":"Marneuli ş., Xüldərə kəndi"
+  "Send":"Göndər",
+  "FullAddress":"Marneuli ş., Xüldərə kəndi",
+  "share" : "Paylaş",
+  "seeAll" : "Hamısını gör",
+  "founders" : "Təsisçilər şurası",
+  "colleagues" : "Əməkdaşlar",
+  "contactPhone" : "Əlaqə nömrəsi"
+
 }

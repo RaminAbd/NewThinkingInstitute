@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {  TranslateService } from '@ngx-translate/core';
+import { TranslateService } from '@ngx-translate/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { Carousel } from 'primeng/carousel';
 
@@ -11,22 +11,19 @@ import { Carousel } from 'primeng/carousel';
 export class AppComponent {
   isAdmin: boolean = false;
   isLoginPage: boolean = false
-  constructor( public translate: TranslateService,private router:Router){
-    this.translate.addLangs(['az-Aze','ka-Geo', 'en-Us']);
+  constructor(public translate: TranslateService, private router: Router) {
+    this.translate.addLangs(['az-Aze', 'ka-Geo', 'en-Us']);
     const langExists: boolean = !!localStorage.getItem('systemLanguage');
     this.router.events.subscribe((e) => {
       if (e instanceof NavigationEnd) {
-        console.log((e.url).split('/')[1]);
-
-
-        if((e.url).split('/')[1]==='login'){
+        if ((e.url).split('/')[1] === 'login') {
           this.isLoginPage = true;
         }
-        else{
-          if((e.url).split('/')[1]==='admin'){
+        else {
+          if ((e.url).split('/')[1] === 'admin') {
             this.isAdmin = true;
           }
-          else{
+          else {
             this.isAdmin = false
           }
           this.isLoginPage = false
@@ -35,9 +32,9 @@ export class AppComponent {
       }
     });
     if (!langExists) {
-      translate.setDefaultLang('az-Aze');
-      localStorage.setItem('systemLanguage', 'az-Aze');
-      translate.use('az-Aze');
+      translate.setDefaultLang('ka-Geo');
+      localStorage.setItem('systemLanguage', 'ka-Geo');
+      translate.use('ka-Geo');
     } else {
       const value: string = localStorage.getItem('systemLanguage') as string;
       translate.setDefaultLang(value);

@@ -26,7 +26,22 @@ export class AdminTeamUpsertComponent implements OnInit {
   ngOnInit(): void {
     if(this.id !== 'create'){
       this.getById(this.id);
+      this.getFormForUpdate(this.id);
     }
+    else{
+      this.getForm();
+    }
+  }
+  getForm(){
+    this.service.GetForm().subscribe(resp => {
+      console.log(resp.data);
+      this.TeamItem = resp.data
+    })
+  }
+  getFormForUpdate(id:string){
+    this.service.GetForUpdate(id).subscribe(resp=>{
+      this.TeamItem = resp.data;
+    })
   }
   getById(id: string){
     this.service.GetById(id).subscribe(resp=>{
@@ -53,7 +68,7 @@ export class AdminTeamUpsertComponent implements OnInit {
     console.log(this.TeamItem);
 
     if (this.id === "create") {
-      this.service.Create(this.TeamItem).subscribe(resp => {
+      this.service.CreateWithForm(this.TeamItem).subscribe(resp => {
         if (resp.succeeded === true) {
           this.router.navigate(['admin/team'])
         }
@@ -66,7 +81,7 @@ export class AdminTeamUpsertComponent implements OnInit {
         })
     }
     else {
-      this.service.Update(this.TeamItem).subscribe(resp => {
+      this.service.UpdateWithForm(this.TeamItem).subscribe(resp => {
         if (resp.succeeded === true) {
           this.router.navigate(['admin/team'])
         }

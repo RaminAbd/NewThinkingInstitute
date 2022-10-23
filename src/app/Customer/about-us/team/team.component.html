@@ -1,35 +1,35 @@
 <div class="team-wrapper">
   <div class="line"></div>
-  <h3 class="page-header">{{'Team' | translate}}</h3>
+  <h3 class="page-header">{{'team' | translate}}</h3>
 
   <div class="content">
-    <h4>დამფუძნებელთა კრება</h4>
+    <h4>{{'founders' | translate}}</h4>
     <div class="list">
       <div class="item" *ngFor="let item of Founders">
         <div class="image">
-          <img src="assets/images/team.png" alt="">
+          <img src="{{item.image}}" alt="">
         </div>
         <div class="details">
           <h5>{{item.fullName}} - {{item.position}}</h5>
-          <p>საკონტაქტო ნომერი: {{item.contactMobile}}</p>
-          <p>ელ-ფოსტა: {{item.email}}</p>
+          <p>{{'contactPhone' | translate}}: {{item.contactMobile}}</p>
+          <p>{{'Email' | translate}}: {{item.email}}</p>
           <p>Facebook: {{item.facebookLink}} </p>
-          <p>მისამართი: {{item.address}}</p>
+          <p>{{'Adress' | translate }}: {{item.address}}</p>
         </div>
       </div>
     </div>
-    <h4>თანამშრომლები</h4>
+    <h4>{{'colleagues' | translate}}</h4>
     <div class="list">
       <div class="item" *ngFor="let item of Workers">
         <div class="image">
-          <img src="assets/images/team.png" alt="">
+          <img src="{{item.image}}" alt="">
         </div>
         <div class="details">
           <h5>{{item.fullName}} - {{item.position}}</h5>
-          <p>საკონტაქტო ნომერი: {{item.contactMobile}}</p>
-          <p>ელ-ფოსტა: {{item.email}}</p>
+          <p>{{'contactPhone' | translate}}: {{item.contactMobile}}</p>
+          <p>{{'Email' | translate}}: {{item.email}}</p>
           <p>Facebook: {{item.facebookLink}} </p>
-          <p>მისამართი: {{item.address}}</p>
+          <p>{{'Adress' | translate }}: {{item.address}}</p>
         </div>
       </div>
     </div>

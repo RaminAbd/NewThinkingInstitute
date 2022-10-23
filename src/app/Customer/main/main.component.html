@@ -1,7 +1,7 @@
 <div class="main-wrapper">
   <div class="news-carousel">
     <div class="line"></div>
-    <h3>{{'News' | translate}}</h3>
+    <h3 [routerLink]="['/news']">{{'News' | translate}}</h3>
     <p-carousel *ngIf="slideNews && slideNews.length > 0" [value]="slideNews" [autoplayInterval]="8000"
       [circular]="true">
       <!-- <ng-template pTemplate="header">
@@ -10,9 +10,9 @@
       <ng-template let-car pTemplate="item">
         <div class="banner-item">
           <div class="text">
-            <h4 *ngIf="!responsive">{{car.title}}</h4>
+            <h4 *ngIf="!responsive">{{((car.title ) ? (car.title.length > 50 ? car.title.slice(0, 50) + "..." : car.title) : "")}}</h4>
             <h4 *ngIf="responsive">
-              {{((car.title ) ? (car.title.length > 90 ? car.title.slice(0, 90) + "..." : car.title) : "")}}</h4>
+              {{((car.title ) ? (car.title.length > 50 ? car.title.slice(0, 50) + "..." : car.title) : "")}}</h4>
 
             <p class="description" *ngIf="!responsive && !isPhoneSize">
               {{((car.description ) ? (car.description.length > 385 ? car.description.slice(0, 385) + "..." : car.description) : "")}}
@@ -29,7 +29,7 @@
               </div>
               <a href="news/{{car.id}}" target="_blank" style="z-index:11111111;text-decoration:none;">
                 <div class="link-to-detail">
-                  <p>სრულად</p>
+                  <p>{{'seeAll' | translate}}</p>
                   <i class="pi pi-arrow-right"></i>
                 </div>
               </a>
@@ -45,10 +45,11 @@
     </p-carousel>
   </div>
   <div class="main-news">
-    <app-short-news></app-short-news>
+    <app-short-news [shortNews]="shortNews"></app-short-news>
   </div>
   <div class="main-activity">
-
+    <div class="line"></div>
+    <h3 [routerLink]="['/activity']">{{'Activity' | translate}}</h3>
     <div class="main-activity-list">
       <div class="main-activity-item">
         <a [routerLink]="['/activity/service']">
@@ -106,7 +107,7 @@
   </div>
   <div class="main-news blogs">
     <div class="line"></div>
-    <h3>{{'Blogs' | translate}}</h3>
+    <h3 [routerLink]="['/publications/blogs']">{{'Blogs' | translate}}</h3>
     <div class="main-news-list">
       <div class="main-news-item" *ngFor="let item of shortBlogs">
         <div class="img">
@@ -132,7 +133,7 @@
             </div>
             <a href="publications/blogs/{{item.id}}" target="_blank" style="text-decoration:none;">
               <div class="link-to-detail">
-                <p>სრულად</p>
+                <p>{{'seeAll' | translate}}</p>
                 <i class="pi pi-arrow-right"></i>
               </div>
             </a>

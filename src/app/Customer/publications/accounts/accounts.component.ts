@@ -18,8 +18,10 @@ export class AccountsComponent implements OnInit {
   ngOnInit(): void {
     this.GetAllWithPaging(1, this.translate.currentLang);
     this.translate.onLangChange.subscribe((lang) => {
-      this.lang = lang.lang;
-      this.GetAllWithPaging(1, lang.lang)
+      if(this.lang !== lang.lang){
+        this.lang = lang.lang
+        this.GetAllWithPaging(1, lang.lang)
+      }
     });
   }
   GetAllWithPaging(index:any, lang:string){

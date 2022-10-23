@@ -2,18 +2,17 @@
   <div class="line"></div>
   <h3>{{id === 'create' ? "თანამშრომლის შექმნა" : "თანამშრომლის რედაქტირება"}}</h3>
   <div class="title">
-    <div class="item">
-      <label for="">Full Name</label>
-      <input type="text" [(ngModel)]="TeamItem.fullName">
+    <div class="item" *ngFor="let name of TeamItem?.fullName?.inputs">
+      <label for="">Full Name ( {{name.language}} )</label>
+      <input type="text" [(ngModel)]="name.value">
     </div>
-    <div class="item">
-      <label for="">Position</label>
-      <input type="text" [(ngModel)]="TeamItem.position">
+  </div>
+  <div class="title">
+    <div class="item" *ngFor="let name of TeamItem?.position?.inputs">
+      <label for="">Position ( {{name.language}} )</label>
+      <input type="text" [(ngModel)]="name.value">
     </div>
-    <div class="item">
-      <label for="">Contact Mobile</label>
-      <input type="text" [(ngModel)]="TeamItem.contactMobile">
-    </div>
+
   </div>
   <div class="title">
     <div class="item">
@@ -27,6 +26,12 @@
     <div class="item">
       <label for="">Address</label>
       <input type="text" [(ngModel)]="TeamItem.address">
+    </div>
+  </div>
+  <div class="title">
+    <div class="item">
+      <label for="">Contact Mobile</label>
+      <input type="text" [(ngModel)]="TeamItem.contactMobile">
     </div>
   </div>
   <div class="author" style="margin-top:25px;">

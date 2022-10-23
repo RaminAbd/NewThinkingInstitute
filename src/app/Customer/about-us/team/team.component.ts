@@ -20,6 +20,8 @@ export class TeamComponent implements OnInit {
   }
   getAll(lang:string):void {
     this.service.GetAll(lang).subscribe(resp=>{
+      console.log(resp);
+
       this.Founders = resp.data.filter((word:any) => word.isFounder === true);
       this.Workers = resp.data.filter((word:any) => word.isFounder === false);
     })

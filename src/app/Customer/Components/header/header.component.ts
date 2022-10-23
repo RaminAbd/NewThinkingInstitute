@@ -30,14 +30,10 @@ export class HeaderComponent implements OnInit {
     }]
   constructor(public translate: TranslateService, private searchService: SearchService, private router: Router) {
     this.getLanguageIdentifier(this.translate.currentLang)
-    console.log(window.screen.width);
-
     if (window.screen.width < 800) {
       this.responsive = true;
-      console.log("bir");
 
     } else {
-      console.log("iki");
       this.responsive = false;
     }
   }
@@ -65,8 +61,8 @@ export class HeaderComponent implements OnInit {
         break;
       }
       default: {
-        this.languages[0].selected = true;
-        this.languages[1].selected = false;
+        this.languages[0].selected = false;
+        this.languages[1].selected = true;
         this.languages[2].selected = false;
         this.selectedLanguageForUI = "AZ";
         break;
@@ -85,6 +81,7 @@ export class HeaderComponent implements OnInit {
   changeLanguage(value: string) {
     this.getLanguageIdentifier(value)
     this.showLang = false;
+    this.active = false;
     localStorage.setItem('systemLanguage', value);
     this.translate.use(value);
     // window.location.reload();
@@ -92,7 +89,6 @@ export class HeaderComponent implements OnInit {
   responsive: boolean = false;
   ngOnInit(): void {
     var links = document.querySelectorAll('ul li ul li');
-    console.log(links);
     for (let i = 0; i < links.length; i++) {
       links[i].addEventListener('click', () => {
         this.active = false
@@ -119,7 +115,6 @@ export class HeaderComponent implements OnInit {
   }
   searchText: string = '';
   search() {
-    console.log(this.searchText);
     this.router.navigate(['search-result', this.searchText]).then(() => {
       window.location.reload();
     });

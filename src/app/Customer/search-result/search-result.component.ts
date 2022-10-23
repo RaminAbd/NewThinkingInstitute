@@ -12,47 +12,42 @@ import { SearchPagingResponse } from '../../Models/SearchPagingResponse';
 })
 export class SearchResultComponent implements OnInit, OnChanges {
   searchText: string;
-  isPhoneSize:boolean = false;
-  result:SearchResult[]=[]
-  constructor(private router:Router, private route: ActivatedRoute, private searchService: SearchService, private translate: TranslateService) {
+  isPhoneSize: boolean = false;
+  result: SearchResult[] = [];
+  types: any[] = [];
+  lang: any;
+  Response: SearchPagingResponse = new SearchPagingResponse();
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private searchService: SearchService,
+    private translate: TranslateService
+    ) {
     this.searchText = this.route.snapshot.paramMap.get('text') as string;
-    if(window.screen.width < 540){
+    if (window.screen.width < 540) {
       this.isPhoneSize = true;
     }
-    else{
-      this.isPhoneSize= false
+    else {
+      this.isPhoneSize = false
     }
   }
-  types:any[]=[]
-  lang:any;
-  Response:SearchPagingResponse = new SearchPagingResponse();
+
   ngOnInit(): void {
     this.GetAllWithPaging(1, this.translate.currentLang, this.searchText)
     this.translate.onLangChange.subscribe((lang) => {
-      this.lang = lang.lang;
-      this.GetAllWithPaging(1, lang.lang, this.searchText)
+      if (this.lang !== lang.lang) {
+        this.lang = lang.lang
+        this.GetAllWithPaging(1, lang.lang, this.searchText)
+      }
     });
     document.getElementsByTagName('body')[0].classList.remove('block');
-    // this.searchService.Search(this.searchText, this.translate.currentLang).subscribe(resp=>{
-    //   console.log(resp.data);
-    //   this.result = resp.data
-    //   this.result.forEach(a=>{
-    //     this.types.push(a.type);
-    //   })
-    //   let unique = this.types.filter((item, i, ar) => ar.indexOf(item) === i);
-    //   console.log(unique);
-    //   console.log(this.types);
-
-    // })
   }
-  GetAllWithPaging(index:number, lang:string, text:string){
+  GetAllWithPaging(index: number, lang: string, text: string) {
 
-    this.searchService.GetAllWithPaging(index, lang, text).subscribe(resp=>{
-      console.log(resp);
-
+    this.searchService.GetAllWithPaging(index, lang, text).subscribe(resp => {
       this.Response = resp.data;
       this.result = resp.data.items
-      this.result.forEach(a=>{
+      this.result.forEach(a => {
         this.types.push(a.type);
       })
       window.scroll({
@@ -62,9 +57,8 @@ export class SearchResultComponent implements OnInit, OnChanges {
       });
     })
   }
-  goToItem(item:any){
-    console.log(item);
-    switch(item.type){
+  goToItem(item: any) {
+    switch (item.type) {
       case "Research": {
         this.router.navigate(['/publications/studies'])
         break;
@@ -98,7 +92,7 @@ export class SearchResultComponent implements OnInit, OnChanges {
         break;
       }
       case "Course": {
-        this.router.navigate(['/activity/courses/detail/' , item.id])
+        this.router.navigate(['/activity/courses/detail/', item.id])
         break;
       }
       default: {
@@ -107,8 +101,6 @@ export class SearchResultComponent implements OnInit, OnChanges {
       }
     }
   }
-  ngOnChanges(){
-    console.log("nesa deyishdi");
-
+  ngOnChanges() {
   }
 }

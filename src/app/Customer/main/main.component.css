@@ -433,6 +433,7 @@ h3{
   align-items: center;
   justify-content: center;
   text-decoration: none;
+  height: 100%;
 }
 .name-email input[type="text"]:disabled {
   background: #6e6e6e5c;

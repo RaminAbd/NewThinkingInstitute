@@ -10,10 +10,13 @@ import { Research } from 'src/app/Models/Research';
 })
 export class StudiesComponent implements OnInit {
   researchItems: Research[] = [];
+  lang:any;
   constructor(private researchService: ResearchService, private translate: TranslateService) {
     this.translate.onLangChange.subscribe((lang) => {
-      // this.lang = lang.lang;
-      this.GetAll(lang.lang)
+      if(this.lang !== lang.lang){
+        this.lang = lang.lang
+        this.GetAll(lang.lang)
+      }
     });
   }
 
