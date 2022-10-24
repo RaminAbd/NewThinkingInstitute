@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { BlogService } from 'src/app/Services/blog.service';
 import { Blog } from '../../../../Models/Blog';
 import { TranslateService } from '@ngx-translate/core';
+import { ShortsService } from '../../../../Services/shorts.service';
 
 @Component({
   selector: 'app-blogs-detail',
@@ -14,20 +15,25 @@ export class BlogsDetailComponent implements OnInit {
   Item:Blog = new Blog()
   detailUrl:any;
   shortBlogs:any[]=[]
-  constructor(private route: ActivatedRoute, private blogsService: BlogService, private translate: TranslateService) {this.id = this.route.snapshot.paramMap.get('id') as string; }
+  constructor(
+    private route: ActivatedRoute,
+    private blogsService: BlogService,
+    private translate: TranslateService,
+    private shortService: ShortsService
+    ) {this.id = this.route.snapshot.paramMap.get('id') as string; }
   lang:any;
   ngOnInit(): void {
     this.detailUrl = window.location.origin + "/news/" + this.id;
     this.getById(this.id, this.translate.currentLang)
     this.translate.onLangChange.subscribe((lang) => {
       if(this.lang !== lang.lang){
-        this.lang = lang.lang
-        this.getAllBlogs( lang.lang)
+        this.lang = lang.lang;
         this.getById(this.id, lang.lang)
+        this.getShorts(lang.lang)
       }
 
     });
-    this.getAllBlogs(this.translate.currentLang)
+    this.getShorts(this.translate.currentLang)
   }
   getById(id: string, lang: string){
     this.blogsService.GetBlogById(id, lang).subscribe(resp=>{
@@ -35,17 +41,11 @@ export class BlogsDetailComponent implements OnInit {
     })
   }
 
-  getAllBlogs(lang : string){
-    this.blogsService.GetAll(lang).subscribe(resp=>{
-      console.log(resp);
-      var filtered = resp.data.sort((a:any,b:any)=>{
-        return b.createdAt - a.createdAt;
-      });
-      for(let i = 0;i < 3; i++){
-        this.shortBlogs.push(filtered[i]);
-      }
-      console.log(this.shortBlogs);
 
+  getShorts(lang: string){
+    this.shortService.GetShorts(lang).subscribe(resp => {
+      this.shortBlogs = [];
+      this.shortBlogs = resp.data.blogs;
     })
   }
 }
