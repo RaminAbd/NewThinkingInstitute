@@ -13,6 +13,7 @@ h3{
   line-height: 28px;
   color: #000000;
   margin-bottom: 30px;
+  cursor: pointer;
 }
 
 .main-news .main-news-list,
@@ -21,7 +22,11 @@ h3{
   align-items: center;
   justify-content: space-between;
 }
-
+.contact-soc-media a{
+  text-decoration: none;
+  cursor: pointer;
+  color: #000;
+}
 .main-news h3,
 .main-activity h3,
 .main-contact h3 {
@@ -88,7 +93,8 @@ h3{
 
 .banner-item .image img {
   height: 100%;
-  width: 100%
+  width: 100%;
+  border-radius: 0px 8px 8px 0px;
 }
 
 .text .details {

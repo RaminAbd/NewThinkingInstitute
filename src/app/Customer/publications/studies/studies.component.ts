@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ResearchService } from 'src/app/Services/research.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Research } from 'src/app/Models/Research';
+import { FileService } from '../../../Services/file.service';
 
 @Component({
   selector: 'app-studies',
@@ -10,10 +11,10 @@ import { Research } from 'src/app/Models/Research';
 })
 export class StudiesComponent implements OnInit {
   researchItems: Research[] = [];
-  lang:any;
-  constructor(private researchService: ResearchService, private translate: TranslateService) {
+  lang: any;
+  constructor(private researchService: ResearchService, private translate: TranslateService, private fileService: FileService) {
     this.translate.onLangChange.subscribe((lang) => {
-      if(this.lang !== lang.lang){
+      if (this.lang !== lang.lang) {
         this.lang = lang.lang
         this.GetAll(lang.lang)
       }
@@ -31,19 +32,20 @@ export class StudiesComponent implements OnInit {
     })
   }
   isLoading: boolean = false;
-  GetDocumentation(fileURL: string) {
-    console.log("dsvbd");
-
+  GetDocumentation(file1: any) {
+    console.log(file1);
     this.isLoading = false;
+    this.fileService.DownloadFile(file1.fileId).subscribe((blob: Blob) => {
+      const file = new Blob([blob], { type: 'application/pdf' });
+      const fileURL = URL.createObjectURL(file);
+      window.open(fileURL);
+      var a = document.createElement('a');
+      a.href = fileURL;
+      a.target = '_blank';
+      a.download = `${file1.title}.pdf`;
+      document.body.appendChild(a);
+      a.click();
+    })
 
-    // const file = new Blob([fileURL], {type: 'application/pdf'});
-    // const fileUrl = URL.createObjectURL(fileURL);
-    window.open(fileURL);
-    var a         = document.createElement('a');
-        // a.href        = fileURL;
-        a.target      = '_blank';
-        a.download    = 'UEDocs.pdf';
-        document.body.appendChild(a);
-        a.click();
   }
 }

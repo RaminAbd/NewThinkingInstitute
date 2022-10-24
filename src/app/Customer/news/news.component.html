@@ -2,7 +2,7 @@
   <div class="line"></div>
   <h3>{{'News' | translate}}</h3>
   <div class="main-news-list">
-    <div class="main-news-item" *ngFor="let item of News">
+    <a class="main-news-item" style="text-decoration:none;" [routerLink]="['/news', item.id]" target="_blank" *ngFor="let item of News">
       <div class="img">
         <img src="{{item.image}}" alt="">
       </div>
@@ -26,7 +26,7 @@
           </a>
         </div>
       </div>
-    </div>
+    </a>
 
   </div>
   <app-pagination [Response]="Response" (Changes)="GetAllWithPaging($event, lang)"></app-pagination>

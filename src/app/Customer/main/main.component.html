@@ -10,7 +10,8 @@
       <ng-template let-car pTemplate="item">
         <div class="banner-item">
           <div class="text">
-            <h4 *ngIf="!responsive">{{((car.title ) ? (car.title.length > 50 ? car.title.slice(0, 50) + "..." : car.title) : "")}}</h4>
+            <h4 *ngIf="!responsive">
+              {{((car.title ) ? (car.title.length > 50 ? car.title.slice(0, 50) + "..." : car.title) : "")}}</h4>
             <h4 *ngIf="responsive">
               {{((car.title ) ? (car.title.length > 50 ? car.title.slice(0, 50) + "..." : car.title) : "")}}</h4>
 
@@ -109,7 +110,7 @@
     <div class="line"></div>
     <h3 [routerLink]="['/publications/blogs']">{{'Blogs' | translate}}</h3>
     <div class="main-news-list">
-      <div class="main-news-item" *ngFor="let item of shortBlogs">
+      <a class="main-news-item" style="text-decoration:none;" [routerLink]="['/publications/blogs', item.id]" target="_blank" *ngFor="let item of shortBlogs">
         <div class="img">
           <img src="{{item.image}}" alt="">
         </div>
@@ -139,7 +140,7 @@
             </a>
           </div>
         </div>
-      </div>
+      </a>
 
     </div>
   </div>
@@ -194,9 +195,16 @@
             <p>{{'FullAddress' | translate}}</p>
           </div>
           <div class="contact-soc-media">
-            <div><i class="pi pi-youtube"></i></div>
-            <div><i class="pi pi-facebook"></i></div>
-            <div><i class="pi pi-instagram"></i></div>
+            <div><a target="_blank" href="https://youtube.com/channel/UCVEIclKNfxsQThPJ-ryoVkg"><i
+                  class="pi pi-youtube"></i></a></div>
+            <div>
+              <a target="_blank" href="https://www.facebook.com/New.Thinking.Institute">
+                <i class="pi pi-facebook"></i>
+              </a>
+            </div>
+            <div><a target="_blank" href="https://instagram.com/new_thinking_institute?r=nametag"><i
+                  class="pi pi-instagram"></i></a></div>
+
           </div>
         </div>
       </div>

@@ -224,6 +224,9 @@ p-dropdown,
 .footer p{
   font-family: 'DejaVu Sans';
 }
+.logo{
+  cursor: pointer !important;
+}
 @media screen and (max-width:800px) {
   .pages {
     padding: 40px 20px !important;
