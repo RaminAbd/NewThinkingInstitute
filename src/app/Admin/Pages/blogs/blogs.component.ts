@@ -32,7 +32,6 @@ export class AdminBlogsComponent implements OnInit {
   }
   getAll() {
     this.service.GetAll('ka-Geo').subscribe(resp => {
-      console.log(resp.data);
       this.Blogs = resp.data
     })
   }
@@ -46,8 +45,6 @@ export class AdminBlogsComponent implements OnInit {
       message: "Are you sure that you want to proceed?",
       icon: "pi pi-exclamation-triangle",
       accept: () => {
-        console.log(id);
-        // console.log(this.deleteBlog(id));
         this.service.Delete(id).subscribe(resp => {
           this.getAll();
           if(resp.succeeded === true){

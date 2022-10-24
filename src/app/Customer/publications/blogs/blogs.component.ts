@@ -9,24 +9,24 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./blogs.component.css']
 })
 export class BlogsComponent implements OnInit, OnDestroy {
-  Blogs:any[]=[];
-  subscription:any
-  lang:string;
-  Response:BlogsPagingResponse = new BlogsPagingResponse();
-  constructor( private blogsService: BlogService,private translate: TranslateService) { }
+  Blogs: any[] = [];
+  subscription: any
+  lang: string;
+  Response: BlogsPagingResponse = new BlogsPagingResponse();
+  constructor(private blogsService: BlogService, private translate: TranslateService) { }
 
   ngOnInit(): void {
     this.GetAllWithPaging(1, this.translate.currentLang)
     this.subscription = this.translate.onLangChange.subscribe((lang) => {
-      if(this.lang !== lang.lang){
+      if (this.lang !== lang.lang) {
         this.lang = lang.lang
         this.GetAllWithPaging(1, lang.lang)
       }
     });
   }
 
-  GetAllWithPaging(index:any, lang:string){
-    this.blogsService.GetAllWithPaging(index, lang).subscribe(resp=>{
+  GetAllWithPaging(index: any, lang: string) {
+    this.blogsService.GetAllWithPaging(index, lang).subscribe(resp => {
       this.Response = resp.data;
       this.Blogs = resp.data.items;
       window.scroll({
@@ -36,7 +36,7 @@ export class BlogsComponent implements OnInit, OnDestroy {
       });
     })
   }
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.subscription.unsubscribe();
   }
 }

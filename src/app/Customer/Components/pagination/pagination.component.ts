@@ -1,4 +1,4 @@
-import { Component, OnInit, Input , Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-pagination',
@@ -6,15 +6,13 @@ import { Component, OnInit, Input , Output, EventEmitter} from '@angular/core';
   styleUrls: ['./pagination.component.css']
 })
 export class PaginationComponent implements OnInit {
-  @Input() Response:any;
+  @Input() Response: any;
   @Output() Changes = new EventEmitter();
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.Response);
-
   }
-  GetAllWithPaging(e:any){
+  GetAllWithPaging(e: any) {
     this.Changes.emit(e);
   }
 }

@@ -3,9 +3,9 @@ import { MultiLingualItem } from '../../Models/MultiLingualItem.model';
 import { MultiLingual } from '../../Models/MultiLingual.model';
 export class Validation {
   private static finishValid = true;
-  public static validateForm(form: any, type:string): ServiceResponse {
-    var ErrorArray:any[]=[];
-    var isValid:boolean = true;
+  public static validateForm(form: any, type: string): ServiceResponse {
+    var ErrorArray: any[] = [];
+    var isValid: boolean = true;
     this.finishValid = true;
     var validateResponse: ServiceResponse = new ServiceResponse();
     isValid = this.validateMultiLingual(form.title, isValid)
@@ -14,7 +14,7 @@ export class Validation {
       this.finishValid = false;
       ErrorArray.push("Fill in all required fields ");
     }
-    if(type === "news"){
+    if (type === "news") {
       if ((form.videoURL === null || form.videoURL === undefined || form.videoURL === '') && (form.image === null || form.image === undefined)) {
         ErrorArray.push("Please add a video or image");
         this.finishValid = false;
@@ -30,29 +30,28 @@ export class Validation {
         this.finishValid = false;
       }
     }
-    if(type === "blog"){
-      if(form.image === null || form.image === undefined){
+    if (type === "blog") {
+      if (form.image === null || form.image === undefined) {
         ErrorArray.push("Please add an image");
         this.finishValid = false;
       }
-      if(form.author === null || form.author === undefined || form.author === ''){
+      if (form.author === null || form.author === undefined || form.author === '') {
         ErrorArray.push("Please Enter Author Name");
         this.finishValid = false;
       }
     }
-    if(type === "projects"){
-      if(form.image === null || form.image === undefined){
+    if (type === "projects") {
+      if (form.image === null || form.image === undefined) {
         ErrorArray.push("Please add an image");
         this.finishValid = false;
       }
     }
-    console.log(ErrorArray);
     validateResponse.error = ErrorArray;
     validateResponse.succeeded = this.finishValid;
     return validateResponse;
   }
 
-  private static validateMultiLingual(title:MultiLingual, isValid:boolean){
+  private static validateMultiLingual(title: MultiLingual, isValid: boolean) {
     title.inputs.forEach((element: any) => {
       if (element.value === null || element.value === undefined || element.value === '') {
         isValid = false;

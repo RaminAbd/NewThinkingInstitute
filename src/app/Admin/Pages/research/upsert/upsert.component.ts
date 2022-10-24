@@ -34,8 +34,6 @@ export class AdminResearchUpsertComponent implements OnInit {
   getForm() {
     this.service.GetForm().subscribe(resp => {
       this.ResearchForm = resp.data;
-      console.log(resp.data);
-
     })
   }
 
@@ -66,7 +64,6 @@ export class AdminResearchUpsertComponent implements OnInit {
   handleForm() {
     this.ResearchForm.createdAt = this.createdAt;
     if (this.id === "create") {
-      console.log(this.ResearchForm);
       this.service.Create(this.ResearchForm).subscribe(resp => {
         if (resp.succeeded === true) {
           this.router.navigate(['admin/research'])

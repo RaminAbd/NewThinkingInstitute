@@ -9,27 +9,26 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './accounts.component.html',
   styleUrls: ['./accounts.component.css']
 })
-export class AccountsComponent implements OnInit, OnDestroy  {
+export class AccountsComponent implements OnInit, OnDestroy {
   lang: string
-  subscription:any
-  index:number = 1;
-  Response:AccountsPagingResponse = new NewsPagingResponse();
+  subscription: any
+  index: number = 1;
+  Response: AccountsPagingResponse = new NewsPagingResponse();
   constructor(private service: AccountsService, private translate: TranslateService) { }
-  News:any[]=[]
+  News: any[] = []
   ngOnInit(): void {
     this.GetAllWithPaging(1, this.translate.currentLang);
-    this.subscription =this.translate.onLangChange.subscribe((lang) => {
-      if(this.lang !== lang.lang){
+    this.subscription = this.translate.onLangChange.subscribe((lang) => {
+      if (this.lang !== lang.lang) {
         this.lang = lang.lang
         this.GetAllWithPaging(1, lang.lang)
       }
     });
   }
-  GetAllWithPaging(index:any, lang:string){
-    this.service.GetAllWithPaging(index, lang).subscribe(resp=>{
+  GetAllWithPaging(index: any, lang: string) {
+    this.service.GetAllWithPaging(index, lang).subscribe(resp => {
       this.Response = resp.data;
       this.News = resp.data.items;
-      console.log(resp.data.items);
       window.scroll({
         top: 0,
         left: 0,
@@ -37,7 +36,7 @@ export class AccountsComponent implements OnInit, OnDestroy  {
       });
     })
   }
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.subscription.unsubscribe();
   }
 }

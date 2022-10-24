@@ -55,8 +55,6 @@ export class AdminProjectsUpsertComponent implements OnInit {
   }
   getForm() {
     this.service.GetForm().subscribe(resp => {
-      console.log(resp.data);
-
       this.ProjectForm = resp.data;
     })
   }
@@ -64,7 +62,6 @@ export class AdminProjectsUpsertComponent implements OnInit {
   getFormForUpdate(id: string) {
     this.service.GetForUpdate(id).subscribe(resp => {
       this.ProjectForm = resp.data;
-      console.log(this.ProjectForm);
       this.selectedStatus = resp.data.status;
     })
   }
@@ -95,10 +92,6 @@ export class AdminProjectsUpsertComponent implements OnInit {
         var photoObj: Photo = new Photo();
         this.ProjectForm.id = "create";
         this.ProjectForm.statusId = this.selectedStatus.id;
-
-        console.log(this.selectedStatus);
-        console.log(this.ProjectForm);
-
         this.service.Create(this.ProjectForm).subscribe(resp => {
           if (resp.succeeded === true) {
             photoObj.id = this.ProjectForm.id;
@@ -107,7 +100,6 @@ export class AdminProjectsUpsertComponent implements OnInit {
             photoObj.photo = this.ProjectForm.image;
             this.router.navigate(['admin/projects'])
             this.galeryService.Create(photoObj).subscribe(resp1 => {
-              console.log(resp1);
             })
           }
           else {

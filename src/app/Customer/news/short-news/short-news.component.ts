@@ -13,7 +13,7 @@ export class ShortNewsComponent implements OnInit, OnDestroy {
   @Input() shortNews: any;
   responsive: boolean = false;
   lang: any;
-  subscription:any
+  subscription: any
 
   constructor(private newsService: NewsService, private translate: TranslateService, private shortService: ShortsService) {
     if (window.screen.width < 800) {
@@ -23,7 +23,7 @@ export class ShortNewsComponent implements OnInit, OnDestroy {
     }
     if (this.shortNews) {
       this.getShorts(this.translate.currentLang)
-      this.subscription =  this.translate.onLangChange.subscribe((lang) => {
+      this.subscription = this.translate.onLangChange.subscribe((lang) => {
         if (this.lang !== lang.lang) {
           this.lang = lang.lang
           this.getShorts(lang.lang)
@@ -34,8 +34,6 @@ export class ShortNewsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    console.log(this.shortNews);
-
     // this.getAll(this.translate.currentLang)
   }
   getShorts(lang: string) {
@@ -44,7 +42,7 @@ export class ShortNewsComponent implements OnInit, OnDestroy {
       this.shortNews = resp.data.news;
     })
   }
-  ngOnDestroy(){
-    this.subscription.unsubscribe();
+  ngOnDestroy() {
+    // this.subscription.unsubscribe();
   }
 }

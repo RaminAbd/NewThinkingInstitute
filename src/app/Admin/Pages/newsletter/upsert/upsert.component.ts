@@ -35,8 +35,6 @@ export class AdminNewsletterUpsertComponent implements OnInit {
   getForm() {
     this.service.GetForm().subscribe(resp => {
       this.ResearchForm = resp.data;
-      console.log(resp.data);
-
     })
   }
 
@@ -67,10 +65,7 @@ export class AdminNewsletterUpsertComponent implements OnInit {
   handleForm() {
     this.ResearchForm.createdAt = this.createdAt;
     if (this.id === "create") {
-      console.log(this.ResearchForm);
       this.service.Create(this.ResearchForm).subscribe(resp => {
-        console.log(resp);
-
         if (resp.succeeded === true) {
           this.router.navigate(['admin/newsletter'])
         }

@@ -30,8 +30,7 @@ export class AdminNewsComponent implements OnInit {
   }
   getAll(lang:string) {
     this.service.GetAll(lang).subscribe(resp => {
-      this.News = resp.data
-      console.log(resp.data);
+      this.News = resp.data;
     })
   }
   editItem(id: string) {

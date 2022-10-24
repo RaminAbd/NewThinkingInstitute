@@ -30,9 +30,7 @@ export class AdminAccountsComponent implements OnInit {
   }
   getAll() {
     this.service.GetAll().subscribe(resp => {
-      this.Accounts = resp.data
-      console.log(resp.data);
-
+      this.Accounts = resp.data;
     })
   }
   editItem(id: string) {

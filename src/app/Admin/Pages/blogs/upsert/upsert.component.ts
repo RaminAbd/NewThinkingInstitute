@@ -45,8 +45,6 @@ export class AdminBlogUpsertComponent implements OnInit {
 
   getForm() {
     this.service.GetForm().subscribe(resp => {
-      console.log(resp.data, "blog form");
-
       this.BlogForm = resp.data;
     })
   }
@@ -90,25 +88,19 @@ export class AdminBlogUpsertComponent implements OnInit {
   }
   getPhotoForm(){
     this.galeryService.GetForm().subscribe(resp=>{
-      console.log(resp, "photo form");
     })
   }
   handleForm() {
     this.validateResponse = Validation.validateForm(this.BlogForm, "blog");
-    console.log(this.validateResponse);
     this.BlogForm.createdAt = this.createdAt;
     if (this.validateResponse.succeeded === true) {
       if (this.id === "create") {
         this.BlogForm.id = "create";
-        console.log(this.BlogForm);
-
         var photoObj: Photo = new Photo();
         photoObj.id = this.BlogForm.id;
         photoObj.title = this.BlogForm.title;
         photoObj.description = this.BlogForm.description;
         photoObj.photo = this.BlogForm.image;
-        console.log(photoObj);
-
         this.service.Create(this.BlogForm).subscribe(resp=>{
           if(resp.succeeded === true){
 

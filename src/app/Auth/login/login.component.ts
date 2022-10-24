@@ -20,7 +20,6 @@ export class LoginComponent implements OnInit {
     })
   }
   login(){
-    console.log(this.loginForm.value);
     var value = this.loginForm.value;
     var loginObj = {
       "userName": value.userName,

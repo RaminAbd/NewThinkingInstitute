@@ -48,8 +48,6 @@ export class AdminGalleryComponent implements OnInit {
   getAllVideos() {
     this.videoService.GetAll('ka-Geo').subscribe(resp => {
       this.Videos = resp.data;
-      console.log(this.Videos);
-
       this.Videos.forEach(item => {
         item.videoURL = this.TrustUrl(item.videoURL)
       })

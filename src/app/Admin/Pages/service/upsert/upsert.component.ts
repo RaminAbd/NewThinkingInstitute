@@ -88,7 +88,6 @@ export class AdminServiceUpsertComponent implements OnInit {
             photoObj.photo = this.ServiceForm.image;
             this.router.navigate(['admin/services'])
             this.galeryService.Create(photoObj).subscribe(resp1 => {
-              console.log(resp1);
             })
           }
           else {

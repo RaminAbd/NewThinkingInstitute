@@ -6,38 +6,35 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class ServiceService extends BaseService{
-  constructor( http: HttpClient, translate:TranslateService) { super(http, translate); }
+export class ServiceService extends BaseService {
+  constructor(http: HttpClient, translate: TranslateService) { super(http, translate); }
 
-  GetForm(){
+  GetForm() {
     return this.get('Service/GetForm', null, null);
   }
-  GetAll(lang:string){
+  GetAll(lang: string) {
     var obj = {
-      'Lang':lang
+      'Lang': lang
     }
     return this.get('Service/GetAll', null, obj)
   }
-  Delete(blogId:string){
-    return this.delete('Service/Delete/',blogId);
+  Delete(blogId: string) {
+    return this.delete('Service/Delete/', blogId);
   }
-  GetForUpdate(id:string){
-    return this.get('Service/GetForUpdate/',id, null);
+  GetForUpdate(id: string) {
+    return this.get('Service/GetForUpdate/', id, null);
   }
-  Update(blogObject:any){
-    return this.post('Service/Update',blogObject);
+  Update(blogObject: any) {
+    return this.post('Service/Update', blogObject);
   }
-  GetById(id:string, lang:string){
-
-
+  GetById(id: string, lang: string) {
     var obj = {
-      'Id' : id,
-      'Lang' : lang
+      'Id': id,
+      'Lang': lang
     }
-    console.log(obj);
     return this.get('Service/GetServiceById', null, obj);
   }
-  Create(obj:any){
+  Create(obj: any) {
     return this.post('Service/Create', obj)
   }
 }

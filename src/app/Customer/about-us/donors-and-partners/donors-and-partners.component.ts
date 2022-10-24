@@ -17,7 +17,6 @@ export class DonorsAndPartnersComponent implements OnInit {
   GetAll(){
     this.service.GetAll().subscribe(resp=>{
       this.Partners = resp.data;
-      console.log(resp.data);
 
     })
   }

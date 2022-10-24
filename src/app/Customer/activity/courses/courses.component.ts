@@ -9,22 +9,21 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class CoursesComponent implements OnInit, OnDestroy {
 
-  subscription:any
-  Services:any[]=[];
-  constructor(private service:CoursesService, private translate:TranslateService) { }
+  subscription: any
+  Services: any[] = [];
+  constructor(private service: CoursesService, private translate: TranslateService) { }
   ngOnInit(): void {
     this.getAll(this.translate.currentLang)
     this.subscription = this.translate.onLangChange.subscribe((lang) => {
       this.getAll(lang.lang)
-     });
+    });
   }
-  getAll(lang:string){
-    this.service.GetAll(lang).subscribe(resp=>{
+  getAll(lang: string) {
+    this.service.GetAll(lang).subscribe(resp => {
       this.Services = resp.data;
-      console.log(resp.data);
     })
   }
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.subscription.unsubscribe();
   }
 }

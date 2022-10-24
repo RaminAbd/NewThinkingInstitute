@@ -22,14 +22,12 @@ export class AdminRequestsComponent implements OnInit {
   }
   getAllrequests(index: number){
     this.service.GetAllWithPaging(index).subscribe(resp=>{
-      console.log(resp);
       this.Requests = resp.data.items;
       this.Request = this.Requests[0]
     })
   }
   getById(id:string){
     this.service.GetById(id).subscribe(resp=>{
-      console.log(resp);
       this.Request = resp.data;
     })
   }

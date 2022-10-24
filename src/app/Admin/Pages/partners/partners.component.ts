@@ -32,9 +32,7 @@ export class AdminPartnersComponent implements OnInit {
   }
   getAll() {
     this.service.GetAll().subscribe(resp => {
-      this.Partners = resp.data
-      console.log(resp);
-
+      this.Partners = resp.data;
     })
   }
   editItem(id: string) {
@@ -44,18 +42,14 @@ export class AdminPartnersComponent implements OnInit {
   HandleSubmit() {
     if (this.isUpdate === false) {
       this.PartnerForm.id = "create";
-      console.log(this.PartnerForm);
       this.service.Create(this.PartnerForm).subscribe(resp => {
-        console.log(resp);
         if (resp.succeeded === true) {
           this.getAll();
         }
       })
     }
     else{
-      console.log(this.PartnerForm);
       this.service.Update(this.PartnerForm).subscribe(resp=>{
-        console.log(resp);
         if(resp.succeeded === true){
           this.getAll()
           this.getForm()
@@ -99,8 +93,6 @@ export class AdminPartnersComponent implements OnInit {
       message: "Are you sure that you want to proceed?",
       icon: "pi pi-exclamation-triangle",
       accept: () => {
-        console.log(id);
-        // console.log(this.deleteBlog(id));
         this.service.Delete(id).subscribe(resp => {
           this.getAll();
           if (resp.succeeded === true) {

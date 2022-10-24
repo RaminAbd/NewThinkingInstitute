@@ -10,29 +10,24 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./news.component.css']
 })
 export class NewsComponent implements OnInit, OnDestroy {
-  index:number = 1;
-  lang:string;
+  index: number = 1;
+  lang: string;
   private subscription: any;
-  Response:NewsPagingResponse = new NewsPagingResponse();
-  constructor(private newsService: NewsService, private translate:TranslateService) {
+  Response: NewsPagingResponse = new NewsPagingResponse();
+  constructor(private newsService: NewsService, private translate: TranslateService) {
     this.lang = this.translate.currentLang;
-     this.subscription = this.translate.onLangChange.subscribe((lang) => {
+    this.subscription = this.translate.onLangChange.subscribe((lang) => {
       this.GetAllWithPaging(1, lang.lang)
-      // if(this.lang !== lang.lang){
-      //   this.lang = lang.lang
-      //   this.GetAllWithPaging(1, lang.lang)
-      // }
     });
   }
-  News:any[]=[]
+  News: any[] = []
   ngOnInit(): void {
     this.GetAllWithPaging(1, this.translate.currentLang)
   }
-  GetAllWithPaging(index:any, lang:string){
-    this.newsService.GetAllWithPaging(index, lang).subscribe(resp=>{
+  GetAllWithPaging(index: any, lang: string) {
+    this.newsService.GetAllWithPaging(index, lang).subscribe(resp => {
       this.Response = resp.data;
       this.News = resp.data.items;
-      console.log(resp.data.items);
       window.scroll({
         top: 0,
         left: 0,

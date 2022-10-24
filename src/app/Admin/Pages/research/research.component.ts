@@ -23,8 +23,6 @@ export class AdminResearchComponent implements OnInit {
     }
     GetAll(){
       this.service.GetAll('ka-Geo').subscribe(resp=>{
-        console.log(resp.data);
-
         this.Items = resp.data;
       })
     }

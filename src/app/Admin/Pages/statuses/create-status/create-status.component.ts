@@ -15,7 +15,6 @@ export class CreateStatusComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any,) { }
 
   ngOnInit(): void {
-    console.log(this.data);
 
     document.getElementsByTagName('body')[0].classList.add('block');
     if (this.data.action === "create") {
@@ -28,7 +27,6 @@ export class CreateStatusComponent implements OnInit {
   getForm() {
     this.service.GetForm().subscribe(resp => {
       this.StatusForm = resp.data;
-      console.log(this.StatusForm);
     })
   }
   GetForUpdate(id: string) {
@@ -51,7 +49,6 @@ export class CreateStatusComponent implements OnInit {
         }
       })
     }
-    console.log(this.StatusForm);
 
   }
 }

@@ -20,7 +20,7 @@ export class MainComponent implements OnInit, OnChanges, OnDestroy {
   slideNews: any[] = [];
   responsive: boolean = false;
   lang: string;
-  subscription:any
+  subscription: any
   isPhoneSize = false
   CustomerRequest: CustomerRequest = new CustomerRequest();
   constructor(private newsService: NewsService,
@@ -44,7 +44,7 @@ export class MainComponent implements OnInit, OnChanges, OnDestroy {
     this.shortBlogs = []
     this.shortNews = []
     this.lang = this.translate.currentLang;
-    this.subscription =  this.translate.onLangChange.subscribe((lang) => {
+    this.subscription = this.translate.onLangChange.subscribe((lang) => {
       if (this.lang !== lang.lang) {
         this.lang = lang.lang
         this.getShorts(this.lang)
@@ -60,8 +60,6 @@ export class MainComponent implements OnInit, OnChanges, OnDestroy {
       this.slideNews = resp.data.slider;
       this.shortNews = resp.data.news;
       this.shortBlogs = resp.data.blogs;
-      console.log(this.shortBlogs);
-
     })
   }
   ngOnInit(): void {
@@ -117,7 +115,7 @@ export class MainComponent implements OnInit, OnChanges, OnDestroy {
     }
 
   }
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.subscription.unsubscribe();
   }
 }

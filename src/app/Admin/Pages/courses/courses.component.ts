@@ -42,8 +42,6 @@ export class AdminCoursesComponent implements OnInit {
       message: "Are you sure that you want to proceed?",
       icon: "pi pi-exclamation-triangle",
       accept: () => {
-        console.log(id);
-        // console.log(this.deleteBlog(id));
         this.service.Delete(id).subscribe(resp => {
           this.getAll();
           if(resp.succeeded === true){

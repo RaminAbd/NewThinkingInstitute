@@ -10,7 +10,7 @@ import { PhotoPagingResponse } from '../../../Models/PhotoPagingResponse';
 })
 export class PhotosComponent implements OnInit {
   Photos: Photo[] = [];
-  item:Photo=new Photo();
+  item: Photo = new Photo();
   Response: PhotoPagingResponse = new PhotoPagingResponse();
   constructor(private photoService: GaleryPhotoItemService) { }
 
@@ -22,7 +22,6 @@ export class PhotosComponent implements OnInit {
     this.photoService.GetAllWithPaging(index).subscribe(resp => {
       this.Response = resp.data;
       this.Photos = resp.data.items;
-      console.log(resp.data);
       window.scroll({
         top: 0,
         left: 0,
@@ -30,19 +29,19 @@ export class PhotosComponent implements OnInit {
       });
     })
   }
-  closeLightbox(){
+  closeLightbox() {
     this.lightBoxActive = false;
     document.getElementsByTagName('body')[0].classList.remove('block');
   }
-  lightBoxActive:boolean = false;
-  openLightBox(item:any){
+  lightBoxActive: boolean = false;
+  openLightBox(item: any) {
     window.scroll({
       top: 0,
       left: 0,
       // behavior: 'smooth'
     });
     this.item = item;
-    this.lightBoxActive= true;
+    this.lightBoxActive = true;
     // setTimeout(() => {
     //   // document.getElementsByTagName('body')[0].classList.add('block');
     // }, 1000)

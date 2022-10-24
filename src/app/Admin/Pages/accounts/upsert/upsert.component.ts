@@ -76,8 +76,6 @@ export class AdminAccountsUpsertComponent implements OnInit {
       if (this.id === "create") {
         var photoObj: Photo = new Photo();
         this.AccountsForm.id = "create";
-        console.log(this.AccountsForm);
-
         this.service.Create(this.AccountsForm).subscribe(resp => {
           if (resp.succeeded === true) {
             photoObj.id = this.AccountsForm.id;
@@ -89,14 +87,12 @@ export class AdminAccountsUpsertComponent implements OnInit {
               this.galeryService.Create(photoObj).subscribe(resp1 => { })
             }
             else{
-              console.log("video");
 
               var videoItem = new Video();
               videoItem.title = this.AccountsForm.title;
               videoItem.description = this.AccountsForm.description;
               videoItem.videoURL = this.AccountsForm.videoURL;
               videoItem.id="create";
-              console.log(videoItem);
 
                this.videoService.Create(videoItem).subscribe(resp1 => {})
             }
@@ -110,8 +106,6 @@ export class AdminAccountsUpsertComponent implements OnInit {
           })
       }
       else {
-        console.log(this.AccountsForm);
-
         this.service.Update(this.AccountsForm).subscribe(resp => {
           if (resp.succeeded === true) {
             this.router.navigate(['admin/accounts'])

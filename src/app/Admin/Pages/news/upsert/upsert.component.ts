@@ -81,8 +81,6 @@ export class AdminNewsUpsertComponent implements OnInit {
       if (this.id === "create") {
         var photoObj: Photo = new Photo();
         this.NewsForm.id = "create";
-        console.log(this.NewsForm);
-
         this.service.Create(this.NewsForm).subscribe(resp => {
           if (resp.succeeded === true) {
             photoObj.id = this.NewsForm.id;
@@ -94,15 +92,11 @@ export class AdminNewsUpsertComponent implements OnInit {
               this.galeryService.Create(photoObj).subscribe(resp1 => { })
             }
             else{
-              console.log("video");
-
               var videoItem = new Video();
               videoItem.title = this.NewsForm.title;
               videoItem.description = this.NewsForm.description;
               videoItem.videoURL = this.NewsForm.videoURL;
               videoItem.id="create";
-              console.log(videoItem);
-
                this.videoService.Create(videoItem).subscribe(resp1 => {})
             }
           }
@@ -115,8 +109,6 @@ export class AdminNewsUpsertComponent implements OnInit {
           })
       }
       else {
-        console.log(this.NewsForm);
-
         this.service.Update(this.NewsForm).subscribe(resp => {
           if (resp.succeeded === true) {
             this.router.navigate(['admin/news'])

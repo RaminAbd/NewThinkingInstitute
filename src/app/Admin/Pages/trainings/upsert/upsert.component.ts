@@ -89,7 +89,6 @@ export class AdminTrainingsUpsertComponent implements OnInit {
             photoObj.photo = this.TrainingForm.image;
             this.router.navigate(['admin/trainings'])
             this.galeryService.Create(photoObj).subscribe(resp1 => {
-              console.log(resp1);
             })
           }
           else {

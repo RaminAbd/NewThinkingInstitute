@@ -14,8 +14,8 @@ export class DetailInfoComponent implements OnInit, OnDestroy {
   id: string;
   type: string;
   Item: any;
-  lang:string;
-  subscription:any
+  lang: string;
+  subscription: any
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -26,34 +26,33 @@ export class DetailInfoComponent implements OnInit, OnDestroy {
   ) {
     this.lang = this.translate.currentLang;
     this.subscription = this.translate.onLangChange.subscribe((lang) => {
-      if(this.lang !== lang.lang){
+      if (this.lang !== lang.lang) {
         this.lang = lang.lang
         this.switchType()
       }
-     });
+    });
     this.id = this.route.snapshot.paramMap.get('id') as string;
     this.type = this.route.snapshot.paramMap.get('type') as string;
   }
-  getService(id:string, lang:string){
+  getService(id: string, lang: string) {
     this.serviceService.GetById(id, lang).subscribe(resp => {
       this.Item = resp.data;
     })
   }
-  getCourse(id:string, lang:string) {
+  getCourse(id: string, lang: string) {
     this.coursesService.GetById(id, lang).subscribe(resp => {
       this.Item = resp.data;
     })
   }
-  getTraining(id:string, lang:string) {
+  getTraining(id: string, lang: string) {
     this.trainingsService.GetById(id, lang).subscribe(resp => {
       this.Item = resp.data;
     })
   }
   ngOnInit(): void {
-    console.log(this.type);
     this.switchType();
   }
-  switchType(){
+  switchType() {
     switch (this.type) {
       case 'service': {
         this.getService(this.id, this.lang);
@@ -74,7 +73,7 @@ export class DetailInfoComponent implements OnInit, OnDestroy {
       }
     }
   }
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.subscription.unsubscribe();
   }
 }

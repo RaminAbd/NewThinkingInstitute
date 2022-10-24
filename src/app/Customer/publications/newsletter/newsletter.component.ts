@@ -29,13 +29,10 @@ export class NewsletterComponent implements OnInit, OnDestroy {
   GetAll(lang: string) {
     this.researchService.GetAll(lang).subscribe(resp => {
       this.researchItems = resp.data;
-      console.log(resp);
-
     })
   }
   isLoading: boolean = false;
   GetDocumentation(file1: any) {
-    console.log(file1);
     this.isLoading = false;
     this.fileService.DownloadFile(file1.fileId).subscribe((blob: Blob) => {
       const file = new Blob([blob], { type: 'application/pdf' });

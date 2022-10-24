@@ -92,6 +92,7 @@
 }
 .soc a{
   text-decoration: none;color:#fff;
+  height:15px;
 }
 .union p{
   font-family: 'DejaVu Sans';
@@ -113,6 +114,9 @@
 @media screen and (max-width:800px){
   .union{
     flex-direction: column;
+  }
+  .union p{
+    text-align: center;
   }
   .footer{
     height:auto !important;

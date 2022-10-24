@@ -34,7 +34,6 @@ export class AdminTeamUpsertComponent implements OnInit {
   }
   getForm(){
     this.service.GetForm().subscribe(resp => {
-      console.log(resp.data);
       this.TeamItem = resp.data
     })
   }
@@ -65,8 +64,6 @@ export class AdminTeamUpsertComponent implements OnInit {
     this.file = null;
   }
   handleForm() {
-    console.log(this.TeamItem);
-
     if (this.id === "create") {
       this.service.CreateWithForm(this.TeamItem).subscribe(resp => {
         if (resp.succeeded === true) {
