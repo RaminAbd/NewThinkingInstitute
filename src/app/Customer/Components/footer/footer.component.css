@@ -1,5 +1,5 @@
 .footer {
-  height: 374px;
+  /* height: 374px; */
   background: #081831;
   display: flex;
   color: #fff;
@@ -92,4 +92,33 @@
 }
 .soc a{
   text-decoration: none;color:#fff;
+}
+.union p{
+  font-family: 'DejaVu Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #FFFFFF;
+}
+.union .logo-image{
+  margin-right: 20px;
+}
+.union{
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+}
+@media screen and (max-width:800px){
+  .union{
+    flex-direction: column;
+  }
+  .footer{
+    height:auto !important;
+  }
+  .union .logo-image{
+    margin-right: 0;
+    margin-bottom: 15px;;
+  }
 }
