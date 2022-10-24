@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit, OnChanges, OnDestroy } from '@angular/core';
 import { NewsService } from '../../Services/news.service';
 import { BlogService } from '../../Services/blog.service';
 import { News } from '../../Models/News';
@@ -14,12 +14,13 @@ import { ShortsService } from 'src/app/Services/shorts.service';
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
-export class MainComponent implements OnInit, OnChanges {
+export class MainComponent implements OnInit, OnChanges, OnDestroy {
   shortBlogs: any[] = [];
   shortNews: any[] = [];
   slideNews: any[] = [];
   responsive: boolean = false;
   lang: string;
+  subscription:any
   isPhoneSize = false
   CustomerRequest: CustomerRequest = new CustomerRequest();
   constructor(private newsService: NewsService,
@@ -43,7 +44,7 @@ export class MainComponent implements OnInit, OnChanges {
     this.shortBlogs = []
     this.shortNews = []
     this.lang = this.translate.currentLang;
-    this.translate.onLangChange.subscribe((lang) => {
+    this.subscription =  this.translate.onLangChange.subscribe((lang) => {
       if (this.lang !== lang.lang) {
         this.lang = lang.lang
         this.getShorts(this.lang)
@@ -115,5 +116,8 @@ export class MainComponent implements OnInit, OnChanges {
       })
     }
 
+  }
+  ngOnDestroy(){
+    this.subscription.unsubscribe();
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BlogService } from 'src/app/Services/blog.service';
 import { Blog } from '../../../../Models/Blog';
@@ -10,7 +10,7 @@ import { ShortsService } from '../../../../Services/shorts.service';
   templateUrl: './blogs-detail.component.html',
   styleUrls: ['./blogs-detail.component.css']
 })
-export class BlogsDetailComponent implements OnInit {
+export class BlogsDetailComponent implements OnInit, OnDestroy {
   id:string;
   Item:Blog = new Blog()
   detailUrl:any;
@@ -21,11 +21,12 @@ export class BlogsDetailComponent implements OnInit {
     private translate: TranslateService,
     private shortService: ShortsService
     ) {this.id = this.route.snapshot.paramMap.get('id') as string; }
+  subscription:any
   lang:any;
   ngOnInit(): void {
     this.detailUrl = window.location.origin + "/news/" + this.id;
     this.getById(this.id, this.translate.currentLang)
-    this.translate.onLangChange.subscribe((lang) => {
+    this.subscription = this.translate.onLangChange.subscribe((lang) => {
       if(this.lang !== lang.lang){
         this.lang = lang.lang;
         this.getById(this.id, lang.lang)
@@ -47,5 +48,8 @@ export class BlogsDetailComponent implements OnInit {
       this.shortBlogs = [];
       this.shortBlogs = resp.data.blogs;
     })
+  }
+  ngOnDestroy(){
+    this.subscription.unsubscribe();
   }
 }

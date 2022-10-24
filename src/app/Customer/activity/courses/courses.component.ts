@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CoursesService } from 'src/app/Services/courses.service';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -7,13 +7,14 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './courses.component.html',
   styleUrls: ['./courses.component.css']
 })
-export class CoursesComponent implements OnInit {
+export class CoursesComponent implements OnInit, OnDestroy {
 
+  subscription:any
   Services:any[]=[];
   constructor(private service:CoursesService, private translate:TranslateService) { }
   ngOnInit(): void {
     this.getAll(this.translate.currentLang)
-    this.translate.onLangChange.subscribe((lang) => {
+    this.subscription = this.translate.onLangChange.subscribe((lang) => {
       this.getAll(lang.lang)
      });
   }
@@ -22,5 +23,8 @@ export class CoursesComponent implements OnInit {
       this.Services = resp.data;
       console.log(resp.data);
     })
+  }
+  ngOnDestroy(){
+    this.subscription.unsubscribe();
   }
 }

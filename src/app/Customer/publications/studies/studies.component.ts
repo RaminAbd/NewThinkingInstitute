@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ResearchService } from 'src/app/Services/research.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Research } from 'src/app/Models/Research';
@@ -9,11 +9,12 @@ import { FileService } from '../../../Services/file.service';
   templateUrl: './studies.component.html',
   styleUrls: ['./studies.component.css']
 })
-export class StudiesComponent implements OnInit {
+export class StudiesComponent implements OnInit, OnDestroy {
   researchItems: Research[] = [];
+  subscription:any
   lang: any;
   constructor(private researchService: ResearchService, private translate: TranslateService, private fileService: FileService) {
-    this.translate.onLangChange.subscribe((lang) => {
+    this.subscription = this.translate.onLangChange.subscribe((lang) => {
       if (this.lang !== lang.lang) {
         this.lang = lang.lang
         this.GetAll(lang.lang)
@@ -47,5 +48,8 @@ export class StudiesComponent implements OnInit {
       a.click();
     })
 
+  }
+  ngOnDestroy(){
+    this.subscription.unsubscribe();
   }
 }

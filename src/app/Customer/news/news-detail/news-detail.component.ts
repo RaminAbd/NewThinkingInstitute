@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NewsService } from '../../../Services/news.service';
 import { News } from '../../../Models/News';
@@ -10,9 +10,10 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './news-detail.component.html',
   styleUrls: ['./news-detail.component.css']
 })
-export class NewsDetailComponent implements OnInit {
+export class NewsDetailComponent implements OnInit, OnDestroy {
   id:string;
   NewsItem:News = new News()
+  subscription:any
   detailUrl:any;
   constructor(private route: ActivatedRoute, private newsService: NewsService,private sanitizer: DomSanitizer,private translate: TranslateService) { }
   text:string = "new nesa nesa \n <br> /n nesa";
@@ -20,7 +21,7 @@ export class NewsDetailComponent implements OnInit {
     this.id = this.route.snapshot.paramMap.get('id') as string;
     this.detailUrl = window.location.origin + "/news/" + this.id;
     this.GetNewsById(this.id, this.translate.currentLang)
-    this.translate.onLangChange.subscribe((lang) => {
+    this.subscription = this.translate.onLangChange.subscribe((lang) => {
       this.GetNewsById(this.id, lang.lang)
     });
 
@@ -42,5 +43,8 @@ export class NewsDetailComponent implements OnInit {
   }
   getLine(e:any){
     console.log(e.target.value);
+  }
+  ngOnDestroy(){
+    this.subscription.unsubscribe();
   }
 }

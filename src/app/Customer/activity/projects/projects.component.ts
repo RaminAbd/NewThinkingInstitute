@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ProjectsService } from '../../../Services/projects.service';
 import { NewsPagingResponse } from '../../../Models/NewsPagingResponse.model';
 import { TranslateService } from '@ngx-translate/core';
@@ -8,15 +8,16 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.css']
 })
-export class ProjectsComponent implements OnInit {
+export class ProjectsComponent implements OnInit , OnDestroy{
   Response:NewsPagingResponse = new NewsPagingResponse();
   constructor(private service:ProjectsService, private translate:TranslateService) { }
   Projects:any[]=[]
+  subscription:any
   lang: string;
   ngOnInit(): void {
     this.lang = this.translate.currentLang;
     this.GetAllWithPaging(1, this.translate.currentLang)
-    this.translate.onLangChange.subscribe((lang) => {
+    this.subscription =  this.translate.onLangChange.subscribe((lang) => {
       if(this.lang !== lang.lang){
         this.lang = lang.lang
         this.GetAllWithPaging(1, lang.lang)
@@ -35,5 +36,8 @@ export class ProjectsComponent implements OnInit {
         behavior: 'smooth'
       });
     })
+  }
+  ngOnDestroy(){
+    this.subscription.unsubscribe();
   }
 }

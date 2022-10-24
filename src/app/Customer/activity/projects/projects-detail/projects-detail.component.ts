@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NewsService } from '../../../../Services/news.service';
 import { ProjectsService } from '../../../../Services/projects.service';
@@ -10,9 +10,10 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './projects-detail.component.html',
   styleUrls: ['./projects-detail.component.css']
 })
-export class ProjectsDetailComponent implements OnInit {
+export class ProjectsDetailComponent implements OnInit, OnDestroy {
   Item:Project = new Project();
   id:string;
+  subscription:any
   detailUrl:any;
   constructor(private route: ActivatedRoute, private service: ProjectsService,private translate: TranslateService) { }
 
@@ -20,7 +21,7 @@ export class ProjectsDetailComponent implements OnInit {
     this.id = this.route.snapshot.paramMap.get('id') as string;
     this.detailUrl = window.location.origin + "/activity/projects/" + this.id;
     console.log(this.detailUrl);
-    this.translate.onLangChange.subscribe((lang) => {
+    this.subscription =  this.translate.onLangChange.subscribe((lang) => {
       this.GetProjectById(this.id, this.translate.currentLang);
      });
     this.GetProjectById(this.id, this.translate.currentLang);
@@ -30,5 +31,8 @@ export class ProjectsDetailComponent implements OnInit {
     this.service.GetProjectById(id, lang).subscribe(resp =>{
       this.Item = resp.data;
     })
+  }
+  ngOnDestroy(){
+    this.subscription.unsubscribe();
   }
 }

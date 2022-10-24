@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Accounts } from '../../../../Models/Accounts';
 import { ActivatedRoute } from '@angular/router';
 import { AccountsService } from '../../../../Services/accounts.service';
@@ -10,19 +10,20 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './accounts-detail.component.html',
   styleUrls: ['./accounts-detail.component.css']
 })
-export class AccountsDetailComponent implements OnInit {
+export class AccountsDetailComponent implements OnInit, OnDestroy {
 
   id:string;
   AccountsItem:Accounts = new Accounts()
   detailUrl:any;
   constructor(private route: ActivatedRoute, private service: AccountsService,private sanitizer: DomSanitizer,private translate: TranslateService) { }
   text:string = "new nesa nesa \n <br> /n nesa";
+  subscription:any
   lang:any;
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id') as string;
     this.GetNewsById(this.id, this.translate.currentLang)
     this.detailUrl = window.location.origin + "/news/" + this.id;
-    this.translate.onLangChange.subscribe((lang) => {
+    this.subscription =  this.translate.onLangChange.subscribe((lang) => {
       if(this.lang !== lang.lang){
         this.lang = lang.lang
         this.GetNewsById(this.id, lang.lang)
@@ -38,5 +39,8 @@ export class AccountsDetailComponent implements OnInit {
   }
   getLine(e:any){
     console.log(e.target.value);
+  }
+  ngOnDestroy(){
+    this.subscription.unsubscribe();
   }
 }

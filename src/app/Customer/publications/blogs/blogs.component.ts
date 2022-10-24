@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { BlogService } from '../../../Services/blog.service';
 import { BlogsPagingResponse } from '../../../Models/BlogsPagingResponse';
 import { TranslateService } from '@ngx-translate/core';
@@ -8,15 +8,16 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './blogs.component.html',
   styleUrls: ['./blogs.component.css']
 })
-export class BlogsComponent implements OnInit {
+export class BlogsComponent implements OnInit, OnDestroy {
   Blogs:any[]=[];
+  subscription:any
   lang:string;
   Response:BlogsPagingResponse = new BlogsPagingResponse();
   constructor( private blogsService: BlogService,private translate: TranslateService) { }
 
   ngOnInit(): void {
     this.GetAllWithPaging(1, this.translate.currentLang)
-    this.translate.onLangChange.subscribe((lang) => {
+    this.subscription = this.translate.onLangChange.subscribe((lang) => {
       if(this.lang !== lang.lang){
         this.lang = lang.lang
         this.GetAllWithPaging(1, lang.lang)
@@ -34,5 +35,8 @@ export class BlogsComponent implements OnInit {
         behavior: 'smooth'
       });
     })
+  }
+  ngOnDestroy(){
+    this.subscription.unsubscribe();
   }
 }

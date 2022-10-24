@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit, OnChanges, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SearchService } from '../../Services/search.service';
 import { TranslateService } from '@ngx-translate/core';
@@ -10,11 +10,12 @@ import { SearchPagingResponse } from '../../Models/SearchPagingResponse';
   templateUrl: './search-result.component.html',
   styleUrls: ['./search-result.component.css']
 })
-export class SearchResultComponent implements OnInit, OnChanges {
+export class SearchResultComponent implements OnInit, OnChanges, OnDestroy {
   searchText: string;
   isPhoneSize: boolean = false;
   result: SearchResult[] = [];
   types: any[] = [];
+  subscription:any
   lang: any;
   Response: SearchPagingResponse = new SearchPagingResponse();
   constructor(
@@ -34,7 +35,7 @@ export class SearchResultComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.GetAllWithPaging(1, this.translate.currentLang, this.searchText)
-    this.translate.onLangChange.subscribe((lang) => {
+    this.subscription = this.translate.onLangChange.subscribe((lang) => {
       if (this.lang !== lang.lang) {
         this.lang = lang.lang
         this.GetAllWithPaging(1, lang.lang, this.searchText)
@@ -102,5 +103,8 @@ export class SearchResultComponent implements OnInit, OnChanges {
     }
   }
   ngOnChanges() {
+  }
+  ngOnDestroy(){
+    this.subscription.unsubscribe();
   }
 }

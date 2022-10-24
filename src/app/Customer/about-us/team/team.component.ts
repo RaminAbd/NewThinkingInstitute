@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { TeamService } from '../../../Services/team.service';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -7,14 +7,15 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './team.component.html',
   styleUrls: ['./team.component.css']
 })
-export class TeamComponent implements OnInit {
+export class TeamComponent implements OnInit, OnDestroy {
   Founders:any[]=[];
   Workers:any[]=[];
+  subscription:any
   constructor(private service: TeamService, private translate: TranslateService) { }
 
   ngOnInit(): void {
     this.getAll(this.translate.currentLang)
-    this.translate.onLangChange.subscribe((lang) => {
+     this.subscription =  this.translate.onLangChange.subscribe((lang) => {
      this.getAll(lang.lang)
     });
   }
@@ -25,5 +26,8 @@ export class TeamComponent implements OnInit {
       this.Founders = resp.data.filter((word:any) => word.isFounder === true);
       this.Workers = resp.data.filter((word:any) => word.isFounder === false);
     })
+  }
+  ngOnDestroy(){
+    this.subscription.unsubscribe();
   }
 }

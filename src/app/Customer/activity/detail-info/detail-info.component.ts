@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ServiceService } from '../../../Services/service.service';
 import { CoursesService } from '../../../Services/courses.service';
@@ -10,11 +10,12 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './detail-info.component.html',
   styleUrls: ['./detail-info.component.css']
 })
-export class DetailInfoComponent implements OnInit {
+export class DetailInfoComponent implements OnInit, OnDestroy {
   id: string;
   type: string;
   Item: any;
   lang:string;
+  subscription:any
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -24,7 +25,7 @@ export class DetailInfoComponent implements OnInit {
     private translate: TranslateService
   ) {
     this.lang = this.translate.currentLang;
-    this.translate.onLangChange.subscribe((lang) => {
+    this.subscription = this.translate.onLangChange.subscribe((lang) => {
       if(this.lang !== lang.lang){
         this.lang = lang.lang
         this.switchType()
@@ -72,5 +73,8 @@ export class DetailInfoComponent implements OnInit {
         break;
       }
     }
+  }
+  ngOnDestroy(){
+    this.subscription.unsubscribe();
   }
 }

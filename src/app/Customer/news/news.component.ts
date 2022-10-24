@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NewsService } from '../../Services/news.service';
 import { News } from '../../Models/News';
 import { NewsPagingResponse } from '../../Models/NewsPagingResponse.model';
@@ -9,13 +9,14 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './news.component.html',
   styleUrls: ['./news.component.css']
 })
-export class NewsComponent implements OnInit {
+export class NewsComponent implements OnInit, OnDestroy {
   index:number = 1;
   lang:string;
+  private subscription: any;
   Response:NewsPagingResponse = new NewsPagingResponse();
   constructor(private newsService: NewsService, private translate:TranslateService) {
     this.lang = this.translate.currentLang;
-    this.translate.onLangChange.subscribe((lang) => {
+     this.subscription = this.translate.onLangChange.subscribe((lang) => {
       this.GetAllWithPaging(1, lang.lang)
       // if(this.lang !== lang.lang){
       //   this.lang = lang.lang
@@ -38,5 +39,8 @@ export class NewsComponent implements OnInit {
         behavior: 'smooth'
       });
     })
+  }
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }

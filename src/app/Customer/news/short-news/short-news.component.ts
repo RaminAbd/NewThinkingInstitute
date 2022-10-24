@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { NewsService } from '../../../Services/news.service';
 import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
@@ -9,10 +9,11 @@ import { ShortsService } from '../../../Services/shorts.service';
   templateUrl: './short-news.component.html',
   styleUrls: ['./short-news.component.css']
 })
-export class ShortNewsComponent implements OnInit {
+export class ShortNewsComponent implements OnInit, OnDestroy {
   @Input() shortNews: any;
   responsive: boolean = false;
   lang: any;
+  subscription:any
 
   constructor(private newsService: NewsService, private translate: TranslateService, private shortService: ShortsService) {
     if (window.screen.width < 800) {
@@ -22,7 +23,7 @@ export class ShortNewsComponent implements OnInit {
     }
     if (this.shortNews) {
       this.getShorts(this.translate.currentLang)
-      this.translate.onLangChange.subscribe((lang) => {
+      this.subscription =  this.translate.onLangChange.subscribe((lang) => {
         if (this.lang !== lang.lang) {
           this.lang = lang.lang
           this.getShorts(lang.lang)
@@ -42,5 +43,8 @@ export class ShortNewsComponent implements OnInit {
       this.shortNews = [];
       this.shortNews = resp.data.news;
     })
+  }
+  ngOnDestroy(){
+    this.subscription.unsubscribe();
   }
 }
