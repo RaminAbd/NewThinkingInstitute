@@ -8,7 +8,7 @@
 .service .service-list {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   flex-wrap: wrap
 }
 
@@ -25,16 +25,23 @@
 .service-item {
   width: 32%;
   margin-bottom: 50px;
+  margin-right: 21px;
+}
+
+.service-item:nth-child(3n) {
+  margin-right: 0 !important;
 }
 
 .service-item .image {
   width: 100%;
   height: 234px;
+  border-radius:8px;
 }
 
 .service-item .image img {
   height: 100%;
-  width: 100%
+  width: 100%;
+  border-radius: 8px;
 }
 
 .service-item h4 {
@@ -58,9 +65,11 @@
   align-items: center;
   justify-content: center;
 }
-.service-item .cost.free{
+
+.service-item .cost.free {
   background: #CC3D2B;
 }
+
 .service-item .cost p {
   font-family: 'DejaVu Sans';
   font-style: normal;
@@ -69,12 +78,13 @@
   line-height: 19px;
   color: #FFFFFF;
 }
-.head-text{
+
+.head-text {
   font-family: 'DejaVu Sans';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 19px;
-margin: 16px 0 30px 0;
-color: #000000;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  margin: 16px 0 30px 0;
+  color: #000000;
 }

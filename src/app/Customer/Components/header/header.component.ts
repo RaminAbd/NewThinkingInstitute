@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { SearchService } from '../../../Services/search.service';
 import { Router } from '@angular/router';
+import { Shared } from '../../../Models/Shared.model';
 
 @Component({
   selector: 'app-header',
@@ -30,6 +31,12 @@ export class HeaderComponent implements OnInit {
     }]
   constructor(public translate: TranslateService, private searchService: SearchService, private router: Router) {
     this.getLanguageIdentifier(this.translate.currentLang)
+    console.log(Shared.LanguageEmitter.subscribe(data=>{
+      if(data){
+        this.getLanguageIdentifier(data)
+      }
+    }));
+
     if (window.screen.width < 800) {
       this.responsive = true;
 

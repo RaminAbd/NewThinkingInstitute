@@ -8,7 +8,7 @@
     </div>
     <div class="item" *ngFor="let item of result">
       <h5 syle="cursor:pointer;" (click)="goToItem(item)"><a >{{item.title}}</a></h5>
-      <p *ngIf="!isPhoneSize">{{item.description}}</p>
+      <p *ngIf="!isPhoneSize">{{((item.description ) ? (item.description.length > 300 ? item.description.slice(0, 300) + "..." : item.description) : "")}}</p>
       <p *ngIf="isPhoneSize">{{((item.description ) ? (item.description.length > 100 ? item.description.slice(0, 100) + "..." : item.description) : "")}}</p>
 
     </div>

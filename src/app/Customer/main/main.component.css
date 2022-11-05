@@ -15,7 +15,9 @@ h3{
   margin-bottom: 30px;
   cursor: pointer;
 }
-
+.main-news .main-news-list{
+  justify-content: start !important;
+}
 .main-news .main-news-list,
 .main-activity .main-activity-list {
   display: flex;
@@ -152,8 +154,11 @@ h3{
   border-radius: 8px;
   height: 470px;
   width: 32%;
+  margin-right: 21px;
 }
-
+.main-news .main-news-item:nth-child(3){
+  margin-right:0;
+}
 .main-news .img {
   height: 290px;
   width: 100%;

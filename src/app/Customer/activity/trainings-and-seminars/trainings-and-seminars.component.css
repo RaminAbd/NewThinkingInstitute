@@ -8,7 +8,7 @@
 .service .service-list {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   flex-wrap: wrap
 }
 
@@ -25,16 +25,21 @@
 .service-item {
   width: 32%;
   margin-bottom: 50px;
+  margin-right: 21px;
 }
-
+.service-item:nth-child(3n){
+  margin-right: 0 !important;
+}
 .service-item .image {
   width: 100%;
   height: 234px;
+  border-radius:8px;
 }
 
 .service-item .image img {
   height: 100%;
-  width: 100%
+  width: 100%;
+  border-radius: 8px;
 }
 
 .service-item h4 {

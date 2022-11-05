@@ -1,7 +1,7 @@
 .content {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   flex-wrap: wrap;
 }
 
@@ -12,8 +12,11 @@
   border-radius: 8px;
   padding: 12px;
   margin-bottom: 25px;
+  margin-right: 21px;
 }
-
+.project-item:nth-child(3n){
+  margin-right: 0 !important;
+}
 .project-item img {
   height: 140px;
   width: 95%;

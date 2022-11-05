@@ -14,7 +14,7 @@ export class NewsComponent implements OnInit, OnDestroy {
   lang: string;
   private subscription: any;
   Response: NewsPagingResponse = new NewsPagingResponse();
-  constructor(private newsService: NewsService, private translate: TranslateService) {
+  constructor(private newsService: NewsService, public translate: TranslateService) {
     this.lang = this.translate.currentLang;
     this.subscription = this.translate.onLangChange.subscribe((lang) => {
       this.GetAllWithPaging(1, lang.lang)

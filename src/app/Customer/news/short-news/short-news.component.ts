@@ -15,7 +15,7 @@ export class ShortNewsComponent implements OnInit, OnDestroy {
   lang: any;
   subscription: any
 
-  constructor(private newsService: NewsService, private translate: TranslateService, private shortService: ShortsService) {
+  constructor(private newsService: NewsService, public translate: TranslateService, private shortService: ShortsService) {
     if (window.screen.width < 800) {
       this.responsive = true;
     } else {

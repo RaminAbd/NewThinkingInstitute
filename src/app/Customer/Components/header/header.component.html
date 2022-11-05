@@ -84,9 +84,9 @@
           <li>
             <p style="cursor:pointer" (click)="showLang = !showLang">{{selectedLanguageForUI}}</p>
             <ul *ngIf="showLang">
-              <li style="cursor:pointer" (click)="changeLanguage('az-Aze')">AZ</li>
-              <li style="cursor:pointer" (click)="changeLanguage('ka-Geo')">KA</li>
-              <li style="cursor:pointer" (click)="changeLanguage('en-Us')">EN</li>
+
+              <li style="cursor:pointer" *ngFor="let item of languages" [ngClass]="{'active': item.selected}" (click)="changeLanguage(item.key)">{{item.value}}</li>
+
             </ul>
           </li>
         </ul>

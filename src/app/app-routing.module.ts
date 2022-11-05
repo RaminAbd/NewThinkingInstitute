@@ -62,7 +62,7 @@ const routes: Routes = [
   {path: 'main', component: MainComponent},
   {path: 'search-result/:text', component: SearchResultComponent},
   {path: "news",component: NewsComponent},
-  {path: 'news/:id', component: NewsDetailComponent},
+  {path: 'news/:lang/:id', component: NewsDetailComponent},
   {path: 'about-us', component: AboutUsComponent,children: [
     { path: "mission",component: MissionComponent},
     { path: "history",component: HistoryComponent},

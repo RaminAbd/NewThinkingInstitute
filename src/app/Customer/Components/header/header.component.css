@@ -280,6 +280,10 @@ a.active {
 .lang-switcher .item.active p{
   color: #000;
 }
+.lang-search .lang li.active{
+  background: #081831;
+  color: #fff !important;
+}
 @media screen and (max-width:800px) {
   .responsive-links.active {
     display: block;
