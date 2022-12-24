@@ -69,7 +69,7 @@ export class SearchResultComponent implements OnInit, OnChanges, OnDestroy {
         break;
       }
       case "News": {
-        this.router.navigate(['/news/', item.id])
+        this.router.navigate(['/news/',this.translate.currentLang, item.id])
         break;
       }
       case "Account": {

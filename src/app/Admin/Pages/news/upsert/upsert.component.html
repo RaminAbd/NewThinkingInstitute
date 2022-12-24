@@ -10,7 +10,9 @@
   <div class="description">
     <div class="item" *ngFor="let item of NewsForm?.description?.inputs">
       <label for="">Description ( {{item.language}} )<span style="color:red;margin-left:5px">*</span></label>
-      <textarea type="text" [(ngModel)]="item.value" [ngStyle]="{ border: '1px solid ' + item.borderColor }"></textarea>
+      <p-editor [(ngModel)]="item.value" [style]="{'height':'320px'}"></p-editor>
+
+      <!-- <textarea type="text" [(ngModel)]="item.value" [ngStyle]="{ border: '1px solid ' + item.borderColor }"></textarea> -->
     </div>
   </div>
   <div class="details">

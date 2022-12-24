@@ -84,7 +84,9 @@ import { AdminResearchComponent } from './Admin/Pages/research/research.componen
 import { AdminResearchUpsertComponent } from './Admin/Pages/research/upsert/upsert.component';
 import { AdminNewsletterUpsertComponent } from './Admin/Pages/newsletter/upsert/upsert.component';
 import { AdminNewsletterComponent } from './Admin/Pages/newsletter/newsletter.component';
+import {EditorModule} from 'primeng/editor';
 import { SearchResultComponent } from './Customer/search-result/search-result.component';
+import { HtmldecoderPipe } from './Models/HtmldecoderPipe.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -95,6 +97,7 @@ import { SearchResultComponent } from './Customer/search-result/search-result.co
     MissionComponent,
     HistoryComponent,
     TeamComponent,
+    HtmldecoderPipe,
     DonorsAndPartnersComponent,
     ActivityComponent,
     ProjectsComponent,
@@ -158,6 +161,7 @@ import { SearchResultComponent } from './Customer/search-result/search-result.co
     ProgressSpinnerModule,
     HttpClientModule,
     ToastModule,
+    EditorModule,
     MatDialogModule,
     FormsModule,
     DropdownModule,

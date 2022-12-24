@@ -18,8 +18,8 @@
       </ng-template>
       <ng-template pTemplate="body" let-item>
         <tr>
-          <td *ngIf="item.image && !item.videoURL"><a href="{{item.image}}" target="_blank">{{item.image}}</a></td>
-          <td *ngIf="!item.image && item.videoURL"><a href="{{item.videoURL}}" target="_blank">{{item.videoURL}}</a></td>
+          <td *ngIf="!item.videoURL"><a   href="{{item.image}}" target="_blank">{{item.image}}</a></td>
+          <td *ngIf="item.videoURL" ><a  href="{{item.videoURL}}" target="_blank">{{item.videoURL}}</a></td>
           <td>{{item.title}}</td>
           <td>{{item.createdAt | date}}</td>
           <td>
